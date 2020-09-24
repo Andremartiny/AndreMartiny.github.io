@@ -3,7 +3,6 @@ layout: post
 title:  "Euklids Algoritmer!"
 date:   2020-09-24 17:52:07 +0200
 categories: jekyll Matte
-usemathjax: true
 ---
 
 
@@ -12,12 +11,9 @@ usemathjax: true
 Her kan du se kode som lager løsningsforslag til Euklids algoritme.
 Test
 
-%%
-x^2 + \int
-%%
+
 <details>
 <summary>Vis kode</summary>
-
 
 <style>
 pre {
@@ -26,7 +22,7 @@ pre {
   max-height: 50vh !important;
 }
 </style>
-
+<p>
 {% highlight python %}
     import numpy as np
 
