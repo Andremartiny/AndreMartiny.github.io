@@ -3,14 +3,17 @@ layout: post
 title:  "Euklids Algoritmer!"
 date:   2020-09-24 17:52:07 +0200
 categories: jekyll Matte
+mathjax: true
 ---
+{% include mathjax.html %}
 
 
 # Euklids Algoritme
 
 Her kan du se kode som lager løsningsforslag til Euklids algoritme.
-Test
 
+\\begin{align} x^2  & = y^2 \\\\\\
+ & = z ^2 \\end{align}
 
 <details>
 <summary>Vis kode</summary>
