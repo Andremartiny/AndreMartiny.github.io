@@ -29,18 +29,12 @@ pre {
 {% highlight python %}
     import numpy as np
 
-    def plussminus(x):
-        if np.sign(x) == -1:
-            return str(" - ")
-        else:
-            return str(" + ")
     # Først vil vi ta input x,y,
     # deretter kjøre Euklids algoritme
     # Den skal returnere en matrise med alle liknignene, hvor siste input er gcd(x,y)
     def EM1(x,y):
-        # Vi sorterer
-        r_0 = np.maximum(x,y) # Største tallet av x,y
-        r_1 = np.minimum(x,y)
+        r_0 = np.maximum(x,y)  # Vi sorterer
+        r_1 = np.minimum(x,y)  # Største tallet av x,y
 
          ############################################
          ### Algoritmen vil gi oss noe som dette ####
@@ -56,13 +50,10 @@ pre {
 
         # Lager første entry r_0, c_1, r_1, r_2, som tilsvarer første likning
         # merk at r_0 og r_1 er x og y etter sortering.
-        # c_1 finner vi ved å dele r_0 på r_1 og runde ned
-        # til nærmeste heltall. Dette kan vi gjøre med numpy.floor funksjonen
-        c_1 = int(np.floor(r_0/r_1))
+        c_1 = int(np.floor(r_0/r_1)) # c_1 finner vi ved å dele r_0 på r_1 og runde ned til nærmeste heltall. Dette kan vi gjøre med numpy.floor funksjonen
         # rest etter divisjon kan vi nå finne ved å ta r_0-c_1*r_1
-        r_2 = int(r_0-c_1*r_1)
-        # Nå legger vi alle fire verdiene inn i matrisen vår
-        likninger = [[r_0, c_1, r_1, r_2]]
+        r_2 = int(r_0-c_1*r_1) # rest etter divisjon får vi ved r_0-c_1r_1
+        likninger = [[r_0, c_1, r_1, r_2]] # Nå legger vi alle fire verdiene inn i matrisen vår
 
         # Vi ønsker nå å skrive
         # r_1 = c_2 * r_2 + r_3
@@ -75,14 +66,10 @@ pre {
         while likninger[-1][-1] != np.gcd(x,y): # Første [-1] sier at vi ser på siste likning i likninger, andre [-1] sier at vi ser på siste entry i likningen
             # Vi skal nå skrive a = c * b + r, hvor a er neste siste entry i forrige tuppel.
             a = likninger[-1][-2]
-            # b er resten fra forrige liking, altså siste entry i forrige tuppel.
-            b = likninger[-1][-1]
-            # Vi finner nå c på samme måte som siste
-            c = int(np.floor(a/b))
-            # rest etter divisjon kan vi nå finne ved å ta a-c*b
-            r = int(a-c*b)
-            # Vi har nå alle verdiene til neste likning og vil legge de til matrisen vår
-            likninger.append([a,c,b,r])
+            b = likninger[-1][-1] # b er resten fra forrige liking, altså siste entry i forrige tuppel.
+            c = int(np.floor(a/b)) # Vi finner nå c på samme måte som siste
+            r = int(a-c*b) # rest etter divisjon kan vi nå finne ved å ta a-c * b
+            likninger.append([a,c,b,r]) # Vi har nå alle verdiene til neste likning og vil legge de til matrisen vår
             # Nå har vi nådd slutten, hvis r == gcd(x,y), vil utsagnet være sant, og loopen brytes
             # Hvis r != gcd(x,y), så kjøres den på nytt
         # Nå som loopen er ferdig og vi har funnet resten har vi en matrise som består av alle likningene vi ville fått ved å gjøre algoritmen manuelt
