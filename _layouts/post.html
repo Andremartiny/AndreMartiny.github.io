@@ -11,7 +11,7 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
       {%- if page.modified_date -%}
-        ~ 
+        ~
         {%- assign mdate = page.modified_date | date_to_xmlschema -%}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
@@ -24,6 +24,35 @@ layout: default
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
       {%- endif -%}</p>
+      {% include mathjax.html %}
+      <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      /* corner */
+      ::-webkit-scrollbar-corner {
+        background: #121212;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #121212;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      </style>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">

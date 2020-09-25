@@ -1,42 +1,13 @@
 ---
 layout: post
-title:  "Euklids Algoritmer!"
+title:  "Euklids algOrItme!"
 date:   2020-09-24 17:52:07 +0200
 categories: jekyll Matte
 mathjax: true
 ---
-{% include mathjax.html %}
 
 
-<style>
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-/* corner */
-::-webkit-scrollbar-corner {
-  background: #121212;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #121212;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-</style>
-
-# Euklids Algoritme
+<input maxlength='5' placeholder='1027' type='integer' />
 
 Her kan du se kode som lager løsningsforslag til Euklids algoritme.
 
