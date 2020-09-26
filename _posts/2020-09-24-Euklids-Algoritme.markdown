@@ -216,6 +216,7 @@ textarea {
     width: 100%;
     border: none;
     outline: none;
+    height: 300px;
     font: 1.5ch droid sans mono, consolas, monospace;
     resize: none;
     rows: 15;
@@ -225,71 +226,39 @@ textarea:focus {
 }
 </style>
 
+
+<input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='13' />
+<input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='11'  />
 <script>
-function myFunction() {
-  document.getElementById('svar').value = document.getElementById('tall1').value;
+function euklidsfunc(x,y) {
+    var r_0 = parseFloat(math.max(Number(x),Number(y)));
+    var r_1 = parseFloat(math.min(Number(x),Number(y)));
+    var c_1 = parseFloat(math.floor(r_0/r_1));
+    var r_2 = parseFloat(r_0-c_1*r_1);
+    var likninger = [[r_0, c_1, r_1, r_2]];
+    while (likninger[likninger.length -1][likninger[likninger.length -1].length -1] !== math.gcd(Number(x),Number(y))) {
+    var a = likninger[likninger.length -1][likninger[likninger.length -1].length -2];
+    var b = likninger[likninger.length -1][likninger[likninger.length -1].length -1];
+    var c = math.floor(a/b);
+    var r = a-c*b;
+    likninger.push([a,c,b,r]);
+    }
+    console.log(likninger[likninger.length -1]);
+    console.log(likninger);
+  }
+</script>
+<script>
+function losning() {
+  var matrise = euklidsfunc(document.getElementById('tall1').value,document.getElementById('tall2').value);
+  var losningstekst = "Løsningen er \n \n ";
+  document.getElementById('svar').value = losningstekst;
 }
 </script>
+<p> <textarea id='svar' placeholder='' onclick="losning()" ></textarea> </p>
 
-<input type='integer' id='tall1' placeholder='Skriv inn første tall'  />
-<input type='integer' id='tall2' placeholder='Skriv inn andre tall'  />
-<p> <textarea id='svar' placeholder='' onclick="myFunction()" ></textarea> </p>
 
- <script src="math.js" type="text/javascript"></script>
+<!--  
 
-<script>
-
-import numpy as np
-
-# Først vil vi ta input x,y,
-# deretter kjøre Euklids algoritme
-# Den skal returnere en matrise med alle liknignene, hvor siste input er gcd(x,y)
-def EM1(x,y):
-    r_0 = np.maximum(x,y)  # Vi sorterer
-    r_1 = np.minimum(x,y)  # Største tallet av x,y
-
-     ############################################
-     ### Algoritmen vil gi oss noe som dette ####
-     ####        r_0 = c_1 · r_1  + r_2      ####
-     ####        r_1 = c_2 · r_2  + r_3      ####
-     #                     .                    #
-     #                     .                    #
-     #                     .                    #
-     #                     .                    #
-     ####   r_10 = c_11 · r_11 + gcd(x,y)    ####
-     #### hvis algoritmen bruker 10 steg     ####
-     ############################################
-
-    # Lager første entry r_0, c_1, r_1, r_2, som tilsvarer første likning
-    # merk at r_0 og r_1 er x og y etter sortering.
-    c_1 = int(np.floor(r_0/r_1)) # c_1 finner vi ved å dele r_0 på r_1 og runde ned til nærmeste heltall. Dette kan vi gjøre med numpy.floor funksjonen
-    # rest etter divisjon kan vi nå finne ved å ta r_0-c_1*r_1
-    r_2 = int(r_0-c_1*r_1) # rest etter divisjon får vi ved r_0-c_1r_1
-    likninger = [[r_0, c_1, r_1, r_2]] # Nå legger vi alle fire verdiene inn i matrisen vår
-
-    # Vi ønsker nå å skrive
-    # r_1 = c_2 · r_2 + r_3
-    # r_2 = c_3 · r_3 + r_4 osv
-    # Dette ønsker vi å gjøre til restverdien til slutt er gcd(x,y)
-    # Vi kan finne alle verdiene på samme måte som over
-    # Ettersom vi ønsker å gjøre samme prosedyre gjentatte ganger
-    # fram til vi oppnår ønsket resultat, er en while loop naturlig
-    # Vi ønsker altså å kjøre prosedyren til siste entry i vår matrise er gcd(x,y).
-    while likninger[-1][-1] != np.gcd(x,y): # Første [-1] sier at vi ser på siste likning i likninger, andre [-1] sier at vi ser på siste entry i likningen
-        # Vi skal nå skrive a = c · b + r, hvor a er neste siste entry i forrige tuppel.
-        a = likninger[-1][-2]
-        b = likninger[-1][-1] # b er resten fra forrige liking, altså siste entry i forrige tuppel.
-        c = int(np.floor(a/b)) # Vi finner nå c på samme måte som siste
-        r = int(a-c*b) # rest etter divisjon kan vi nå finne ved å ta a-c · b
-        likninger.append([a,c,b,r]) # Vi har nå alle verdiene til neste likning og vil legge de til matrisen vår
-        # Nå har vi nådd slutten, hvis r == gcd(x,y), vil utsagnet være sant, og loopen brytes
-        # Hvis r != gcd(x,y), så kjøres den på nytt
-    # Nå som loopen er ferdig og vi har funnet resten har vi en matrise som består av alle likningene vi ville fått ved å gjøre algoritmen manuelt
-    # Funksjonen skal nå returnere alle likningene
-    return likninger
-
-### Her ønsker vi å bruke likningene fra EM1 til å finne en løsning på a*x+b*y = 1
-### Funksjonen Losning skal gjøre dette
 def Losning(a,b):
 
     print(" ")
@@ -389,6 +358,4 @@ while True == True:
     except ValueError:
         print("Input må være heltall")
     if str(input("Vil du prøve på nytt? y/n: ")) == "n":
-        break
-
-</script>
+        break -->
