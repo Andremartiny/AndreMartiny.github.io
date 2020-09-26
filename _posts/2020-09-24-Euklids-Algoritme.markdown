@@ -231,6 +231,12 @@ textarea:focus {
 
 <input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='1027' />
 <input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='729'  />
+<p onclick='losning()' id='svar'>
+Trykk her!
+</p>
+
+
+
 <script>
 function euklidsfunc(x,y) {
     var r_0 = parseFloat(math.max(Number(x),Number(y)));
@@ -245,7 +251,6 @@ function euklidsfunc(x,y) {
     var r = a-c*b;
     likninger.push([a,c,b,r]);
     }
-    console.log(likninger)
     return likninger ;
   }
 </script>
@@ -255,101 +260,72 @@ function losning() {
   var losningstekst = "Løsningen er \n \n";
   var i=0;
   for (tuppel of matrise) {
-    losningstekst += "\\[ " + String(tuppel[0]) + " = " + String(tuppel[1])+ "·" + String(tuppel[2]) + " + " + String(tuppel[3]) + " \\] \n \n";
-    console.log(tuppel[0]) ;
+    losningstekst += "\\[" + String(tuppel[0]) + " = " + String(tuppel[1])+ "·" + String(tuppel[2]) + " + " + String(tuppel[3]) + " \\] \n \n";
   }
-  console.log(matrise.length);
-  console.log(matrise);
-  document.getElementById('svar').value = losningstekst;
-  MathJax.typeset()
+  losningstekst += "\n\n Vi reverserer nå prosessen:";
+  var reversering = [
+                    [
+                    matrise[matrise.length-1][matrise[matrise.length-1].length-1],
+                    1,
+                    matrise[matrise.length-1][0],
+                    -matrise[matrise.length-1][1],
+                    matrise[matrise.length-1][2]
+                    ]
+                    ];
+  var lr = reversering[reversering.length-1]
+  losningstekst += "\\["
+                    + String(lr[0])
+                    + " = "
+                    + String(lr[1])
+                    + "·"
+                    + String(lr[2])
+                    + " + "
+                    + String(lr[3])
+                    + "·"
+                    + String(lr[4])
+                    + "\\]";
+  var i = 0
+  for (i= 0; i< matrise.length-1; i++) {
+      var lr = reversering[reversering.length-1]
+      var d = lr[lr.length-2];
+      var r_nminus1 = matrise[matrise.length-i-2][0];
+      var c = lr[1];
+      c_n = matrise[matrise.length-i-2][1];
+      r_n = matrise[matrise.length-i-2][0];
+      reversering.push(
+          [matrise[matrise.length-1][matrise[matrise.length-1].length-1],
+          d,
+          r_nminus1,
+          (c+d*(-c_n)),
+          r_n
+          ]
+          );
+      losningstekst += "\\["
+                        + String(lr[0])
+                        + " = "
+                        + String(c)
+                        + "·"
+                        + String(r_n)
+                        + " + "
+                        + String(d)
+                        + "·("
+                        + String(r_nminus1)
+                        + " - "
+                        + String(c_n)
+                        + "·"
+                        + String(r_n)
+                        + ") \\]"        
+  }
+
+  console.log(reversering);
+  document.getElementById('svar').innerHTML = losningstekst;
+  MathJax.typeset();
 }
 </script>
-<p> <textarea id='svar' placeholder='' onclick="losning();" ></textarea> </p>
 
-<!-- for (tuppel in matrise) {
-  losningstekst += String(tuppel[0]) + " = " + String(tuppel[1]) + " · " + String(tuppel[2]) + " + " + String(tuppel[3]));
-  losningstekst += (String(matrise[i][0]) + " = " + String(matrise[i][1]) + " · " + String(matrise[i][2]) + " + " + String(matrise[i][3]));
-} -->
 
-<!--  
+<!--
 
-def Losning(a,b):
-
-    print(" ")
-    print("Felles faktor er " + str(np.gcd(a,b)) + ".")
-    print(" ")
-    matrise = EM1(a,b)
-    for tuppel in matrise:
-        print(str(tuppel[0]) + " = " + str(tuppel[1]) + " · " + str(tuppel[2]) + " + " + str(tuppel[3]))
-        print(" ")
-    print("Vi reverserer nå prosessen:")
-    print(" ")
-    print(" ")
-    ############################################
-    ####  Funksjonen tar inn noe som dette  ####
-    ####        r_0 = c_1 · r_1  + r_2      ####
-    ####        r_1 = c_2 · r_2  + r_3      ####
-    #                     .                    #
-    #                     .                    #
-    #                     .                    #
-    #                     .                    #
-    ####      r_9 = c_10 · r_10 + r_11      ####
-    ####      r_10 = c_11 · r_11 + 1        ####
-    ####      hvis EM1 bruker 10 steg       ####
-    ############################################
-    ############################################
-    ####       Vi begynner fra bunnen       ####
-    ####     1 = 1 · r_10 - c_11 · r_11     ####
-    ## 1 = - c_11 · r_9 + (1+c_11*c_10)*r_10  ##
-    #                     .                    #  Generell plass i reversering
-    #                     .                    #  Bruker likningen,
-    ####  1 = c · r_(n) + d · r_(n+1)         ####  r_(n-1) = c_n* r_n + r_(n+1) <==> r_(n+1) = r_(n-1) -c_n* r_n
-    ####  1 = d* r_(n-1) + (c+d*(-c_n))*r_n    #  til å finne neste del i reversering
-    #                     .                    #
-    #                     .                    #
-    ####            1 = a* x + b* y         ####
-    ############################################
-    # Vi ser at første likning kommer direkte fra EM1
-    # Vi legger inn dette
-
-    reversering = [[matrise[-1][-1], 1 , matrise[-1][0], -matrise[-1][1], matrise[-1][2]]]
-    print(str(reversering[-1][0])
-            + " = "
-            + str(reversering[-1][1])
-            + "·"
-            + str(reversering[-1][2])
-            + plussminus(reversering[-1][3])
-            + str(int(reversering[-1][3]/np.sign(reversering[-1][3])))
-            # + " + "
-            # + str(reversering[-1][3])
-            + "·"
-            + str(reversering[-1][4])
-            )
-    # Ved å se på den generelle overgangen i skissen over, ser vi at vi kan generalisere dette
-    for i in range(len(matrise)-1): # Antall ganger vi skal kjøre algoritmen
-        # Ønsker nå å legge til nye koeffisientene til matrisen, som vi ser over, skal dette være
-        # 1 = d · r_(n-1) + (d+c*(-c_n)) · r_n # Vi ser at
-        # 1 = gcd(a,b)
-        d           = reversering[-1][-2]
-        r_nminus1   = matrise[-i-2][0]
-        c           = reversering[-1][1]
-        c_n         = matrise[-i-2][1]
-        r_n         = matrise[-i-1][0]
-        # Dette gir
-        reversering.append([matrise[-1][-1], d, r_nminus1,  (c+d*(-c_n)) , r_n])
-        # Vi printer dette til terminal for å vise utregningene
-        print(str(reversering[-1][0])
-                + " = "
-                + str(c)
-                + "·"
-                + str(r_n)
-                + plussminus(d)
-                + str(int(d/np.sign(d)))
-                + "·("
-                + str(r_nminus1)
-                + " - "
-                + str(c_n)
-                + "·"
                 + str(int(r_n))
                 + ")"
                 )
