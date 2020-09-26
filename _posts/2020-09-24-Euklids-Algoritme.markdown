@@ -13,6 +13,8 @@ Her kan du se kode som lager løsningsforslag til Euklids algoritme.
 
 \\begin{align} x^2  & = y^2 \\\\\\
  & = z ^2 \\end{align}
+$$ x^2 $$
+
 
 <details>
 <summary>Vis kode</summary>
@@ -227,8 +229,8 @@ textarea:focus {
 </style>
 
 
-<input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='13' />
-<input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='11'  />
+<input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='1027' />
+<input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='729'  />
 <script>
 function euklidsfunc(x,y) {
     var r_0 = parseFloat(math.max(Number(x),Number(y)));
@@ -243,19 +245,31 @@ function euklidsfunc(x,y) {
     var r = a-c*b;
     likninger.push([a,c,b,r]);
     }
-    console.log(likninger[likninger.length -1]);
-    console.log(likninger);
+    console.log(likninger)
+    return likninger ;
   }
 </script>
 <script>
 function losning() {
-  var matrise = euklidsfunc(document.getElementById('tall1').value,document.getElementById('tall2').value);
-  var losningstekst = "Løsningen er \n \n ";
+  var matrise = euklidsfunc(Number(document.getElementById('tall1').value), Number(document.getElementById('tall2').value));
+  var losningstekst = "Løsningen er \n \n";
+  var i=0;
+  for (tuppel of matrise) {
+    losningstekst += "\\[ " + String(tuppel[0]) + " = " + String(tuppel[1])+ "·" + String(tuppel[2]) + " + " + String(tuppel[3]) + " \\] \n \n";
+    console.log(tuppel[0]) ;
+  }
+  console.log(matrise.length);
+  console.log(matrise);
   document.getElementById('svar').value = losningstekst;
+  MathJax.typeset()
 }
 </script>
-<p> <textarea id='svar' placeholder='' onclick="losning()" ></textarea> </p>
+<p> <textarea id='svar' placeholder='' onclick="losning();" ></textarea> </p>
 
+<!-- for (tuppel in matrise) {
+  losningstekst += String(tuppel[0]) + " = " + String(tuppel[1]) + " · " + String(tuppel[2]) + " + " + String(tuppel[3]));
+  losningstekst += (String(matrise[i][0]) + " = " + String(matrise[i][1]) + " · " + String(matrise[i][2]) + " + " + String(matrise[i][3]));
+} -->
 
 <!--  
 
