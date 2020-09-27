@@ -182,8 +182,6 @@ pre {
 <details >
 <summary>Prøv koden</summary>
 
-</details>
-
 
 <style>
 input {
@@ -219,12 +217,17 @@ div1 {
 }
 </style>
 
-
-<input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='1027' />
-<input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='729'  />
-<div  style='background-color: black; color: green' onclick='losning()' id='svar'>
- Trykk her!  
+<div  style='background-color: black; color: green'  >
+<input type='integer' id='tall1' placeholder='Skriv inn første tall'   />
+<input type='integer' id='tall2' placeholder='Skriv inn andre tall'   />
 </div>
+
+<button type='button' onclick='losning()'> Kjør </button>
+<div  style='background-color: black; color: green'  >
+<p id='svar'> </p>
+</div>
+
+</details>
 
 
 
