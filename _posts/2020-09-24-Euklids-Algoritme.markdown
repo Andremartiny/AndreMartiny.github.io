@@ -286,12 +286,12 @@ function losning() {
                     + "\\]";
   var i = 0
   for (i= 0; i< matrise.length-1; i++) {
-      var lr = reversering[reversering.length-1]
+      var lr = reversering[reversering.length-1];
       var d = lr[lr.length-2];
       var r_nminus1 = matrise[matrise.length-i-2][0];
       var c = lr[1];
-      c_n = matrise[matrise.length-i-2][1];
-      r_n = matrise[matrise.length-i-2][0];
+      var c_n = matrise[matrise.length-i-2][1];
+      var r_n = matrise[matrise.length-i-1][0];
       reversering.push(
           [matrise[matrise.length-1][matrise[matrise.length-1].length-1],
           d,
@@ -314,9 +314,20 @@ function losning() {
                         + String(c_n)
                         + "·"
                         + String(r_n)
-                        + ") \\]"        
-  }
-
+                        + ") \\]"
+                        + "\n \n"
+                        + "\\["
+                        + String(lr[0])
+                        + " = "
+                        + String(d)
+                        + "·"
+                        + String(r_nminus1)
+                        + " + "
+                        + String(reversering[reversering.length -1][reversering[reversering.length-1].length-2])
+                        + "·"
+                        + String(r_n)
+                        + "\\]"
+                    }
   console.log(reversering);
   document.getElementById('svar').innerHTML = losningstekst;
   MathJax.typeset();
@@ -326,26 +337,16 @@ function losning() {
 
 <!--
 
-                + str(int(r_n))
-                + ")"
-                )
-        print(" ")
-        print(str(reversering[-1][0])
-                + " = "
-                + str(int(d))
-                + "·"
-                + str(r_nminus1)
-                + plussminus((c+d*(-c_n)))
-                + str(int((c+d*(-c_n))/np.sign((c+d*(-c_n)))))
-                + "·"
-                + str(int(r_n))
-                )
-while True == True:
-    a = input("Skriv inn første tall: ") # vi ønsker input fra bruker
-    b = input("Skriv inn andre tall: ")
-    try:
-        Losning(int(a),int(b))
-    except ValueError:
-        print("Input må være heltall")
-    if str(input("Vil du prøve på nytt? y/n: ")) == "n":
++ String(reversering[reversering.length -1][reversering[reversering.length-1].length-2])
+
++ \\]"
+        + " = "
+        + str(int(d))
+        + "·"
+        + str(r_nminus1)
+        + plussminus((c+d*(-c_n)))
+        + str(int((c+d*(-c_n))/np.sign((c+d*(-c_n)))))
+        + "·"
+        + str(int(r_n))
+        )
         break -->
