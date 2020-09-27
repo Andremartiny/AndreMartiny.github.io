@@ -1,20 +1,11 @@
 ---
 layout: post
 title:  "Euklids algOrItme!"
-date:   2020-09-24 17:52:07 +0200
-categories: jekyll Matte
+categories: Herons
 mathjax: true
 ---
 
-
-<input maxlength='5' placeholder='1027' type='integer' />
-
 Her kan du se kode som lager løsningsforslag til Euklids algoritme.
-
-\\begin{align} x^2  & = y^2 \\\\\\
- & = z ^2 \\end{align}
-$$ x^2 $$
-
 
 <details>
 <summary>Vis kode</summary>
@@ -188,11 +179,6 @@ pre {
 
 
 
-<details>
-<summary>Prøv kode</summary>
-<iframe src="https://trinket.io/embed/python3/6cb082a2b3?outputOnly=true&runOption=run&start=result" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-</details>
-
 <details >
 <summary>Prøv koden</summary>
 
@@ -226,18 +212,24 @@ textarea {
 textarea:focus {
     border: none;
 }
+div1 {
+  width : 100%;
+  height : 300 px;
+  background-color: black;
+}
 </style>
 
 
 <input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='1027' />
 <input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='729'  />
-<p onclick='losning()' id='svar'>
-Trykk her!
-</p>
+<div  style='background-color: black; color: green' onclick='losning()' id='svar'>
+ Trykk her!  
+</div>
 
 
 
 <script>
+
 function euklidsfunc(x,y) {
     var r_0 = parseFloat(math.max(Number(x),Number(y)));
     var r_1 = parseFloat(math.min(Number(x),Number(y)));
@@ -260,7 +252,7 @@ function losning() {
   var losningstekst = "Løsningen er \n \n";
   var i=0;
   for (tuppel of matrise) {
-    losningstekst += "\\[" + String(tuppel[0]) + " = " + String(tuppel[1])+ "·" + String(tuppel[2]) + " + " + String(tuppel[3]) + " \\] \n \n";
+    losningstekst += "\\begin{multline*} " + String(tuppel[0]) + " = " + String(tuppel[1])+ "·" + String(tuppel[2]) + " + " + String(tuppel[3]) + " \\end{multline*} \n \n";
   }
   losningstekst += "\n\n Vi reverserer nå prosessen:";
   var reversering = [
@@ -273,7 +265,7 @@ function losning() {
                     ]
                     ];
   var lr = reversering[reversering.length-1]
-  losningstekst += "\\["
+  losningstekst += "\\begin{multline*}"
                     + String(lr[0])
                     + " = "
                     + String(lr[1])
@@ -283,7 +275,7 @@ function losning() {
                     + String(lr[3])
                     + "·"
                     + String(lr[4])
-                    + "\\]";
+                    + "\\end{multline*}";
   var i = 0
   for (i= 0; i< matrise.length-1; i++) {
       var lr = reversering[reversering.length-1];
@@ -300,7 +292,7 @@ function losning() {
           r_n
           ]
           );
-      losningstekst += "\\["
+      losningstekst += "\\begin{multline*}"
                         + String(lr[0])
                         + " = "
                         + String(c)
@@ -314,9 +306,9 @@ function losning() {
                         + String(c_n)
                         + "·"
                         + String(r_n)
-                        + ") \\]"
+                        + ") \\end{multline*}"
                         + "\n \n"
-                        + "\\["
+                        + "\\begin{multline*}"
                         + String(lr[0])
                         + " = "
                         + String(d)
@@ -326,14 +318,19 @@ function losning() {
                         + String(reversering[reversering.length -1][reversering[reversering.length-1].length-2])
                         + "·"
                         + String(r_n)
-                        + "\\]"
+                        + "\\end{multline*}"
                     }
-  console.log(reversering);
   document.getElementById('svar').innerHTML = losningstekst;
   MathJax.typeset();
 }
 </script>
 
+
+<!-- document.getElementById('svar').innerHTML = ""
+for (i = 0; i < losningstekst.length; i++) {
+  document.getElementById('svar').innerHTML += losningstekst.charAt(i);
+  setTimeout(losning, 10);
+} -->
 
 <!--
 
