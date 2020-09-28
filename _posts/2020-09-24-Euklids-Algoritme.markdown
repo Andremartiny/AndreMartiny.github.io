@@ -186,7 +186,6 @@ pre {
 <style>
 input {
     background: black;
-    color: white;
     border: none;
     width: 100%;
     font: 1.5ch droid sans mono, consolas, monospace;
@@ -198,7 +197,6 @@ input:focus {
 }
 textarea {
     background: black;
-    color: white;
     width: 100%;
     border: none;
     outline: none;
@@ -217,13 +215,13 @@ div1 {
 }
 </style>
 
-<div  style='background-color: black; color: white'  >
+<div  style='background-color: black;  >
 <input type='integer' id='tall1' placeholder='Skriv inn første tall'   />
 <input type='integer' id='tall2' placeholder='Skriv inn andre tall'   />
 </div>
 
 <button type='button' onclick='losning()'> Kjør </button>
-<div  style='background-color: black; color: white'  >
+<div   >
 <p id='svar'> </p>
 </div>
 
