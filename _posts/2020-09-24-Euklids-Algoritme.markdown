@@ -215,13 +215,13 @@ div1 {
 }
 </style>
 
-<div  style='background-color: black;  >
+<div  style='background-color: black'>
 <input type='integer' id='tall1' placeholder='Skriv inn første tall'   />
 <input type='integer' id='tall2' placeholder='Skriv inn andre tall'   />
 </div>
 
 <button type='button' onclick='losning()'> Kjør </button>
-<div   >
+<div  style='background-color: black;  >
 <p id='svar'> </p>
 </div>
 
