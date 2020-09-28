@@ -195,16 +195,6 @@ input:focus {
     width: 100%;
     border: none;
 }
-textarea {
-    background: black;
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 300px;
-    font: 1.5ch droid sans mono, consolas, monospace;
-    resize: none;
-    rows: 15;
-}
 textarea:focus {
     border: none;
 }
@@ -221,7 +211,7 @@ div1 {
 </div>
 
 <button type='button' onclick='losning()'> Kjør </button>
-<div  style='background-color: black;  >
+<div  style='background-color: black;'  >
 <p id='svar'> </p>
 </div>
 
