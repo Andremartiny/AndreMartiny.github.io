@@ -231,9 +231,9 @@ textarea:focus {
 
 <input type='integer' id='tall1' placeholder='Skriv inn første tall'  value='1027' />
 <input type='integer' id='tall2' placeholder='Skriv inn andre tall' value='729'  />
-<p onclick='losning()' id='svar'>
+<div onclick='losning()' id='svar'>
 Trykk her!
-</p>
+</div>
 
 
 
@@ -300,7 +300,7 @@ function losning() {
           r_n
           ]
           );
-      losningstekst += "\\["
+      losningstekst += "\\begin{multline*}"
                         + String(lr[0])
                         + " = "
                         + String(c)
@@ -314,9 +314,9 @@ function losning() {
                         + String(c_n)
                         + "·"
                         + String(r_n)
-                        + ") \\]"
+                        + ") \\end{multline*}"
                         + "\n \n"
-                        + "\\["
+                        + "\\begin{multline*}"
                         + String(lr[0])
                         + " = "
                         + String(d)
@@ -326,7 +326,7 @@ function losning() {
                         + String(reversering[reversering.length -1][reversering[reversering.length-1].length-2])
                         + "·"
                         + String(r_n)
-                        + "\\]"
+                        + "\\end{multline*}"
                     }
   console.log(reversering);
   document.getElementById('svar').innerHTML = losningstekst;
