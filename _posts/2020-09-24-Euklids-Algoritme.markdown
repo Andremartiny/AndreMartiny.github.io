@@ -186,7 +186,6 @@ pre {
 <style>
 input {
     background: black;
-    color: green;
     border: none;
     width: 100%;
     font: 1.5ch droid sans mono, consolas, monospace;
@@ -198,7 +197,6 @@ input:focus {
 }
 textarea {
     background: black;
-    color: green;
     width: 100%;
     border: none;
     outline: none;
