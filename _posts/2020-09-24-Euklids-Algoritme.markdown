@@ -184,34 +184,76 @@ pre {
 
 
 <style>
-input {
-    background: black;
+input[type=number] {
+    color: grey;
+    background-color: black;
     border: none;
-    width: 100%;
+    width: 25%;
     font: 1.5ch droid sans mono, consolas, monospace;
     outline: none;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
-input:focus {
+input[type=number]:focus {
     width: 100%;
     border: none;
 }
 textarea:focus {
     border: none;
 }
-div1 {
-  width : 100%;
-  height : 300 px;
-  background-color: black;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3f403e;
+  border: none;
+  color: #d1d1d1;
+  text-align: center;
+  font-size: 15px;
+  padding: 2px;
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 </style>
 
-<div  style='background-color: black'>
-<input type='integer' id='tall1' placeholder='Skriv inn første tall'   />
-<input type='integer' id='tall2' placeholder='Skriv inn andre tall'   />
+<div background='black'>
+<input type='number' id='tall1' placeholder='Skriv inn første tall' value='1027'  /> <br>
+<input type='number' id='tall2' placeholder='Skriv inn andre tall'  value='729' /> 
 </div>
 
-<button type='button' onclick='losning()'> Kjør </button>
-<div  style='background-color: black;'  >
+<button  class='button button5' style="vertical-align:middle" onclick='losning()'> <span> Kjør </span></button>
+<div    >
 <p id='svar'> </p>
 </div>
 
