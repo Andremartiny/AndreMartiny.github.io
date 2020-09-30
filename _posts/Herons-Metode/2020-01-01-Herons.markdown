@@ -24,7 +24,7 @@ def herons(p, X,Y):
     X.append(forkort(Xtemp[0], Xtemp[1]))                               # forkorter teller og nevner i Xtemp og lagrer i X
     Ytemp = [p*X[-1][1],X[-1][0]]                                       # regner ut neste y-verdi
     Y.append(forkort(Ytemp[0],Ytemp[1]))                                # forkorter teller og nevner i Ytemp og lagrer i Y
-    
+
 def heronstext(p,n):
     X = [[p,1]] # samler x_i verdiene som [teller,nevner]
     Y = [[1,1]] # samler y_i verdiene som [teller,nevner]
@@ -48,7 +48,7 @@ def heronstext(p,n):
 
 <div background='black'>
 <input type='number' id='tall1' placeholder='Hvilket tall vil du approksimere kvadratroten til?' value='3'  /> <br>
-<input type='number' id='tall2' placeholder='Hvor mange iterasjoner vil du kjøre'  value='5' /> 
+<input type='number' id='tall2' placeholder='Hvor mange iterasjoner vil du kjøre'  value='5' />
 </div>
 
 <button  class='button button5' style="vertical-align:middle" onclick='heronstext()'> <span> Kjør </span></button>
@@ -63,8 +63,8 @@ def heronstext(p,n):
 <script>
 
 function forkort(a,b) {
-    var p = int(a/np.gcd(a,b));
-    var q = int(b/np.gcd(a,b));
+    var p = Number(a/math.gcd(a,b));
+    var q = Number(b/math.gcd(a,b));
     return [p,q];
 }
 </script>
@@ -87,12 +87,12 @@ function heronstext(){
     var losntxt = "Approksimasjonene til kvadratroten av " + String(p) + " etter " + String(n) + " iterasjoner er: \n \n ";
     while (i<=n) {
         herons(p,X,Y)
-        losntxt += "\\begin{multline*} \n x_" + String(i) 
-                + " = \\frac{ \\frac{" + String(X[X.length-2][0]) 
-                + "}{" + String(X[X.length-2][1]) 
-                + "} + \\frac{" + String(Y[Y.length-2][0]) 
-                + "}{" 
-                + String(Y[Y.length-2][1]) 
+        losntxt += "\\begin{multline*} \n x_{" + String(i)
+                + "} = \\frac{ \\frac{" + String(X[X.length-2][0])
+                + "}{" + String(X[X.length-2][1])
+                + "} + \\frac{" + String(Y[Y.length-2][0])
+                + "}{"
+                + String(Y[Y.length-2][1])
                 + "}}{2} = " + "\\frac{"
                 + String(X[X.length-1][0]) + "}{"
                 + String(X[X.length-1][1]) + "} \n"
