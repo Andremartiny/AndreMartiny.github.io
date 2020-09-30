@@ -62,9 +62,20 @@ def heronstext(p,n):
 
 <script>
 
+function gcd(x, y) {
+  if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
 function forkort(a,b) {
-    var p = Number(a/math.gcd(a,b));
-    var q = Number(b/math.gcd(a,b));
+    var p = Number(a/gcd(a,b));
+    var q = Number(b/gcd(a,b));
     return [p,q];
 }
 </script>
