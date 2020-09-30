@@ -99,12 +99,6 @@ function heronstext(){
                 + "\\end{multline*}";
                 i += 1;
     }
-}    
-
-        //]: <>print(f"y_{i} = {p} * {X[-1][1]}/{X[-1][0]} = {Y[-1][0]}/{Y[-1][1]}") # Denne linja kan av-kommenteres hvis man ønsker både x-approksimasjonene og y-approksimasjonene.
-                
-
-}
   document.getElementById('svar').innerHTML = losntxt;
   MathJax.typeset();
 }
