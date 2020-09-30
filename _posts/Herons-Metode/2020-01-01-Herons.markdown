@@ -32,8 +32,7 @@ Her kan du se kode som lager løsningsforslag til tilnærmingen av kvadratrøtte
         print(f"Approksimasjonene til kvadratroten av {p} etter {n} iterasjoner er:")
         while i<=n:
             herons(p,X,Y)
-            print(f"x_{i} = {X[-2][0]}/{X[-2][1]} + {Y[-2][0]}/{Y[-2][1]}/2 = {X[-1][0]}/{X[-1][1]}")
-            # print(f"y_{i} = {p} * {X[-1][1]}/{X[-1][0]} = {Y[-1][0]}/{Y[-1][1]}") # Denne linja kan av-kommenteres hvis man ønsker både x-approksimasjonene og y-approksimasjonene.
+            print(f"x_{i} = ({X[-2][0]}/{X[-2][1]} + {Y[-2][0]}/{Y[-2][1]})/2 = {X[-1][0]}/{X[-1][1]}")
             i += 1
 
 {% endhighlight %}
@@ -48,11 +47,11 @@ Her kan du se kode som lager løsningsforslag til tilnærmingen av kvadratrøtte
 
 
 <div background='black'>
-<input type='number' id='tall1' placeholder='Hvilket tall vil du approksimere kvadratroten til?' value='1027'  /> <br>
-<input type='number' id='tall2' placeholder='Hvor mange iterasjoner vil du kjøre'  value='729' /> 
+<input type='number' id='tall1' placeholder='Hvilket tall vil du approksimere kvadratroten til?' value='3'  /> <br>
+<input type='number' id='tall2' placeholder='Hvor mange iterasjoner vil du kjøre'  value='5' /> 
 </div>
 
-<button  class='button button5' style="vertical-align:middle" onclick='heronstekst()'> <span> Kjør </span></button>
+<button  class='button button5' style="vertical-align:middle" onclick='heronstext()'> <span> Kjør </span></button>
 <div    >
 <p id='svar'> </p>
 </div>
@@ -77,7 +76,8 @@ function herons(p, X,Y) {
     var Ytemp = [p*X[X.length-1][1],X[X.length-1][0];        
     Y.push(forkort(Ytemp[0],Ytemp[1]));
 }
-
+</script>
+<script>
 function heronstext(p,n){
     var X = [[p,1]];
     var Y = [[1,1]];
