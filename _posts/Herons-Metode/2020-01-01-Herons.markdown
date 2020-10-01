@@ -81,15 +81,19 @@ function forkort(a,b) {
 </script>
 <script>
 
-function herons(p, X,Y) {                      
+function herons(p, X,Y) {
     var Xtemp = [X[X.length-1][0]*Y[Y.length-1][1]+X[X.length-1][1]*Y[Y.length-1][0], 2*X[X.length-1][1]*Y[Y.length-1][1]];
     X.push(forkort(Xtemp[0], Xtemp[1]));
-    var Ytemp = [p*X[X.length-1][1],X[X.length-1][0]];        
+    var Ytemp = [p*X[X.length-1][1],X[X.length-1][0]];
     Y.push(forkort(Ytemp[0],Ytemp[1]));
 }
 </script>
 <script>
 function heronstext(){
+  if ((Number(document.getElementById('tall2').value) > 6)) {
+    document.getElementById('svar').innerHTML = "Velg færre iterasjoner enn 7";
+    return;
+  }
     var p = Number(document.getElementById('tall1').value);
     var n = Number(document.getElementById('tall2').value);
     var X = [[p,1]];
