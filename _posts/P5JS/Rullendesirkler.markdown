@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "P5JS eksempler, sirkler!"
+mathjax: true
+visible: 1
+hidden: true
+---
+
+<details>
+ 
+## Roterende sirkel
+<img src="/assets/images/Rullende-sirkler/Sirkel.gif" >
+
+ </details>
+
+<details>
+
+## Rullende sirkel
+<img src="/assets/images/Rullende-sirkler/rullsirkel-ikkebra.gif" >
+
+ </details>
+
+<details>
+
+## Rullende sirklel med "trace"
+<img src="/assets/images/Rullende-sirkler/rullmedtrace.gif" >
+
+
+</details>
+
+<details>
+
+## Uten støy
+<img src="/assets/images/Rullende-sirkler/utenstoy.gif" >
+
+
+</details>
+
+<details>
+
+
+## Gjort om til graf
+<img src="/assets/images/Rullende-sirkler/graf1.gif" >
+
+</details>

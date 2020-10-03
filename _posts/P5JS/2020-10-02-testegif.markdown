@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Test!"
-mathjax: true
----
-
-<p align="center"><img src ="/assets/images/Herons_Method1.gif" /></p>
-
