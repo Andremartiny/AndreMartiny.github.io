@@ -36,7 +36,10 @@ minima:
     skin: dark
     date_format: "%b %-d, %Y"
 plugins:
+  - jekyll-paginate
   - jekyll-feed
+  - jekyll-sitemap
+
 
 defaults:
     -
@@ -45,6 +48,12 @@ defaults:
             type: "posts"
         values:
             layout: "post"
+
+paginate: 10
+paginate_path: "/blog/page:num/"
+comments: true
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

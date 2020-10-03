@@ -2,6 +2,7 @@
 layout: post
 title:  "Herons metode!"
 mathjax: true
+hidden: true
 ---
 
 Her kan du se en kode som produserer løsningsforslag til tilnærmingen av kvadratrøtter av heltall etter et valgfritt antall iterasjoner ved bruk av Herons metode.
