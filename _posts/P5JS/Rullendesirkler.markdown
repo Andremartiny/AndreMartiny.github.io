@@ -8,21 +8,27 @@ hidden: true
 
 <details>
  
-## Roterende sirkel
+<summary>Roterende sirkel </summary>
+
+
+
 <img src="/assets/images/Rullende-sirkler/Sirkel.gif" >
 
  </details>
 
 <details>
 
-## Rullende sirkel
+<summary>Rullende sirkel </summary>
+
 <img src="/assets/images/Rullende-sirkler/rullsirkel-ikkebra.gif" >
 
  </details>
 
 <details>
 
-## Rullende sirklel med "trace"
+<summary>Rullende sirkel med "trace" </summary>
+
+
 <img src="/assets/images/Rullende-sirkler/rullmedtrace.gif" >
 
 
@@ -30,7 +36,10 @@ hidden: true
 
 <details>
 
-## Uten støy
+
+<summary>Rullende sirkel uten støy</summary>
+
+
 <img src="/assets/images/Rullende-sirkler/utenstoy.gif" >
 
 
@@ -39,7 +48,9 @@ hidden: true
 <details>
 
 
-## Gjort om til graf
+<summary> Omgjort til graf </summary>
+
+
 <img src="/assets/images/Rullende-sirkler/graf1.gif" >
 
 </details>
