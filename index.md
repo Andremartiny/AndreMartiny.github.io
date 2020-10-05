@@ -312,7 +312,8 @@ Under kan du se noen av animasjonene. Ved å klikke(FIXME) på bildene blir du s
 <iframe src="https://editor.p5js.org/AndreMartiny/embed/eJo1yPbmP" idth="100" height="100" frameBorder="0"></iframe>
 
 
-<img src="/assets/images/Rullende-sirkler/output.gif" width="45%"><img src="/assets/images/Rullende-sirkler/utenstoy.gif" width="45%">
+<img src="/assets/images/Rullende-sirkler/output.gif" width="50%"><img src="/assets/images/Rullende-sirkler/utenstoy.gif" width="50%">
+<img src="/assets/images/sinusgraf/output.gif" width="100%">
 
 
 [Sirkler?]({% post_url P5JS/2020-09-30-ex %})

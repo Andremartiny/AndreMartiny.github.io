@@ -1,0 +1,7 @@
+For å gå gjennom alle png-bildene i en mappe bruk:
+convert  -delay 2 -loop 0 *.png output.gif
+
+
+For å lage en loop som går gjennom alle png bildene og så tilbake, bruk noe alla
+
+magick convert *.png -set delay 2 -reverse *.png -set delay 2 -loop 0 animation.gif
