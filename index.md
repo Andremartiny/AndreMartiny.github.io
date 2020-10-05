@@ -313,7 +313,7 @@ Under kan du se noen av animasjonene. Ved å klikke(FIXME) på bildene blir du s
 
 
 <img src="/assets/images/Rullende-sirkler/output.gif" width="50%"><img src="/assets/images/Rullende-sirkler/utenstoy.gif" width="50%">
-<img src="/assets/images/sinusgraf/output.gif" width="100%">
+<img src="/assets/images/Sinusgraf/output.gif" width="100%">
 
 
 [Sirkler?]({% post_url P5JS/2020-09-30-ex %})
