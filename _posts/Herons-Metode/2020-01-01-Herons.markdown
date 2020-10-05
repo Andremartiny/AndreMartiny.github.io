@@ -4,6 +4,11 @@ title:  "Herons metode!"
 mathjax: true
 hidden: true
 ---
+FIXME: Her bør ting introduseres.
+
+<p ><img  src="/assets/images/Herons_Method1.gif " > </p>
+
+
 
 Her kan du se en kode som produserer løsningsforslag til tilnærmingen av kvadratrøtter av heltall etter et valgfritt antall iterasjoner ved bruk av Herons metode.
 
