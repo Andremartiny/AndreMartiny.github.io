@@ -1,4 +1,6 @@
 {
     "python.pythonPath": "C:\\Users\\andrem\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
     "python.linting.enabled": false
-}
+}   
+
+{ "typescript.suggest.paths": false } 

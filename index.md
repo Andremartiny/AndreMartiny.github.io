@@ -306,15 +306,14 @@ function losning() {
 De resterende prosjektene har gått ut på å lage animasjoner ved hjelp av Python og programmet Processing.py. 
 FIXME: LENKE TIL IKKEEKSISTERENDE SIDE OVER ANIMASJONER HER
 
-Under kan du se noen av animasjonene. Ved å klikke(FIXME) på bildene blir du sendt til siden hvor vi gjennomgår hvordan du kan se koden som ligger bak, og steg for steg hvordan de er bygd opp.
+Under kan du se noen av animasjonene. Ved å klikke(FIXME) på bildene blir du sendt til siden hvor vi gjennomgår koden som ligger bak. Dette gjør vi steg for steg slik at man kan forstå hvordan koden er bygd opp.
 
-
+ 
 <iframe src="https://editor.p5js.org/AndreMartiny/embed/eJo1yPbmP" idth="100" height="100" frameBorder="0"></iframe>
 
 
 <img src="/assets/images/Rullende-sirkler/output.gif" width="50%"><img src="/assets/images/Rullende-sirkler/utenstoy.gif" width="50%">
 <img src="/assets/images/Sinusgraf/output.gif" width="100%">
-
 
 [Sirkler?]({% post_url P5JS/2020-09-30-ex %})
 
