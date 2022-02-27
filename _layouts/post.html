@@ -18,118 +18,14 @@ layout: default
         </time>
       {%- endif -%} -->
       {%- if page.author -%}
-        • {% for author in page.author %}
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
-            {%- if forloop.last == false %}, {% endif -%}
-        {% endfor %}
+      • {% for author in page.author %}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+      {%- if forloop.last == false %}, {% endif -%}
+      {% endfor %}
       {%- endif -%}</p>
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.3.0/math.min.js"></script>
-      <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
-      <style>
-        pre {
-            white-space: pre !important;
-            overflow-y: auto !important;
-            max-height: 50vh !important;
-          }
-      </style>
-      <style>
-      /* width */
-      ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-      }
-      /* corner */
-      ::-webkit-scrollbar-corner {
-        background: #121212;
-      }
 
-      /* Track */
-      ::-webkit-scrollbar-track {
-        background: #121212;
-      }
 
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-      }
-
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-
-      </style>
-      
-<style>
-  input[type=number] {
-      color: #c7c7c7;
-      background-color: black;
-      border: none;
-      width: 25%;
-      font: 2ch droid sans mono, consolas, monospace;
-      outline: none;
-      -webkit-transition: width 0.4s ease-in-out;
-      transition: width 0.4s ease-in-out;
-      border-radius: 5px;
-  }
-  input[type=number]:focus {
-      width: 100%;
-      border: none;
-  }
-  textarea:focus {
-      border: none;
-  }
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-  }
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #3f403e;
-    border: none;
-    color: #d1d1d1;
-    text-align: center;
-    font-size: 15px;
-    padding: 2px;
-    width: 70px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:hover span {
-    padding-right: 25px;
-  }
-  
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-  </style>
-  
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -137,7 +33,7 @@ layout: default
   </div>
 
   {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
+  {%- include disqus_comments.html -%}
   {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

@@ -18,28 +18,31 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Repository for André Martiny og Henrik Njølstad
-email: andrem@uia.no & henrik.njolstad@uia.no
+title: Kodelaben
+author: kodelaben
+# email: andrem@uia.no & henrik.njolstad@uia.no
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Denne siden består av en samling av ulike programmeringsprosjekter skrevet av André Martiny og Henrik L. Njølstad.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  AndreMartiny
+url: "https://kodelaben.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#twitter_username: jekyllrb
+github_username:  kodelaben
 
 # Build settings
 markdown: kramdown
+
+# Google Analytics
+google_analytics: G-EH9RLHH17S
+
 theme: minima
 minima:
     skin: dark
     date_format: "%b %-d, %Y"
 plugins:
   - jekyll-paginate
-  - jekyll-feed
+  # - jekyll-feed
   - jekyll-sitemap
-
+  # - jekyll-menus
 
 defaults:
     -

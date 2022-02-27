@@ -3,3 +3,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+pages_workspace.code-workspace
+.vscode/settings.json
+Blogws.code-workspace

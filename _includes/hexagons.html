@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="{{ "/assets/css/homepage.css" | relative_url
+    }}">
+  </head>
+  <body>
+    <div class="biekube">
+      <div class="bierad">
+        <a href="/oppgaver" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg
+                focusable="false"
+                role="img"
+                class="oppgaver"
+                viewBox="0 0 150.31 131.2"
+              >
+                {% include svg/oppgaver.html %}
+              </svg>
+              <span class="link-text-homepage">Oppgaver</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/kom_i_gang" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 448 512"
+                class="kom_i_gang"
+              >
+                {% include svg/python.html %}
+              </svg>
+              <span class="link-text-homepage">Kom i gang<br />med python</span>
+            </div>
+          </div>
+        </a>
+        <a href="/matematiske_problemer" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg viewBox="0 0 150 150" class="matematiske_problemer">
+                {% include svg/matematiske_problemer.html %}
+              </svg>
+              <span class="link-text-homepage">Matematiske<br />problemer</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="bierad">
+        <a href="/prosjekter" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg class="prosjekter" viewBox="0 0 90 120">
+                {% include svg/prosjekter.html %}
+              </svg>
+              <span class="link-text-homepage">Større<br />prosjekter</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="sekskantmid"></div>
+
+        <a href="/animasjoner" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg viewBox="0 0 152 152" class="animasjoner">
+                {% include svg/animasjoner.html %}
+              </svg>
+              <span class="link-text-homepage">Animasjoner</span>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class="bierad">
+        <div class="sekskantmid"></div>
+        <a href="/om_siden" class="nav-link-homepage">
+          <div class="sekskant">
+            <div class="indre-sekskant">
+              <svg
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="about"
+              >
+                {% include svg/om_siden.html %}
+              </svg>
+              <span class="link-text-homepage">Om siden</span>
+            </div>
+          </div>
+        </a>
+        <div class="sekskantmid"></div>
+      </div>
+    </div>
+  </body>
+</html>

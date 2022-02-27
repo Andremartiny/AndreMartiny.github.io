@@ -22,6 +22,9 @@ body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
   background-color: $background-color;
+  background-image: linear-gradient(147deg, $background-color 10%, #2A2A2A 90%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
@@ -29,6 +32,7 @@ body {
           font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
+  height: 100%;
   min-height: 100vh;
   flex-direction: column;
   overflow-wrap: break-word;
@@ -162,9 +166,10 @@ pre,
 code {
   font-family: $code-font-family;
   font-size: 0.9375em;
-  border: 1px solid $border-color-01;
+  border: 0px solid $border-color-01;
   border-radius: 3px;
   background-color: $code-background-color;
+  margin-bottom: 0px;
 }
 
 code {
@@ -186,7 +191,7 @@ pre {
   border-radius: 3px;
   background: $code-background-color;
   @extend %vertical-rhythm;
-
+    white-space: normal;
   .highlighter-rouge & {
     background: $code-background-color;
   }
@@ -251,7 +256,7 @@ pre {
  * Tables
  */
 table {
-  margin-bottom: $spacing-unit;
+  margin-bottom: 0px;
   width: 100%;
   text-align: $table-text-align;
   color: $table-text-color;
@@ -262,9 +267,9 @@ table {
       background-color: $table-zebra-color;
     }
   }
-  th, td {
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
-  }
+//   th, td {
+//     padding: ($spacing-unit / 3) ($spacing-unit / 2);
+//   }
   th {
     background-color: $table-header-bg-color;
     border: 1px solid $table-header-border;
