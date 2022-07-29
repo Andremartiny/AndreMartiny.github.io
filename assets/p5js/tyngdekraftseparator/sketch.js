@@ -49,7 +49,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(255);
   stroke(0);
   strokeWeight(6);
 
