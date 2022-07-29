@@ -15,11 +15,10 @@ let bulbOn;
 let bulbOff;
 let slider;
 let løkke = true;
-function preload() { 
-  bulbOn = loadImage('/assets/p5js/100dorer/Png/bulb_on.png');
-  bulbOff = loadImage('/assets/p5js/100dorer/Png/bulb_off.png')
+function preload() {
+  bulbOn = loadImage("/assets/p5js/100dorer/Png/bulb_on.png");
+  bulbOff = loadImage("/assets/p5js/100dorer/Png/bulb_off.png");
 }
-
 
 // SETUPFUNKSJONEN (DEL AV P5JS)
 function setup() {
@@ -32,7 +31,7 @@ function setup() {
   //   FIKSER INSTILLINGER
   textSize(9);
   frameRate(5);
-  slider = createSlider(1, 60, 60, 1);
+  slider = createSlider(1, 60, 20, 1);
   slider.position(20, height - 20);
   slider.style("120px", "40px");
 }
@@ -44,7 +43,9 @@ function draw() {
   background(220);
   fill(0);
   //   Går inn i array på index skalar*faktor-1, der vil vi endre status på lyspæren. Redefinerer derfor ved å øke med 1 mod 2.
-  array[skalar * faktor - 1][1] = (array[skalar * faktor - 1][1] + 1) % 2;
+  if (faktor <= dører) {
+    array[skalar * faktor - 1][1] = (array[skalar * faktor - 1][1] + 1) % 2;
+  }
   // Tegner lyspærene. Looper gjennom antall dører:
   for (i = 0; i < dører; i++) {
     text(i + 1, 5 + (47 * i) / 2.5, 28 + 5.1);
@@ -59,7 +60,10 @@ function draw() {
   // Vilkår for hvor langt vi er kommet i algoritmen. Hvis faktoren == dører er vi ferdig
   if (faktor == dører) {
     savestate.push(structuredClone(array));
-    pausestate = 1;
+    faktor += 1;
+    antall_rader_som_vises = antall_rader_som_vises + 1;
+  } else if (faktor >= dører) {
+    noLoop();
   }
   //   Hvis (skalar + 1)*faktor > dører vil vi gå forbi antall dører, vi må derfor øke faktoren. Dermed må skalar også resettes til 1.
   else if ((skalar + 1) * faktor > dører) {
@@ -68,7 +72,6 @@ function draw() {
     antall_rader_som_vises = antall_rader_som_vises + 1;
     //     Lagrer instilling av pærene i en savestate slik at de kan tegnes ved senere tidspunkt
     savestate.push(structuredClone(array));
-    pausestate = 1;
   }
   //   Hvis vi ikke er ferdig, og vi ikke går forbi antall dører, går vi til neste dør i faktor-gangen.
   else {
@@ -86,26 +89,24 @@ function draw() {
       }
     }
   }
-  // if (pausestate == 1) {
-  //   noLoop();
-  // }
-}
-
-function mousePressed() {
-  pausestate = (pausestate + 1) % 2;
-  if (pausestate == 0) {
-    loop();
-  } else {
-    noLoop();
-  }
 }
 
 function keyPressed() {
-    if (keyCode === LEFT_ARROW && antall_rader_som_vises > 0) {
+  if (keyCode === LEFT_ARROW && antall_rader_som_vises > 0) {
     antall_rader_som_vises = antall_rader_som_vises - 1;
     redraw();
-  } else if (keyCode === RIGHT_ARROW && antall_rader_som_vises < savestate.length) {
-    antall_rader_som_vises = +antall_rader_som_vises +1;
+  } else if (
+    keyCode === RIGHT_ARROW &&
+    antall_rader_som_vises < savestate.length
+  ) {
+    antall_rader_som_vises = +antall_rader_som_vises + 1;
     redraw();
+  } else if (keyCode === 32) {
+    pausestate = (pausestate + 1) % 2;
+    if (pausestate == 0) {
+      loop();
+    } else {
+      noLoop();
+    }
   }
 }
