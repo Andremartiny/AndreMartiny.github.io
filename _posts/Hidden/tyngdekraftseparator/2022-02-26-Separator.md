@@ -3,7 +3,7 @@ layout: hiddenlayout
 title:  "Tyngdekraftseparator"
 mathjax: true
 hidden: true
-permalink: /animasjoner/separator/
+permalink: /hiddenseparator/
 ---
 
 <div style="background-color: #FFFFFF; height: 505px" >
