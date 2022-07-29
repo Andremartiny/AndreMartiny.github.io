@@ -14,7 +14,7 @@ let antall_rader_som_vises = 0;
 let bulbOn;
 let bulbOff;
 let slider;
-let sliderverdi = 60;
+let løkke = true;
 function preload() { 
   bulbOn = loadImage('/assets/p5js/100dorer/Png/bulb_on.png');
   bulbOff = loadImage('/assets/p5js/100dorer/Png/bulb_off.png')
@@ -23,7 +23,7 @@ function preload() {
 
 // SETUPFUNKSJONEN (DEL AV P5JS)
 function setup() {
-  let canvas = createCanvas(1900, 1048);
+  let canvas = createCanvas(1900, 900);
   canvas.parent("canvasForHTML");
   //   DEFINERER EN ARRAY MED TO-DELT INFO: (INDEX PÅ DØR, STATUS PÅ LYS)
   for (i = 1; i < dører + 1; i++) {
@@ -32,12 +32,15 @@ function setup() {
   //   FIKSER INSTILLINGER
   textSize(9);
   frameRate(5);
+  slider = createSlider(1, 60, 60, 1);
+  slider.position(20, height - 20);
+  slider.style("120px", "40px");
 }
 
 // HER SKJER TEGNINGEN (DEL av P5JS)
 function draw() {
   //   Endrer fps-basert på slideren
-  frameRate(sliderverdi);
+  frameRate(slider.value());
   background(220);
   fill(0);
   //   Går inn i array på index skalar*faktor-1, der vil vi endre status på lyspæren. Redefinerer derfor ved å øke med 1 mod 2.
@@ -56,6 +59,7 @@ function draw() {
   // Vilkår for hvor langt vi er kommet i algoritmen. Hvis faktoren == dører er vi ferdig
   if (faktor == dører) {
     savestate.push(structuredClone(array));
+    pausestate = 1;
   }
   //   Hvis (skalar + 1)*faktor > dører vil vi gå forbi antall dører, vi må derfor øke faktoren. Dermed må skalar også resettes til 1.
   else if ((skalar + 1) * faktor > dører) {
@@ -64,6 +68,7 @@ function draw() {
     antall_rader_som_vises = antall_rader_som_vises + 1;
     //     Lagrer instilling av pærene i en savestate slik at de kan tegnes ved senere tidspunkt
     savestate.push(structuredClone(array));
+    pausestate = 1;
   }
   //   Hvis vi ikke er ferdig, og vi ikke går forbi antall dører, går vi til neste dør i faktor-gangen.
   else {
@@ -74,13 +79,16 @@ function draw() {
     for (i = 0; i < dører; i++) {
       if (savestate[j][i][1] == 0) {
         fill(0);
-        circle(10 + (47 * i) / 2.5, 5 + 35 + (18 * j) / 1.8, størrelse / 3 + 2);
+        circle(10 + (47 * i) / 2.5, 5 + 35 + (15 * j) / 1.8, størrelse / 4 + 2);
       } else {
         fill(250, 250, 0);
-        circle(10 + (47 * i) / 2.5, 5 + 35 + (18 * j) / 1.8, størrelse / 3 + 2);
+        circle(10 + (47 * i) / 2.5, 5 + 35 + (15 * j) / 1.8, størrelse / 4 + 2);
       }
     }
   }
+  // if (pausestate == 1) {
+  //   noLoop();
+  // }
 }
 
 function mousePressed() {
