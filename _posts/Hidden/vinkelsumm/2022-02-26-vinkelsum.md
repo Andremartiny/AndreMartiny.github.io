@@ -1,6 +1,6 @@
 ---
 layout: hiddenlayout
-title:  "Pyramidetall"
+title:  "Vinkelsum"
 mathjax: true
 hidden: true
 permalink: /hiddenvinkelsum
