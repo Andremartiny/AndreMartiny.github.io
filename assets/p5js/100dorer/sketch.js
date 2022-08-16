@@ -89,7 +89,7 @@ function draw() {
         circle(10 + (47 * i) / 2.5, 5 + 35 + (15 * j) / 1.8, størrelse / 4 + 2);
       }
     }
-  }
+  } 
 }
 
 function keyPressed() {
