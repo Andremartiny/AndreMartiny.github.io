@@ -9,7 +9,7 @@ let faktor = 1;
 let skalar = 1;
 // STATES
 let savestate = [];
-let pausestate = 0;
+let pausestate = 1;
 let antall_rader_som_vises = 0;
 let bulbOn;
 let bulbOff;
