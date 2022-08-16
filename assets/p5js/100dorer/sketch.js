@@ -34,6 +34,7 @@ function setup() {
   slider = createSlider(1, 60, 20, 1);
   slider.position(20, height - 20);
   slider.style("120px", "40px");
+  noLoop();
 }
 
 // HER SKJER TEGNINGEN (DEL av P5JS)
@@ -104,6 +105,7 @@ function keyPressed() {
   } else if (keyCode === 32) {
     pausestate = (pausestate + 1) % 2;
     if (pausestate == 0) {
+      antall_rader_som_vises = savestate.length;
       loop();
     } else {
       noLoop();
