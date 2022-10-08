@@ -6,14 +6,14 @@ hidden: true
 permalink: /matematiske_problemer/herons_metode
 ---
 <!-- TODO: Her bør ting introduseres. -->
-Herons metode er en metode for å finne tilnærmingsverdien til \\(\\sqrt{n}\\) når \\(n \\in\\mathbb{N} \\). Idéen handler om å gjøre om et rektangel med sidelengder \\(1\\) og \\(n\\) (slik at arealet er \\(n\\)), til et nytt rektangel med areal \\(n\\) som ser «mer kvadratisk ut». 
+Herons metode er en metode for å finne tilnærmingsverdien til \\(\\sqrt{n}\ \\) når \\(n \\in\\mathbb{N} \\). Idéen handler om å gjøre om et rektangel med sidelengder \\(1\ \\) og \\(n\ \\) (slik at arealet er \\(n\\)), til et nytt rektangel med areal \\(n\ \\) som ser «mer kvadratisk ut». 
 
-Under er en kort video som illusrerer hvordan man, etter bare tre steg i algoritmen, raskt kan approksimere \\(\\sqrt{2}\\) til \\(\\frac{577}{408}\\approx 1.4142156 \\). Denne approksimasjonen er omtrent \\(0.00015\\%\\) unna den riktige verdien til \\(\\sqrt{2}\\).
+Under er en kort video som illusrerer hvordan man, etter bare tre steg i algoritmen, raskt kan approksimere \\(\\sqrt{2}\ \\) til \\(\\frac{577}{408}\\approx 1.4142156 \\). Denne approksimasjonen er omtrent \\(0.00015\\%\ \\) unna den riktige verdien til \\(\\sqrt{2}\\).
 <p ><img  src="/assets/images/Herons_Method1.gif " > </p>
 
 
 
-Her har vi skrevet en kode som produserer løsningsforslag til Herons metode. Prøv koden for å se utregningene fra videoen over, til å finne de neste approksimasjonene til \\(\\sqrt{2}\\) eller til å approksimere andre kvadratrøtter.  
+Her har vi skrevet en kode som produserer løsningsforslag til Herons metode. Prøv koden for å se utregningene fra videoen over, til å finne de neste approksimasjonene til \\(\\sqrt{2}\ \\) eller til å approksimere andre kvadratrøtter.  
 
 <details>
 
