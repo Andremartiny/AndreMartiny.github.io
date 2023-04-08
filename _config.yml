@@ -58,7 +58,8 @@ comments: true
 
 include:
   - assets/ma-173/output.html
-
+  - assets/my-html-page/styles.css
+  - assets/my-html-page/script.js
 
 # Exclude from processing.
 # The following items will not be processed, by default.
