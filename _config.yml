@@ -56,6 +56,8 @@ paginate: 10
 paginate_path: "/blog/page:num/"
 comments: true
 
+include:
+  - assets/ma-173/output.html
 
 
 # Exclude from processing.
