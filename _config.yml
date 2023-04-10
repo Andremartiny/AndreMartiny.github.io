@@ -59,7 +59,7 @@ comments: true
 include:
   - assets/ma-173/output.html
   - assets/ma-173/testtest.html
-  - assets/ma-173/styles.css 
+  - assets/ma-173/styles.css
   - assets/ma-173/script.js
 
 # Exclude from processing.
