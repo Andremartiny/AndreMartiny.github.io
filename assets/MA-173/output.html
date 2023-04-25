@@ -6349,15 +6349,17 @@ eksempel på hva <span class="math inline">\(P(\{u_4, u_5\})\)</span> og
 <span class="math inline">\(P(u_6)\)</span> kan være. Besvarelsen må
 være begrunnet.</p></li>
 <li><p>La et forsøk ha et utfallsrom <span class="math inline">\(U = {
-u_1, u_2, u_3, u_4, u_5}\)</span>. Forklar at <span class="math inline">\(P(\{u_3\})\)</span> ikke kan være større enn <span class="math inline">\(0.4\)</span> hvis <span class="math inline">\(P(\{u_1,u_3\}) = 0.7\)</span> og <span class="math inline">\(P(\{u_2, u,3\}) = 0.7\)</span>.</p></li>
-</ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><ol type="1">
+u_1, u_2, u_3, u_4, u_5}\)</span>. Forklar at <span class="math inline">\(P(\{u_3\})\)</span> må være større enn <span class="math inline">\(0.4\)</span> hvis <span class="math inline">\(P(\{u_1,u_3\}) = 0.7\)</span> og <span class="math inline">\(P(\{u_2, u,3\}) = 0.7\)</span>.</p></li>
+</ol><p><strong>Merk</strong> Det var en feil i teksten over der det stod
+‘’Forklar at <span class="math inline">\(P(\{u_3\})\)</span> <em>ikke
+kan være</em> større enn…’’. Dette er rettet i teksten over.</p><h5 id="vurderingskriterier">Vurderingskriterier</h5><ol type="1">
 <li>Studenten må begrunne påstanden. Her kan de for eksempel bare peke
 på at <span class="math inline">\(P(U) = 1\)</span> og dermed kan en
 enkelt bare si at <span class="math inline">\(P(\{u_4, u_5\})\)</span>
 kan være lik <span class="math inline">\(0.2\)</span>, hvis <span class="math inline">\(P(u_6)\)</span> også er lik <span class="math inline">\(0.2\)</span>. Dette er fordi en ikke bryter med
 noen av aksiomene til sannsynlighetsmodeller.</li>
 <li>Siden <span class="math inline">\(1.4 = 0.7+0.7 = P(\{u_1,u_3\}) +
-P(\{u_2,u_3\}) = P(u_1)+P(u_2)+2P(u_3)\)</span>, ser vi at hvis <span class="math inline">\(P(u_3)\)</span> er større enn <span class="math inline">\(0.4\)</span> så vil <span class="math inline">\(1.4-P(u_3)\)</span> være større enn <span class="math inline">\(1\)</span> samtidig som det vil være lik
+P(\{u_2,u_3\}) = P(u_1)+P(u_2)+2P(u_3)\)</span>, ser vi at hvis <span class="math inline">\(P(u_3)\)</span> ikke er større enn <span class="math inline">\(0.4\)</span> så vil <span class="math inline">\(1.4-P(u_3)\)</span> være større enn <span class="math inline">\(1\)</span> samtidig som det vil være lik
 sannsynligheten for tre enkelutufall i utfallsrommet. Noe som gir en
 motsigelse.</li>
 </ol><h4 id="middels-forklare-og-bruke-begrepene-utfallsrom-utfall-og-hendelse-og-sannsynlighetsmodell-17.04.23">Middels:
@@ -6730,8 +6732,16 @@ man ned siffrene man trekker hver gang for å lage et tall. Dermed er det
 natulig å tenke at utvalget er ordnet. Siden vi derfor har 8 valg på
 første trekk og så 8 valg på neste, må det være <span class="math inline">\(8\cdot 8 = 64\)</span> mulige utfall.</li>
 <li>Studenten må få frem at at en har 17 lys, men ikke kan trekke samme
-pæren to ganger. I tillegg har ikke rekkefølgen noe å si, som betyr at
-det er et ordnet</li>
+pæren to ganger. For å forklare at det kan tenkes på som ordnet må en
+peke på at vi bryr oss om rekkefølgen på utvalget, for eksempel fordi
+Henrik tester pærene han har valgt ut i rekkefølgen han trakk de med
+seg. <em>Merk at det er noe kunstig å tolke denne situasjonen som
+ordnet, da det er mer naturlig å tenke seg at den er uordnet (at man
+ikke bryr seg om rekkefølgen)</em>. Siden vi nå tolker dette som et
+ordnet utvalg uten tilbakelegg så har vi 17 muligheter på første trekk,
+så 16, så 15. Multiplikasjonsprinsippet forteller oss derfor at det er
+<span class="math inline">\(17\cdot 16\cdot 15\)</span> mulige
+utvalg.</li>
 </ol><h4 id="middels-forklare-og-bruke-begrepene-ordnet-utvalg-med-og-uten-tilbakelegg-17.04.23">Middels:
 Forklare og bruke begrepene ordnet utvalg med og uten tilbakelegg,
 17.04.23</h4><ol type="1">
@@ -6961,35 +6971,37 @@ tilbakelegg.</li>
 Avgjøre om utvalg er ordnet eller uordnet og om det er med eller uten
 tilbakelegg, 24.04.23</h4><p>Avgjør om situasjonene under kan tenkes som ordnede eller uordnede
 utvalg og om utvalgene er med eller uten tilbakelegg:</p><ol type="1">
-<li>Til årsmøtet i et lag møter det ti personer. På hvor mange måter kan
-det velges formann, nestformann og kasserer?</li>
-<li>I en klasse på 20 elever skal det velges ut en gruppe på 6. På hvor
-mange måter kan det gjøres på?</li>
-<li>På hvor mange måter kan forskjellige tresifrede tall lages med
-sifrene 1, 2, 3, 4 og 6, der en kan gjenta gjenta sifre?</li>
-<li>På en flervalgsprøve med åtte spørsmål er det tre alternativer på
-hvert spørsmål, der kun ett alternativ er rett. Hvor mange mulige
-forskjellige besvarelser kan man gi på prøven?</li>
+<li>I bedriftsidrettslaget er det 20 medlemmer som spiller basket. På
+hvor mange måter kan det velges to personer som skal sitte i styret av
+basketballavdelingen?</li>
+<li>I en klasse på 18 elever skal det velges ut en elevrådsleder og en
+vara. På hvor mange måter kan det gjøres på?</li>
+<li>I en klasse er det 12 gutter og 10 jenter. På hvor mange måter kan
+man velge ut 4 gutter?</li>
+<li>En student ved lærerutdanninga har møtt opp på alle obligatoriske
+undervisninger. Nå gjenstår det fire obligatoriske seminarer, og
+studenten vil komme over fraværsgrensa på 70% selv om de ikke møter på
+noen av seminarene. Studenten har derfor konkludert med at de står fritt
+til å velge om de vil møte opp eller ikke for hver av de fire
+seminarene. På hvor mange utvalg av seminarer kan de velge å gå på?</li>
 </ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må argumentere og begrunne sitt valg. Det <em>må</em> ikke
 nødvendigvis stemme med forslaget under, men er det annerledes må
 begrunnelsen hvertfall være meningsfull!</p><ol type="1">
-<li>Studenten må peke på at siden det er forskjellige roller, så vil det
-være et ordnet utvalg, men siden det ikke er noen som kan være samme
-rolle så er det uten tilbakelegg.</li>
-<li>De skal velge en gruppe på <span class="math inline">\(6\)</span>
-elever. Én elev kan såklart ikke være med flere ganger i gruppen, så det
-blir uten tilbakelegg. Det er heller ikke påpekt at gruppen inneholder
-noen roller som gjør det naturlig å tenke på dette som et uordnet
-utvalg.</li>
-<li>Det blir påpekt at en kan gjenta sifrene, dermed må det tenkes på
-som et utvalg med tiblakelegg. Rekkefølgen har noe å si siden vi skal
-lage tresifrede tall, som gjør det til et ordnet utvalg med
+<li>Studenten kan peke på at det ikke sies noe om rollene i styret.
+Dermed er det naturlig å tenke at dette er et uordna utvalg. Det er
+heller ikke tilbakelegg siden vi trekker mellom personene og vi ikke kan
+velge samme person to ganger.</li>
+<li>Studenten kan peke på at det skal velges roller (ordna), men det
+skal være forskjellige personer (uten tilbakelegg).</li>
+<li>Studenten kan peke på at vi har 12 gutter å velge mellom, men kan
+ikke velge samme (uten tilbakelegg). Siden det kun er en gruppe er det
+naturlig å tolke at rekkefølgen ikke har noe å si (uordna)</li>
+<li>Studenten kan peke på at det skal gjøres fire valg, der de i hvert
+valg velger mellom å delta og å ikke delta (to muligheter). De trekker
+mellom disse mulighetene hver gang, så det er med tilbakelegg. I tillegg
+er rekkefølgen betydelig fordi det avgjør hva slags innhold studenten
+får (eller ikke får) i seminarene, altså ordna utvalg med
 tilbakelegg.</li>
-<li>Siden det er tre muligheter på hvert spørsmål kan en tenke at en på
-de åtte spørsmålene kan velge mellom 1, 2 og 3, noe som gir et utvalg
-med tilbakelegg. I tillegg bryr vi oss om rekkefølgen fordi vi ser et
-mulige besvarelser som kan gis på prøven. Dermed blir dette et ordnet
-utvalg med tilbakelegg.</li>
 </ol><h4 id="middels-avgjøre-om-utvalg-er-ordnet-eller-uordnet-og-om-det-er-med-eller-uten-tilbakelegg-17.04.23">Middels:
 Avgjøre om utvalg er ordnet eller uordnet og om det er med eller uten
 tilbakelegg, 17.04.23</h4><p>Avgjør om situasjonene under kan tenkes som ordnede eller uordnede
@@ -8741,16 +8753,29 @@ liter er tre ganger så mye, så det går en tredel så mange, altså <span clas
 Utføre formell omforming av brøk, Øveoppgaver</h4><ol type="1">
 <li><p>Regn ut.</p>
 <ol type="a">
-<li><p><span class="math inline">\(\frac{3}{2}\left( 7 + \frac{3\  + \
-\frac{1}{5}}{\frac{2}{3}} \right) - 1\)</span></p></li>
-<li><p><span class="math inline">\(\frac{\left( \frac{4}{7}\  \cdot \ 2\
-\frac{3}{5} \right)\  - \ 3}{\frac{2}{3}} + 8\)</span></p></li>
-<li><p><span class="math inline">\(\frac{\frac{4}{3}\  + \
+<li><span class="math inline">\(\frac{3}{2}\left( 7 + \frac{3\  + \
+\frac{1}{5}}{\frac{2}{3}} \right) - 1\)</span><br/>
+</li>
+<li><span class="math inline">\(\frac{\left( \frac{4}{7}\  \cdot \ 2\
+\frac{3}{5} \right)\  - \ 3}{\frac{2}{3}} + 8\)</span><br/>
+</li>
+<li><span class="math inline">\(\frac{\frac{4}{3}\  + \
 5}{\frac{3}{4}\  + \ \frac{3}{5}} + \frac{7}{2}\left( 1 - \frac{8}{3}
-\right)\)</span></p></li>
-<li><p><span class="math inline">\(\left( \frac{\left( 2\ \ :\
-\frac{2}{3} \right)\  \cdot \ \frac{3}{2}}{1\  + \ \frac{3}{2}} -
-\frac{4}{5} \right) \cdot (\frac{4}{5} - 2)\)</span></p></li>
+\right)\)</span><br/>
+</li>
+<li><span class="math inline">\(\left( \frac{\left( 2\ \ :\ \frac{2}{3}
+\right)\  \cdot \ \frac{3}{2}}{1\  + \ \frac{3}{2}} - \frac{4}{5}
+\right) \cdot (\frac{4}{5} - 2)\)</span><br/>
+</li>
+<li><span class="math inline">\(\frac{\frac{-3}{4}+\frac{1}{3}}{\frac{1}{6}}+
+2(\frac{5}{3}-\frac{2}{6})\)</span><br/>
+</li>
+<li><span class="math inline">\(\left(\frac{\left(\frac{1}{7}-\frac{1}{2}\right)}{\left(\frac{1}{2}+\frac{3}{7}\right)}\right)+
+2(\frac{1}{2}-\frac{8}{26})\)</span><br/>
+</li>
+<li><span class="math inline">\(\left(\frac{(2:\frac{1}{6})\cdot
+5}{2-\frac{4}{3}}- 10\right)\cdot
+(\frac{5}{8}-\frac{1}{2})\)</span></li>
 </ol></li>
 </ol><h5 id="løsningsforslag">Løsningsforslag</h5><ol type="1">
 <li><br/>
@@ -8803,10 +8828,53 @@ Utføre formell omforming av brøk, Øveoppgaver</h4><ol type="1">
 &amp; = {- \frac{6}{5}}
 \end{aligned}
 \]</span></li>
+<li><span class="math display">\[
+\begin{aligned}
+\frac{\frac{-3}{4}+\frac{1}{3}}{\frac{1}{6}}+ 2(\frac{5}{3}-\frac{2}{6})
+&amp; = \frac{\frac{-9+4}{12}}{\frac{1}{6}}+2(\frac{10-2}{6})
+\\
+&amp; =
+\frac{\frac{-5}{12}\cdot \frac{6}{1}}{\frac{1}{6}\frac{6}{1}}+2\cdot
+\frac{8}{6}
+\\
+&amp; =
+\frac{-5}{2}+\frac{16}{6} = \frac{-15+16}{6} = \frac{1}{6}
+\end{aligned}
+\]</span></li>
+<li><span class="math display">\[
+\begin{aligned}
+\left(\frac{\left(\frac{1}{7}-\frac{1}{2}\right)}{\left(\frac{1}{2}+\frac{3}{7}\right)}\right)+
+2(\frac{1}{2}-\frac{8}{26})
+&amp; =
+\frac{\frac{2-7}{14}}{\frac{7+6}{14}} +2(\frac{13-8}{26})
+\\
+&amp; =
+\frac{\frac{-5}{14}\cdot 14}{\frac{13}{14}\cdot 14} + \frac{5}{13}
+\\
+&amp; =
+\frac{-5}{13}+\frac{5}{13} = 0
+\end{aligned}
+\]</span></li>
+<li><span class="math display">\[
+\begin{aligned}
+\left(\frac{(2:\frac{1}{6})\cdot 5}{2-\frac{4}{3}}- 10\right)\cdot
+(\frac{5}{8}-\frac{1}{2})
+&amp; =
+\left(\frac{12\cdot 5}{\frac{6-4}{3}} - 10 \right)\cdot(\frac{5-4}{8})
+\\
+&amp; =
+\left(\frac{12\cdot 5\cdot 3}{\frac{2}{3}\cdot 3} - 10\right)\cdot
+\frac{1}{8}
+\\
+&amp; =
+\left(\frac{180}{2}- 10 \right)\cdot \frac{1}{8} = 80\cdot \frac{1}{8} =
+10
+\end{aligned}
+\]</span></li>
 </ol><h4 id="avansert-utføre-formell-omforming-av-brøk-24.04">Avansert:
 Utføre formell omforming av brøk, 24.04</h4><p>Regn ut.</p><ol type="a">
 <li><span class="math inline">\(((\frac{4}{5} + \frac{1}{\frac{7}{3}})
-\frac{1}{43})) \cdot 7 + \frac{4}{5}\)</span></li>
+\frac{1}{43}) \cdot 7 + \frac{4}{5}\)</span></li>
 <li><span class="math inline">\(\frac{1}{2} -
 \frac{\frac{4}{11}((\frac{8}{6} : \frac{1}{3}) +
 \frac{2}{5})}{\frac{4}{2,5}}\)</span></li>
