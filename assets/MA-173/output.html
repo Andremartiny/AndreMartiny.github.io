@@ -1879,7 +1879,7 @@ Finne rekursivt uttrykk for figurtall, 17.02.23</h4><p>Vis i en illustrasjon hvo
 finn rekursivt uttrykk for sekskanttallene <span class="math inline">\(H_n\)</span>, der <span class="math inline">\(H_1
 =1\)</span>, <span class="math inline">\(H_2 = 6\)</span> og <span class="math inline">\(H_3 = 15\)</span>: ved hjelp av strategien form på
 tillegg. ved hjelp av strategien differanse mellom eksplisitte uttrykk.
-Merk: Det eksplisitte uttrykket for bikubetallene er <span class="math inline">\(H_n = {n(2n-1)}\)</span>.</p><p>I begge oppgavene bes det om to teknikker. Se heftet for
+Merk: Det eksplisitte uttrykket for sekskanttallene er <span class="math inline">\(H_n = {n(2n-1)}\)</span>.</p><p>I begge oppgavene bes det om to teknikker. Se heftet for
 <em>differanse mellom eksplisitte uttrykk</em> og <em>form på
 tillegg</em>.</p><h4 id="vurderingskriterier-middels-17.02.23">Vurderingskriterier
 middels: 17.02.23</h4><p>Studenten må besvare alle spørsmålene med riktig teknikk. Her
@@ -2249,7 +2249,31 @@ sammenheng: <span class="math inline">\(n^{2} + 3n + 1\)</span>. Tips:
 Forsøk å omforme uttrykket slik at du finner uttrykk du kjenner fra før,
 sånn som trekanttall, kvadrattall eller kvadratsetninga. Hvor mange
 figurtall klarer du å lage?</p></li>
-</ol><h5 id="løsningsforslag">Løsningsforslag</h5><ol start="4" type="1">
+</ol><h5 id="løsningsforslag">Løsningsforslag</h5><ol type="1">
+<li><br/>
+</li>
+</ol><ol type="a">
+<li>Vi ser at vi må trekke fra et kvadrattall, så vi må dermed bruke de
+to trekanttallene våre til å kunne trekke fra kvadratet. Dette kan vi
+for eksempel illustrere på følgende måte</li>
+</ol><p><img src="/https://raw.githubusercontent.com/Andremartiny/MA-173/mainimg/2023-04-25-12-58-11.png"/></p><p>Der gul og grønn illustrerer trekanttallene og røde sirkler er det
+som skal trekkes vekk. Eller følgende måte</p><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/2023-04-25-12-58-27.png"/></p><p>Der gul og grønn illustrerer trekanttallene, men at vi har tatt vekk
+at kvadrattall fra det ene trekanttallet.</p><ol start="2" type="a">
+<li><p>Ved å stirre hard kan vi se i første figur at hvis vi ikke
+trekker vell kvadratet, så får vi et rektangel med størrelse <span class="math inline">\(n+2\)</span> og <span class="math inline">\(n+1\)</span>. Kvadratet vi trekker fra ser vi at
+har størrelse <span class="math inline">\((n-1)^2\)</span>, som gir
+uttrykket <span class="math inline">\((n+2)(n+1)-(n-1)^2\)</span>.</p></li>
+<li><p>Her må vi bare regne <span class="math display">\[
+\begin{aligned}
+2T_{n+1} - K_{n-1}
+&amp; =
+2\frac{(n+1)(n+2)}{2} - (n-1)^2
+\\
+&amp; =
+(n+2)(n+1)-(n-1)^2
+\end{aligned}
+\]</span></p></li>
+</ol><ol start="4" type="1">
 <li>Vi utnytter at vi vet at <span class="math inline">\(n^2 + 2n + 1 =
 (n+1)^2\)</span>. Vi kan derfor skrive om uttrykket som <span class="math inline">\(n^2 + 3n + 1 = n^2 + 2n + 1 +n =
 (n+1)^2+n\)</span>. Nå kan vi enkelt se at tillegget fra figur til figur
@@ -6082,7 +6106,7 @@ sidene hvis du får vite at:</p><ol type="1">
 6\)</span> og <span class="math inline">\(d = 4\)</span>.</li>
 <li><span class="math inline">\(a = \frac{1} {3}\)</span>, <span class="math inline">\(b = 4\)</span>, <span class="math inline">\(d=
 \frac{3}{2}\)</span> og <span class="math inline">\(f = 9\)</span>.</li>
-</ol><h5 id="vurderingskriterier-1">Vurderingskriterier</h5><ol type="1">
+</ol><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/2023-03-30-14-43-14.png"/></p><h5 id="vurderingskriterier-1">Vurderingskriterier</h5><ol type="1">
 <li>Studenten må bruke at <span class="math inline">\(c\)</span> og
 <span class="math inline">\(f\)</span> samsvarer. Dermed ser vi at
 forholdet mellom trekantene er <span class="math inline">\(3\)</span>.
@@ -6108,7 +6132,7 @@ skaleringsfaktoren mellom trekantene lik <span class="math inline">\(3\)</span>.
 og <span class="math inline">\(f\)</span> er de samsvarende sidene og at
 <span class="math inline">\(f\)</span> er tre ganger så stor som <span class="math inline">\(c\)</span>. Dermed er skaleringsfaktoren den
 samme. Det gir på samme måte som i 1. at <span class="math inline">\(a =
-3\)</span> og <span class="math inline">\(e = \frac{4}{3}\)</span>.</li>
+3\)</span> og <span class="math inline">\(e = 12\)</span>.</li>
 </ol></div>
 <div id="geo7g">
 <button onclick="moveDivsback('geo',  'geo7g')"> Tilbake til Måling og areal </button> <h4 id="grunnleggende-argumentere-visuelt-for-pytagoras-setning-øveoppgaver">Grunnleggende:
@@ -6368,7 +6392,7 @@ sannsynlighetsmodell, 17.04.23</h4><ol type="1">
 <li><p>La et forsøk ha utfallsrommet <span class="math inline">\(U = {
 u_1, u_2, u_3, u_4, u_5}\)</span>. Hvis <span class="math inline">\(P(\{u_1, u_2, u_3\}) = 0.6\)</span>, begrunn at
 <span class="math inline">\(P(\{u_3, u_4, u_5\}) = 0.7\)</span> må bety
-at <span class="math inline">\(P(u_3) = 0.15\)</span>.</p></li>
+at <span class="math inline">\(P(u_3) = 0.3\)</span>.</p></li>
 <li><p>Henrik var ute på parkeringsplassen på UiA på mandag, tirsdag og
 onsdag. På mandag registrerte han <span class="math inline">\(50\%\)</span> av bilene som en Tesla. På tirsdag
 var <span class="math inline">\(40\%\)</span> av de parkerte bilene en
@@ -6432,8 +6456,71 @@ Forklare og bruke begrepet uniform sannsynlighetsmodell, 17.04.23</h4><p>Forklar
 en uniform sannsynlighetsmodell.</p><h5 id="vurderingskriterier-1">Vurderingskriterier</h5><p>Studenten må gi en riktig forklaring, samt gi et eksempel.</p><h4 id="grunnleggende-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-31.03.23">Grunnleggende:
 Forklare og bruke begrepet uniform sannsynlighetsmodell, 31.03.23</h4><p>Forklar hva en uniform sannsynlighetsmodell er og gi et eksempel på
 en uniform sannsynlighetsmodell.</p><h5 id="vurderingskriterier-2">Vurderingskriterier</h5><p>Studenten må forklare begrepene og gi et eksempel.</p></div>
-<div id="sannsyn2n">
-<button onclick="moveDivsback('sannsyn',  'sannsyn2n')"> Tilbake til Sannsynlighet og kombinatorikk </button> </div>
+<div id="sannsyn2m">
+<button onclick="moveDivsback('sannsyn',  'sannsyn2m')"> Tilbake til Sannsynlighet og kombinatorikk </button> <h4 id="middels-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-øveppgaver">Middels:
+Forklare og bruke begrepet uniform sannsynlighetsmodell, Øveppgaver</h4><ol type="1">
+<li>Alfa 7.14</li>
+<li>7.15. Besvarelsen skal begrunnes ved å peke på definisjonen av en
+uniform sannsynlighetsmodell.</li>
+<li>Et forsøk skal utføres ved å kaste en mynt tre ganger og registrere
+om det blir kron eller mynt. Henrik setter opp utfallsrommet {tre
+kron,to kron og en mynt,en kron og to mynt,tre mynt}. Avgjør om dette
+gir opphav til en uniform sannsynlighetsmodell.</li>
+</ol><h5 id="løsningsforslag">Løsningsforslag</h5><ol start="3" type="1">
+<li><br/>
+Ved tre kast kan vi registrere hvert kast i rekkefølge. Det gir
+mulighetene</li>
+</ol><ul>
+<li><p>Kron, kron, kron</p></li>
+<li><p>Kron, kron, mynt</p></li>
+<li><p>Kron, mynt, kron</p></li>
+<li><p>Kron, mynt, mynt</p></li>
+<li><p>Mynt, kron, kron</p></li>
+<li><p>Mynt, kron, mynt</p></li>
+<li><p>Mynt, mynt, kron</p></li>
+<li><p>Mynt, mynt, mynt,</p></li>
+</ul><p>Totalt 8 mulige utfall. Siden hvert kast gir lik sannsynlighet for
+kron og mynt er dette utfallsrommet uniformt. Vi ser her at det er kun
+ett av de åtte tilfellene som gir kun tre kron, mens det er flere som
+gir nøyaktig to kron. Dermed kan ikke det opprinnelige utfallsrommet
+gitt i teksten gi opphav til en uniform</p><h4 id="middels-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-24.04.23">Middels:
+Forklare og bruke begrepet uniform sannsynlighetsmodell, 24.04.23</h4><p>Det er 21 studenter i klassen og de skal deles opp i 7 grupper som
+alle inneholder 3 studenter. Du trekker kort først og havner på gruppe
+1. Neste som trekker er bestevennen din. Det er 20 mulige kort igjen å
+trekke og to mulige plasser på din gruppe. Bestevennen din sier. Det er
+to mulige utfall, enten så trekker jeg gruppen din, eller så gjør jeg
+ikke det. I 10% av tilfellene kommer vi på gruppe, og i 90% av
+tilfellene gjør vi ikke det. Avgjør og begrunn om modellen som er satt
+opp er en uniform sannsynlighetsmodell.</p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må konkludere med at modellen ikke er en uniform
+sannsynlighetsmodell. Dette kan de enkelt gjøre ved å peke på at hvis
+det kun er to utfall i utfallsrommet, må det være <span class="math inline">\(50\%\)</span> sjans for hver av utfallene. Dette
+er det ikke i modellen som er satt opp.</p><h4 id="middels-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-17.04.23">Middels:
+Forklare og bruke begrepet uniform sannsynlighetsmodell, 17.04.23</h4><ol type="1">
+<li><p>André skal kaste en sekssidet terning. Han skal kaste terningen
+en gang og setter opp utfallsrommet <span class="math inline">\(\{1, 2,
+3, 4, 5, 6\}\)</span>. Avgjør om dette gir en uniform
+sannsynlighetsmodell.</p></li>
+<li><p>Avgjør og begrunn om det finnes noen sannsynlighetsmodell der
+<span class="math inline">\(P(u_3) = 0.15\)</span>.</p></li>
+</ol><h5 id="vurderingskriterier-1">Vurderingskriterier</h5><ol type="1">
+<li>Studenten må forklare at dette gir opphav til en uniform
+sannsynlighetsmodell ved å peke på at alle utfallene i utfallsrommet er
+like sannsynlige.</li>
+<li>Studenten må konkludere med at dette ikke går an. Dette kan man
+innse ved å se at siden <span class="math inline">\(0.15 =
+\frac{3}{20}\)</span>, og <span class="math inline">\(3\)</span> ikke
+går opp i <span class="math inline">\(20\)</span>, så vil det ikke
+finnes et heltall antall utfall som gjør at summen av sannsynlighetene
+blir <span class="math inline">\(1\)</span>.</li>
+</ol><h4 id="middels-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-31.03.23">Middels:
+Forklare og bruke begrepet uniform sannsynlighetsmodell, 31.03.23</h4><p>André skal kaste en firesidet terning, nummerert 1 til 4. Han skal
+kaste terningen tre ganger og ønsker å få flest enere. og setter opp
+utfallsrommet {tre enere, to enere , en ener, ingen enere}. Avgjør om
+dette gir opphav til en uniform sannsynlighetsmodell.</p><h5 id="vurderingskriterier-2">Vurderingskriterier</h5><p>Studenten må begrunne at dette ikke gir opphav til en uniform
+sannsynlighetsmodell. For eksempel kan studenten peke på at for hvert
+kast er det mer sannsynlig å noe annet enn en ener. Sluttresultatet må
+derfor være at det er mindre sannsynlig å få tre enere enn å få ingen
+enere. Dette betyr at det ikke er en uniform sannsynlighetsmodell.</p></div>
 <div id="sannsyn2a">
 <button onclick="moveDivsback('sannsyn',  'sannsyn2a')"> Tilbake til Sannsynlighet og kombinatorikk </button> <h4 id="avansert-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-øveppgaver">Avansert:
 Forklare og bruke begrepet uniform sannsynlighetsmodell, Øveppgaver</h4><ol type="1">
@@ -6863,24 +6950,26 @@ antall muligheter i utvalget
 <li>Du og dine venner har dratt til dyreparken og dere rekker tre turer
 med attraksjoner før dere må dra hjem. Dere kan velge mellom
 tømmerrenna, jungelboben og fyrtårnet. Hvor mange forskjellige
-turer</li>
+turer.</li>
 </ul></li>
 </ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><ol type="1">
 <li>Studenten må forklare at det er uordnet utvalg uten tilbakelegg ved
-å peke på at en trekker lag og at det ikke er noe rolle innad i laget.
-Dermed er det uordnet. Vi må også ha forskjellige elever på laget, som
-gir et utvalg uten tilbakelegg. For å finne antallet kan en først tenke
-at det er 3 valg, først 12 muligheter, så 11 og så 10. Altså <span class="math inline">\(12\cdot 11\cdot 10\)</span>. Deretter må de ta
-hensyn til overtellingen. Ved å tenke på for eksempel en gruppe på Arne,
-Bjarne og Dan, så ser vi at denne kan stokkes om på <span class="math inline">\(3\cdot 2\cdot 1\)</span> mulige måter. Vi
-overteller altså alle grupper med <span class="math inline">\(6\)</span>. Det gir at det er <span class="math inline">\(\frac{12\cdot11\cdot10}{6}=2\cdot 11\cdot 10 =
-220\)</span> mulige utvalg.</li>
-<li>Studenten kan peke på at det går å tenke på dette som fem valg, der
-en skal velge mellom en av de to guttene hver gang, altså med
-tilbakelegg. Når vi velger en gutt får han kjeks, men det er ikke noen
-forskjell på kjeksene, så det er derfor uordnet. Vi kan systematisere
-ved å kalle guttene for <span class="math inline">\(0\)</span> og <span class="math inline">\(1\)</span>. Da har vi mulighetene:<br/>
-00000, 00001, 00011, 00111, 01111, 11111, altså <span class="math inline">\(6\)</span> muligheter.</li>
+å peke på at vi har seks glass og kun tre av dem skal fylles.
+Rekkefølgen på når vi fyller glassene er ikke betydelig da det er
+personene som ikke får Cola som blir opprørt. I tillegg kan man ikke
+fylle ett glass flere ganger som gir uordna uten tilbakelegg. Hvis det
+var ordnet ville vi hatt <span class="math inline">\(6\cdot
+5\cdot4\)</span> muligheter (siden vi har 6 valg, så 5 valg, så 4 valg).
+Siden dette er uordnet må vi ta hensyn til overtelling. Siden hvert
+utvalg kan stokkes om på <span class="math inline">\(3\cdot 2\cdot
+1\)</span> måter kan vi dele på <span class="math inline">\(6\)</span>
+og få <span class="math inline">\(20\)</span> muligheter.</li>
+<li>Studenten kan peke på at det går å tenke på dette som tre valg, der
+en skal velge mellom en av de tre attraksjonene hver gang, altså med
+tilbakelegg. Når vi velger en attraksjon, men det er ikke noen forskjell
+på rekkefølgen vi gjør de i. Vi kan systematisere ved å kalle
+attraksjonene for <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> og <span class="math inline">\(2\)</span>. Da har vi mulighetene:<br/>
+000, 001, 002, 011, 012, 022, 111, 112, 122, 222, altså <span class="math inline">\(10\)</span> muligheter.</li>
 </ol><h4 id="middels-forklare-og-bruke-begrepene-uordnet-utvalg-med-og-uten-tilbakelegg-17.04.23">Middels:
 Forklare og bruke begrepene uordnet utvalg med og uten tilbakelegg,
 17.04.23</h4><ol type="1">
@@ -8643,10 +8732,10 @@ produktet av to brøker.</p></li>
 <li><p>Må vise til struktur, ikke bare at «svarene» er like, slik som i
 eks under (feil tall, bare). Kvadratene er 1, grønn del 2/5. Figuren kan
 leses som <em>2/5 gjentatt tre ganger,</em> altså 3 ⋅ 2/5. Den kan også
-leses som <em>2/5 av tre,</em> altså 2/5 ⋅ 3. <img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img//tal/24.04media/media/image1.png"/></p></li>
+leses som <em>2/5 av tre,</em> altså 2/5 ⋅ 3. <img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img//tall/24.04media/media/image1.png"/></p></li>
 <li><p>Må vise til en figur som for eksempel den under (2/3 ⋅
 4/5):</p></li>
-</ol><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img//tal/24.04media/media/image2.png"/></p><h4 id="middels-utføre-multiplikasjon-med-brøk-17.04.23">Middels: Utføre
+</ol><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img//tall/24.04media/media/image2.png"/></p><h4 id="middels-utføre-multiplikasjon-med-brøk-17.04.23">Middels: Utføre
 multiplikasjon med brøk, 17.04.23</h4><ol type="1">
 <li><p>Forklar ved hjelp av en passende illustrasjon at <span class="math inline">\(3 \cdot \frac{2}{5} = \frac{2}{5} \cdot
 3\)</span>.</p></li>
@@ -8911,7 +9000,7 @@ tideler (altså mer enn det igjen).</li>
 1,20 | 2,05 | 1,008 | 0,65 | 3,204</li>
 <li>1.67</li>
 </ol><ol type="1">
-<li><span class="math inline">\(1\frac{7}{10} = 1,7\)</span></li>
+<li>(1 = 1,7)</li>
 <li><span class="math inline">\(\frac{4}{10} = 0,4\)</span></li>
 <li><span class="math inline">\(\frac{2}{10} + \frac{3}{100} =
 0,23\)</span></li>
