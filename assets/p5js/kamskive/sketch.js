@@ -19,7 +19,8 @@ for (let i = 0; i < 90; i++) {
 let ektefigur = [];
 
 function setup() {
-  createCanvas(400, 400);
+  var canvas = createCanvas(400, 400);
+  canvas.parent("canvasForHTML");
   for (let i = 0; i < 360; i++) {
     ektefigur.push([
       figur[i] * cos(((i + sentrum[0]) * 2 * PI) / 360),

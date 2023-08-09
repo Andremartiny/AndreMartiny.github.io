@@ -11,7 +11,8 @@ let sentrum = [canvasbredde*0.5, (canvashoyde-topplassering- folgerlengde)+3*tre
   let sjekk = false;
 
 function setup() {
-  createCanvas(canvasbredde, canvashoyde);
+  var canvas = createCanvas(canvasbredde, canvashoyde);
+  canvas.parent("canvasForHTML");
 }
 
 function draw() {
