@@ -16,7 +16,7 @@ function setup() {
 
 function draw() {
   syklus = (syklus +1) % 360;
-  background(220);
+  background(255);
   strokeWeight(5);
   fill(200);
 circle(sentrum[0], sentrum[1], 10)

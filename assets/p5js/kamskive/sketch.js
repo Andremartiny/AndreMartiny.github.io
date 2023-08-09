@@ -32,7 +32,7 @@ function setup() {
 function draw() {
   let flytt_front_bak = figur.shift();
   figur.push(flytt_front_bak);
-  background(220);
+  background(255);
   stroke('rgba(0,0,0,0.09)');
   strokeWeight(2);
   for (let i = 0; i < 359; i++) {
