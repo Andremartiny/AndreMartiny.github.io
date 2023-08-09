@@ -127,7 +127,7 @@ tr:nth-child(even){
 <article onclick="moveDivs('mainpage', 'likn')"><h2>Likninger og ulikheter</h2> <section><h2 class="loadingbar" id="liknloading" style="width: 73.91304347826086%;">73.913%</h2></section></article>
 <article onclick="moveDivs('mainpage', 'geo')"><h2>Måling og areal</h2> <section><h2 class="loadingbar" id="geoloading" style="width: 42.30769230769231%;">42.308%</h2></section></article>
 <article onclick="moveDivs('mainpage', 'tall')"><h2>Tall</h2> <section><h2 class="loadingbar" id="tallloading" style="width: 50.0%;">50.0%</h2></section></article>
-<article onclick="moveDivs('mainpage', 'sannsyn')"><h2>Sannsynlighet og kombinatorikk</h2> <section><h2 class="loadingbar" id="sannsynloading" style="width: 35.0%;">35.0%</h2></section></article>
+<article onclick="moveDivs('mainpage', 'sannsyn')"><h2>Sannsynlighet og kombinatorikk</h2> <section><h2 class="loadingbar" id="sannsynloading" style="width: 62.5%;">62.5%</h2></section></article>
 </div>
 <div id="tallteori">
 <button onclick="moveDivsback('mainpage', 'tallteori')">Tilbake til tema</button>
@@ -467,7 +467,7 @@ tr:nth-child(even){
 <tr>
 <td>Forklare og bruke begrepene utfallsrom, utfall og hendelse og sannsynlighetsmodell</td>
 <td onclick="moveDivs('sannsyn','sannsyn1g')" style="background-color: rgb(198, 224, 180);">Grunnleggende</td>
-<td onclick="moveDivs('sannsyn','sannsyn1m')" style="background-color: rgb(248, 203, 173);">Middels</td>
+<td onclick="moveDivs('sannsyn','sannsyn1m')" style="background-color: rgb(198, 224, 180);">Middels</td>
 <td style="background-color: rgb(242, 242, 242);"></td>
 </tr>
 <tr>
@@ -484,8 +484,8 @@ tr:nth-child(even){
 </tr>
 <tr>
 <td>Forklare, illustrere og bruke produktregelen</td>
-<td onclick="moveDivs('sannsyn','sannsyn4g')" style="background-color: rgb(248, 203, 173);">Grunnleggende</td>
-<td onclick="moveDivs('sannsyn','sannsyn4m')" style="background-color: rgb(248, 203, 173);">Middels</td>
+<td onclick="moveDivs('sannsyn','sannsyn4g')" style="background-color: rgb(198, 224, 180);">Grunnleggende</td>
+<td onclick="moveDivs('sannsyn','sannsyn4m')" style="background-color: rgb(198, 224, 180);">Middels</td>
 <td style="background-color: rgb(242, 242, 242);"></td>
 </tr>
 <tr>
@@ -496,8 +496,8 @@ tr:nth-child(even){
 </tr>
 <tr>
 <td>Forklare og bruke begrepene uordnet utvalg med og uten tilbakelegg.</td>
-<td onclick="moveDivs('sannsyn','sannsyn6g')" style="background-color: rgb(248, 203, 173);">Grunnleggende</td>
-<td onclick="moveDivs('sannsyn','sannsyn6m')" style="background-color: rgb(248, 203, 173);">Middels</td>
+<td onclick="moveDivs('sannsyn','sannsyn6g')" style="background-color: rgb(198, 224, 180);">Grunnleggende</td>
+<td onclick="moveDivs('sannsyn','sannsyn6m')" style="background-color: rgb(198, 224, 180);">Middels</td>
 <td style="background-color: rgb(242, 242, 242);"></td>
 </tr>
 <tr>
@@ -514,8 +514,8 @@ tr:nth-child(even){
 </tr>
 <tr>
 <td>Forklare, illustrere og bruke komplementsetningen.</td>
-<td onclick="moveDivs('sannsyn','sannsyn9g')" style="background-color: rgb(248, 203, 173);">Grunnleggende</td>
-<td onclick="moveDivs('sannsyn','sannsyn9m')" style="background-color: rgb(248, 203, 173);">Middels</td>
+<td onclick="moveDivs('sannsyn','sannsyn9g')" style="background-color: rgb(198, 224, 180);">Grunnleggende</td>
+<td onclick="moveDivs('sannsyn','sannsyn9m')" style="background-color: rgb(198, 224, 180);">Middels</td>
 <td onclick="moveDivs('sannsyn','sannsyn9a')" style="background-color: rgb(248, 203, 173);">Avansert</td>
 </tr>
 <tr>
@@ -707,11 +707,14 @@ faktor, multiplum, felles multiplum og minste felles multiplum,
 faktor 3.</p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må gi en forklaring som begrunner påstanden. Dette kan
 gjøres på flere måter (generisk eksemplel med/uten figur, formelt etc).
 Et formelt argument er for eksempel at en vilkårlig prddukt av tre
-påfølgende tall kan skrives som (n(n+1)(n+2)), der (n) er et naturlig
-tall større enn 1. Det gjenstår nå bare å peke på at hvis (n) er i
-tregangen så er det klart at faktoren 3 inngår. Hvis (n) ikke er i
+påfølgende tall kan skrives som <span class="math inline">\(n\cdot
+(n+1)\cdot (n+2)\)</span>, der <span class="math inline">\(n\)</span> er
+et naturlig tall større enn 1. Det gjenstår nå bare å peke på at hvis
+<span class="math inline">\(n\)</span> er i tregangen så er det klart at
+faktoren 3 inngår. Hvis <span class="math inline">\(n\)</span> ikke er i
 tregangen, så er den enten én under eller to under. Er den én under, så
-vil (n+1) være i tregangen, er den to under vil (n+2) være i tregangen.
+vil <span class="math inline">\(n+1\)</span> være i tregangen, er den to
+under vil <span class="math inline">\(n+2\)</span> være i tregangen.
 Uansett, vil ett av de tre påfølgende tallene være i tregangen.</p><h4 id="middels-bruke-begrepene-faktor-divisor-felles-faktor-og-største-felles-faktor-multiplum-felles-multiplum-og-minste-felles-multiplum-08.05">Middels:
 Bruke begrepene faktor (divisor), felles faktor og største felles
 faktor, multiplum, felles multiplum og minste felles multiplum,
@@ -848,33 +851,31 @@ tall har derfor felles faktorer <span class="math inline">\(2\)</span>,
 Bruke begrepene faktor (divisor), felles faktor og største felles
 faktor, multiplum, felles multiplum og minste felles multiplum,
 12.05</h4><p>Undersøk og begrunn følgende påstander.</p><ol type="1">
-<li><em>Hvis vi har ulike tall (a) og (b) med største felles faktor (f),
-så vil (a-b) også ha felles faktor (f)</em></li>
-<li><em>Hvis (a) er større enn (b) og (b) er større enn (a-b), så vil
-(b- (a-b)) også ha felles faktor (f).</em></li>
+<li><em>Hvis vi har ulike tall <span class="math inline">\(a\)</span> og
+<span class="math inline">\(b\)</span> med største felles faktor <span class="math inline">\(f\)</span>, så vil <span class="math inline">\(a-b\)</span> også ha felles faktor <span class="math inline">\(f\)</span></em></li>
+<li><em>Hvis <span class="math inline">\(a\)</span> er større enn <span class="math inline">\(b\)</span> og <span class="math inline">\(b\)</span> er større enn <span class="math inline">\(a-b\)</span>, så vil <span class="math inline">\(b- (a-b)\)</span> også ha felles faktor <span class="math inline">\(f\)</span>.</em></li>
 <li><em>Hvis vi fortsetter slik som i 1. og 2., ved å ta de to minste
 tallene og se på differansen, vil vi alltid produsere nye tall med
-faktor (f) helt til de to minste tallene blir like store (og lik
-(f)).</em></li>
+faktor <span class="math inline">\(f\)</span> helt til de to minste
+tallene blir like store (og lik <span class="math inline">\(f\)</span>).</em></li>
 </ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten bør undersøke påstanden og deretter komme med en
-overbevisende forklaring. Ved å underøske noen eksempler, (a= 30) og
-(b=21), som har største felles faktor 3, ser vi at (a-b = 9) og (b-(a-b)
-= 21-9 = 12). Dette var steg 1. og 2. Fortsetter vi med de to minste
-tallene (9) og (12) får vi (12-9 = 3), som gir (9-3 = 6) som gir (6-3 =
-3) og vi har nå fått to like tall som er faktoren (f). At (a-b) har
-faktor (f) kan de argumentere for ved å for eksempel peke på et generisk
-eksempel som (30) og (21) og si at siden (3) er felles faktor så kan vi
-skrive (30 = 3) og (21 = 3), dermed blir differansen (3(10-7)) som
-åpenbart fortsatt inneholder faktoren (3). Det er ingenting unikt med
-(30) og (21). Det eneste viktige her er at vi kan faktorisere ut
-faktoren i differansen, noe vi alltid vil kunne gjøre. Vi ser nå at
-påstand 2. følger direkte fra begrunnelsen av påstand 1. Siden påstand
-1. og 2. viser at vi bare kan fortsette og fortsette uten å miste
-faktoren (f), så er det tydelig at vi får mindre og mindre tall, alle
-med faktor (f). Til slutt må ett av tallene bli så små at de er mindre
-eller lik (f), men de kan ikke være mindre, siden alle tall mindre enn
-(f) ikke inneholder faktoren (f). Dermed står vi nå med to tall, ett som
-<em>er</em> (f) og ett som er et multiplum av (f). Dermed følger siste
+overbevisende forklaring. Ved å underøske noen eksempler, <span class="math inline">\(a= 30\)</span> og <span class="math inline">\(b=21\)</span>, som har største felles faktor 3,
+ser vi at <span class="math inline">\(a-b = 9\)</span> og <span class="math inline">\(b-(a-b) = 21-9 = 12\)</span>. Dette var steg 1. og
+2. Fortsetter vi med de to minste tallene <span class="math inline">\(9\)</span> og <span class="math inline">\(12\)</span> får vi <span class="math inline">\(12-9 = 3\)</span>, som gir <span class="math inline">\(9-3 = 6\)</span> som gir <span class="math inline">\(6-3 = 3\)</span> og vi har nå fått to like tall
+som er faktoren <span class="math inline">\(f\)</span>. At <span class="math inline">\(a-b\)</span> har faktor <span class="math inline">\(f\)</span> kan de argumentere for ved å for
+eksempel peke på et generisk eksempel som <span class="math inline">\(30\)</span> og <span class="math inline">\(21\)</span> og si at siden <span class="math inline">\(3\)</span> er felles faktor så kan vi skrive <span class="math inline">\(30 = 3\cdot 10\)</span> og <span class="math inline">\(21 = 3\cdot 7\)</span>, dermed blir differansen
+<span class="math inline">\(3(10-7)\)</span> som åpenbart fortsatt
+inneholder faktoren <span class="math inline">\(3\)</span>. Det er
+ingenting unikt med <span class="math inline">\(30\)</span> og <span class="math inline">\(21\)</span>. Det eneste viktige her er at vi kan
+faktorisere ut faktoren i differansen, noe vi alltid vil kunne gjøre. Vi
+ser nå at påstand 2. følger direkte fra begrunnelsen av påstand 1. Siden
+påstand 1. og 2. viser at vi bare kan fortsette og fortsette uten å
+miste faktoren <span class="math inline">\(f\)</span>, så er det tydelig
+at vi får mindre og mindre tall, alle med faktor <span class="math inline">\(f\)</span>. Til slutt må ett av tallene bli så små
+at de er mindre eller lik <span class="math inline">\(f\)</span>, men de
+kan ikke være mindre, siden alle tall mindre enn <span class="math inline">\(f\)</span> ikke inneholder faktoren <span class="math inline">\(f\)</span>. Dermed står vi nå med to tall, ett som
+<em>er</em> <span class="math inline">\(f\)</span> og ett som er et
+multiplum av <span class="math inline">\(f\)</span>. Dermed følger siste
 del av argumentet også direkte.</p><h4 id="avansert-bruke-begrepene-faktor-divisor-felles-faktor-og-største-felles-faktor-multiplum-felles-multiplum-og-minste-felles-multiplum-08.05">Avansert:
 Bruke begrepene faktor (divisor), felles faktor og største felles
 faktor, multiplum, felles multiplum og minste felles multiplum,
@@ -1261,23 +1262,26 @@ tilsvarende situasjon, så vil vi aldri kunne lage en sum som blir 0.
 </ol><h4 id="avansert-bruke-begrepene-naturlig-tall-partall-og-oddetall-primtall-og-sammensatt-tall-12.05">Avansert:
 Bruke begrepene naturlig tall, partall og oddetall, primtall og
 sammensatt tall, 12.05</h4><p>Undersøk og begrunn følgende påstander.</p><ol type="1">
-<li><em>Hvis vi har en liste med forskjellige primtall (L ={p_1, p_2,
-p_3, , p_n}) og vi ser på produktet (a=p_1p_2p_n+1), så vil (a) ikke
-være delelig med noen av primtallene i listen (L).</em></li>
-<li><em>(a) må enten være et primtall som ikke er i (L), eller et
-sammensatt tall bestående av et primtall som ikke er i (L).</em></li>
+<li><em>Hvis vi har en liste med forskjellige primtall <span class="math inline">\(L =\{p_1, p_2, p_3, \ldots, p_n\}\)</span> og vi
+ser på produktet <span class="math inline">\(a=p_1\cdot
+p_2\cdot\ldots\cdot p_n+1\)</span>, så vil <span class="math inline">\(a\)</span> ikke være delelig med noen av
+primtallene i listen <span class="math inline">\(L\)</span>.</em></li>
+<li><em><span class="math inline">\(a\)</span> må enten være et primtall
+som ikke er i <span class="math inline">\(L\)</span>, eller et
+sammensatt tall bestående av et primtall som ikke er i <span class="math inline">\(L\)</span>.</em></li>
 <li><em>Vi kan derfor enkelt generere nye primtall, noe som betyr at det
 finnes uendelig mange primtall.</em></li>
-</ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må begrunne påstandene 1. Siden (p_1) deler (a-1) så kan
-ikke (p_1) dele (a = (a-1)+1), siden (p_1) ikke deler (1). Dette
-argumentet gjelder også for (p_2), (p_3) og resten av primtallene i
-lista (L). 2. Siden ingen av primtallene i listen deler (a), så må det
-finnes et primtall, som ikke er i listen, som deler (a). Enten så er det
-(a), ellers må det være et primtall mindre enn (a), som betyr at (a) er
-et sammensatt tall. 3. Vi kan se fra 1. og 2. at vi kan fortsette å
-generere nye primtall ved å gjenta argumentene fra 1. og 2. igjen og
-igjen. Siden vi kan fortsette for evig må det også finnes uendelig mange
-primtall</p><h4 id="avansert-bruke-begrepene-naturlig-tall-partall-og-oddetall-primtall-og-sammensatt-tall-08.05">Avansert:
+</ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må begrunne påstandene 1. Siden <span class="math inline">\(p_1\)</span> deler <span class="math inline">\(a-1\)</span> så kan ikke <span class="math inline">\(p_1\)</span> dele <span class="math inline">\(a =
+(a-1)+1\)</span>, siden <span class="math inline">\(p_1\)</span> ikke
+deler <span class="math inline">\(1\)</span>. Dette argumentet gjelder
+også for <span class="math inline">\(p_2\)</span>, <span class="math inline">\(p_3\)</span> og resten av primtallene i lista
+<span class="math inline">\(L\)</span>. 2. Siden ingen av primtallene i
+listen deler <span class="math inline">\(a\)</span>, så må det finnes et
+primtall, som ikke er i listen, som deler <span class="math inline">\(a\)</span>. Enten så er det <span class="math inline">\(a\)</span>, ellers må det være et primtall mindre
+enn <span class="math inline">\(a\)</span>, som betyr at <span class="math inline">\(a\)</span> er et sammensatt tall. 3. Vi kan se fra
+1. og 2. at vi kan fortsette å generere nye primtall ved å gjenta
+argumentene fra 1. og 2. igjen og igjen. Siden vi kan fortsette for evig
+må det også finnes uendelig mange primtall</p><h4 id="avansert-bruke-begrepene-naturlig-tall-partall-og-oddetall-primtall-og-sammensatt-tall-08.05">Avansert:
 Bruke begrepene naturlig tall, partall og oddetall, primtall og
 sammensatt tall, 08.05</h4><p>Alle naturlige tall kan beskrives relativ til et tall i fire-gangen.
 Noen tall er i fire-gangen (<span class="math inline">\(4, 8,\ldots,
@@ -2352,9 +2356,9 @@ figurtallsnummeret (figur 1 har trekanter med størrelse 2, figur 2 har
 trekanter med størrelse 3 osv). Den siste komponenten er et kvadrat i
 midten som mangler sidene (men ikke hjørnene), også kvadratet er én
 større enn figurtallsnummeret (se figurer under).</li>
-<li>Fra 1. kan vi peke på at hvis vi skal gå fra figurtallnumer (n) til
-å lage neste figur så må øke de tre komponentene på følgende måte: vi
-legge på sidelenger med størrelse (n+2) på de to trekantene. På
+<li>Fra 1. kan vi peke på at hvis vi skal gå fra figurtallnumer <span class="math inline">\(n\)</span> til å lage neste figur så må øke de tre
+komponentene på følgende måte: vi legge på sidelenger med størrelse
+<span class="math inline">\(n+2\)</span> på de to trekantene. På
 kvadratet må vi fylle sidene og legge til “ytre hjørner” (eventuelt må
 vi bare flytte de fire hjørnene ut og legge til rammen).</li>
 </ol><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/tallteo/figurtall1205.drawio%20copy.svg"/></p><h4 id="grunnleggende-beskrive-oppbygningen-av-figurtall-alle-typer-08.05">Grunnleggende:
@@ -2708,8 +2712,7 @@ Beskrive oppbygningen av figurtall (alle typer), 12.05</h4><p>Du får vite at et
 = 14\)</span> og <span class="math inline">\(F_5 = 22\)</span>.</p><p>Lag en figur som følger mønsteret til <span class="math inline">\(F_n\)</span>. Det er nok å illustrere <span class="math inline">\(F_1\)</span>, <span class="math inline">\(F_2\)</span> og <span class="math inline">\(F_3\)</span>, så lengde det får fram mønsteret.
 Vis og forklar sammenhengen mellom tallrekken og figurene rekursivt.
 Finn en eksplisitt formel på to forskjellige måter.</p><h5 id="vuderingskriterier">Vuderingskriterier</h5><p>Vi begynner med å analysere utviklingen av tallrekka. Vi ser at
-økningen er (2), så (4) og så (6). Tilleggene øker altså med (2). Dermed
-kan vi skrive <span class="math display">\[
+økningen er <span class="math inline">\(2\)</span>, så <span class="math inline">\(4\)</span> og så <span class="math inline">\(6\)</span>. Tilleggene øker altså med <span class="math inline">\(2\)</span>. Dermed kan vi skrive <span class="math display">\[
 \begin{aligned}
 F_1 &amp; = 2
 \\
@@ -7504,17 +7507,16 @@ u_{1},u_{2},u_{3}\} \right) = 1 = P\left( u_{1} \right) + P\left( u_{2}
 \right) + P\left( u_{3} \right) = P(u_{3})+0.5\)</span> får vi at <span class="math inline">\(P\left( u_{3} \right) = 0.5\)</span>.</p><h4 id="middels-forklare-og-bruke-begrepene-utfallsrom-utfall-og-hendelse-og-sannsynlighetsmodell-12.05">Middels:
 Forklare og bruke begrepene utfallsrom, utfall og hendelse og
 sannsynlighetsmodell, 12.05</h4><ol type="1">
-<li><p>Hva er galt med denne sannsynlighetsmodellen? (U = {u_1, u_2,
-u_3} ), (P(u_1) = 0,2), (P(u_2) = 0,3) og (P({u_3}) = 0.4)?</p></li>
-<li><p>La et forsøk ha et utfallsrom (U = { u_1, u_2, u_3, u_4} ), slik
-at (P({u_1,u_3}) = 0.6) og (P({u_2, u_3}) = 0.7). Kan (P(u_3) =
-0.5)?</p></li>
+<li><p>Hva er galt med denne sannsynlighetsmodellen? <span class="math inline">\(U = \{u_1, u_2, u_3\}\)</span>, <span class="math inline">\(P(u_1) = 0,2\)</span>, <span class="math inline">\(P(u_2) = 0,3\)</span> og <span class="math inline">\(P(\{u_3\}) = 0.4\)</span>?</p></li>
+<li><p>La et forsøk ha et utfallsrom <span class="math inline">\(U = {
+u_1, u_2, u_3, u_4}\)</span>, slik at <span class="math inline">\(P(\{u_1,u_3\}) = 0.6\)</span> og <span class="math inline">\(P(\{u_2, u_3\}) = 0.7\)</span>. Kan <span class="math inline">\(P(u_3) = 0.5\)</span>?</p></li>
 </ol><h5 id="vurderingskriterier">Vurderingskriterier</h5><ol type="1">
-<li>Studenten må peke på at det kun er en sannsynlighetsmodell hvis (1 =
-P({u_1, u_2, u_3}) = P(u_1) + P(u_2) + P(u_3) = 0.2+0.3+0.4 = 0.9), men
-(1) er jo ikke lik (0.9).</li>
+<li>Studenten må peke på at det kun er en sannsynlighetsmodell hvis
+<span class="math inline">\(1 = P(\{u_1, u_2, u_3\}) = P(u_1) + P(u_2) +
+P(u_3) = 0.2+0.3+0.4 = 0.9\)</span>, men <span class="math inline">\(1\)</span> er jo ikke lik <span class="math inline">\(0.9\)</span>.</li>
 <li>Studenten må undersøke og begrunne (for eksempel ved å gi et konkret
-tilfelle) at det er mulig at (P(u_3) = 0.5).</li>
+tilfelle) at det er mulig at <span class="math inline">\(P(u_3) =
+0.5\)</span>.</li>
 </ol><h4 id="middels-forklare-og-bruke-begrepene-utfallsrom-utfall-og-hendelse-og-sannsynlighetsmodell-08.05">Middels:
 Forklare og bruke begrepene utfallsrom, utfall og hendelse og
 sannsynlighetsmodell, 08.05</h4><ol type="1">
@@ -7678,8 +7680,9 @@ dame, konge og ess) og 36 vanlige kort (kort fra 2 til 10). Henrik
 setter opp et utfallstre, slik du kan se på bildet under. På
 utfallstreet har han market at i første omgang kan han få 1 til 6. I
 neste omgang kan han få enten bildekort eller et kort fra 2 til 10. Det
-gir totalt (6 = 12) grener i treet. Forklar hvorfor disse 12 utfallene
-ikke vil gi opphav til en uniform sannsynlighetsmodell.</p><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/sannsyn/uniform1205sannsyn.svg"/></p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må peke på problemet med modellen, nemlig at i andre del av
+gir totalt <span class="math inline">\(6\cdot 2 = 12\)</span> grener i
+treet. Forklar hvorfor disse 12 utfallene ikke vil gi opphav til en
+uniform sannsynlighetsmodell.</p><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/sannsyn/uniform1205sannsyn.svg"/></p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må peke på problemet med modellen, nemlig at i andre del av
 utvelgingen, så er det flere kort som ikke er bildekort enn de som er
 bildekort. Hvis vi antar at alle kortene er like sannsynlige å trekke
 vil det dermed være mer sannsynlig å slå en ener på terningen og
@@ -7770,8 +7773,8 @@ kortstokk inneholder 16 bildekort (knekt, dame, konge og ess) og 36
 vanlige kort (kort fra 2 til 10). Henrik setter opp et utfallstre, slik
 du kan se på bildet under. På utfallstreet har han market at i første
 omgang kan han få 1 til 6. I neste omgang kan han få enten bildekort
-eller et kort fra 2 til 10. Det gir totalt (6 = 12) grener i treet.
-Forklar hvorfor disse 12 utfallene ikke vil gi opphav til en uniform
+eller et kort fra 2 til 10. Det gir totalt <span class="math inline">\(6\cdot 2 = 12\)</span> grener i treet. Forklar
+hvorfor disse 12 utfallene ikke vil gi opphav til en uniform
 sannsynlighetsmodell.</em></p><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/sannsyn/uniform1205sannsyn.svg"/></p><p>I oppgaven over er det gitt et utfallstre som ikke gir opphav til en
 uniform sannsynlighetsmodell. Gjør nødvendige endringer for å lage en
 uniform sannsynlighetsmodell som viser hva sannsynligheten er for å slå
@@ -7779,13 +7782,14 @@ en treer eller sekser og samtidig få et bildekort.</p><h5 id="vurderingskriteri
 sannsynlighetsmodell som hjelper de å beregne sannsynligheten. Dette kan
 for eksempel gjøres ved å peke på at i andre del av utvelgelsen så er
 det 13 mulige verdier man kan få (som alle er like sannsynlige), men at
-det kun er fire av de som er bildekort. Dermed er det (6) mulige utfall
-ved terningkastet og så (13) muligheter ved korttrekningen. Det gir
-totalt (6) muligheter som har lik sannsynlighet for å skje. Det er
-derimot kun 2 gunstige i første omgang og for hver av de to mulige
-utfallene (kaste 3’er eller 6’er), så er det 4 gunstige utfall (trekke
-bildekort). Det gir dermed (2 = 8) gunstige muligheter. Sannsynligheten
-blir dermed ().</p><h4 id="avansert-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-08.05">Avansert:
+det kun er fire av de som er bildekort. Dermed er det <span class="math inline">\(6\)</span> mulige utfall ved terningkastet og så
+<span class="math inline">\(13\)</span> muligheter ved korttrekningen.
+Det gir totalt <span class="math inline">\(6\cdot 13\)</span> muligheter
+som har lik sannsynlighet for å skje. Det er derimot kun 2 gunstige i
+første omgang og for hver av de to mulige utfallene (kaste 3’er eller
+6’er), så er det 4 gunstige utfall (trekke bildekort). Det gir dermed
+<span class="math inline">\(2\cdot 4 = 8\)</span> gunstige muligheter.
+Sannsynligheten blir dermed <span class="math inline">\(\frac{8}{78}\)</span>.</p><h4 id="avansert-forklare-og-bruke-begrepet-uniform-sannsynlighetsmodell-08.05">Avansert:
 Forklare og bruke begrepet uniform sannsynlighetsmodell, 08.05</h4><p>Det er 18 personer i en klasse. Det skal velges ut tre elever som
 skal være i elevrådet og alle tre skal trekkes tilfeldig. Henrik vil
 veldig gjerne være med i elevrådet. Sett opp en uniform
@@ -8698,11 +8702,12 @@ addisjonsprinsippet at antallet er <span class="math inline">\(45+45+5 =
 </ol></li>
 <li>Studenten kan tegne opp et Venn-diagram som under og argumentere ved
 hjelp av dette. Vi ser at å inneholde enten minst én ener eller minst én
-toer (eller begge) er (1000-512 = 488). Vi ser også at hvis vi tar
-(271+271), så vil vi overtelle snittet mellom de to mengdene tegnet på.
-Siden addisjonsprinsippet tilsier at (271+271 - ) gir oss antall mengder
-i unionen og at dette skal bli (488), så må snittet være (542-488 = 52).
-Siden det er denne mengden vi er ute etter har vi nå svaret.</li>
+toer (eller begge) er <span class="math inline">\(1000-512 =
+488\)</span>. Vi ser også at hvis vi tar <span class="math inline">\(271+271\)</span>, så vil vi overtelle snittet
+mellom de to mengdene tegnet på. Siden addisjonsprinsippet tilsier at
+<span class="math inline">\(271+271 - \text{ snittet }\)</span> gir oss
+antall mengder i unionen og at dette skal bli <span class="math inline">\(488\)</span>, så må snittet være <span class="math inline">\(542-488 = 52\)</span>. Siden det er denne mengden
+vi er ute etter har vi nå svaret.</li>
 </ol><p><img src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/sannsyn/%C3%B8vingl%C3%A5ser.svg"/></p><h4 id="avansert-forklare-illustrere-og-bruke-addisjonssetningen-for-sannsynlighet-og-kombinatorikk-12.05">Avansert:
 Forklare, illustrere og bruke addisjonssetningen (for sannsynlighet og
 kombinatorikk), 12.05</h4><p>André har en tresifret kombinasjon på sykkellåsen sin. Du får vite at
@@ -8758,8 +8763,7 @@ Forklare, illustrere og bruke komplementsetningen, Øveppgaver</h4><ul>
 <li>Alfa 7.70</li>
 </ul><h4 id="middels-forklare-illustrere-og-bruke-komplementsetningen-12.05">Middels:
 Forklare, illustrere og bruke komplementsetningen, 12.05</h4><p>Du skal spiller et kortspill og er interessert i sannsynligheten for
-hendelse (A). Du får vite at (P(A^C) = 0.9). Hva er (P(A))?</p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må bare bruke komplementsetningen til å peke på at (P(A) +
-P(A^C) = 1), noe som gir at (P(A) = 0.1).</p><h4 id="middels-forklare-illustrere-og-bruke-komplementsetningen-08.05">Middels:
+hendelse <span class="math inline">\(A\)</span>. Du får vite at <span class="math inline">\(P(A^C) = 0.9\)</span>. Hva er <span class="math inline">\(P(A)\)</span>?</p><h5 id="vurderingskriterier">Vurderingskriterier</h5><p>Studenten må bare bruke komplementsetningen til å peke på at <span class="math inline">\(P(A) + P(A^C) = 1\)</span>, noe som gir at <span class="math inline">\(P(A) = 0.1\)</span>.</p><h4 id="middels-forklare-illustrere-og-bruke-komplementsetningen-08.05">Middels:
 Forklare, illustrere og bruke komplementsetningen, 08.05</h4><p>Du skal spille et kortspill og er interessert i sannsynligheten for
 hendelse <span class="math inline">\(A\)</span>. Du får vite at <span class="math inline">\(P(A^C) = 0.4\)</span>. Hva er <span class="math inline">\(P(A)\)</span>?</p><h5 id="vurderingskriterier-1">Vurderingskriterier</h5><p>Studenten må bare bruke komplementsetningen til å peke på at <span class="math inline">\(P(A) + P(A^C) = 1\)</span>, noe som gir at <span class="math inline">\(P(A) = 0.6\)</span>.</p><h4 id="middels-forklare-illustrere-og-bruke-komplementsetningen-28.04.23">Middels:
 Forklare, illustrere og bruke komplementsetningen, 28.04.23</h4><p>Sannsynligheten for hendelsen <span class="math inline">\(A\)</span>
@@ -9045,16 +9049,20 @@ addisjonssetningen nå si at det er <span class="math display">\[
 <ul>
 <li>Vi kan for eksempel tenke oss at det ikke er viktig hvilken
 rekkefølge vi trekker ut i (det går også å tenke at rekkefølgen betyr
-noe). Dermed får vi () mulige hender vi kan trekke. Videre er det ( =
-78) måter å velge to kort som er spar. For hver av de to kortene som er
-spar, så er det () mulige måter å trekke tre kort som ikke inneholder
-noen spar. Dermed må det, ved multiplikasjonsprinsippet være (78) mulige
-hender som inneholder nøyaktig to spar.</li>
+noe). Dermed får vi <span class="math inline">\(\frac{52 \cdot 51 \cdot
+50\cdot 49\cdot 48}{5\cdot 4\cdot 3\cdot 2\cdot 1}\)</span> mulige
+hender vi kan trekke. Videre er det <span class="math inline">\(\frac{13\cdot 12}{2} = 78\)</span> måter å velge
+to kort som er spar. For hver av de to kortene som er spar, så er det
+<span class="math inline">\(\frac{39\cdot 38\cdot 37}{3\cdot 2\cdot
+1}\)</span> mulige måter å trekke tre kort som ikke inneholder noen
+spar. Dermed må det, ved multiplikasjonsprinsippet være <span class="math inline">\(78\cdot \frac{39\cdot 38\cdot 37}{3\cdot 2\cdot
+1}\)</span> mulige hender som inneholder nøyaktig to spar.</li>
 </ul></li>
 <li>Hva er sannsynligheten for at alle dem fem kortene er kløver?
 <ul>
 <li>Vi vet allerede antall mulige hender vi kan trekke. Siden det er
-(13) kløver er det (). Dermed er sannsynligheten <span class="math display">\[
+<span class="math inline">\(13\)</span> kløver er det <span class="math inline">\(\frac{13\cdot 12\cdot 11\cdot 10\cdot 9}{5\cdot
+4\cdot 3\cdot 2\cdot 1}\)</span>. Dermed er sannsynligheten <span class="math display">\[
 \frac{\frac{13\cdot 12\cdot 11\cdot 10\cdot 9}{5\cdot 4\cdot 3\cdot
 2\cdot 1}}{\frac{52 \cdot 51 \cdot 50\cdot 49\cdot 48}{5\cdot 4\cdot
 3\cdot 2\cdot 1}} = \frac{13\cdot 12\cdot 11\cdot 10\cdot 9}{52 \cdot 51
@@ -9065,19 +9073,24 @@ hender som inneholder nøyaktig to spar.</li>
 <ul>
 <li>En naturlig måte å beregne sannsynligheten er å finne antall hender
 som ikke inneholder ruter knekt og bruke komplementærsetningen. Det gir
-(1- = 1- ).</li>
+<span class="math inline">\(1- \frac{51 \cdot 50\cdot 49\cdot 48\cdot
+47}{52 \cdot 51 \cdot 50\cdot 49\cdot 48} = 1-
+\frac{47}{52}\)</span>.</li>
 </ul></li>
 <li>Hvor stor sannsynlighet er det for at det er to kort med samme verdi
 hånden som deles ut?
 <ul>
 <li>På samme måte som i forrige oppgave kan det være naturlig å se på
 hender som <em>ikke</em> inneholder det vi er ute etter. Vi skal trekke
-ett kort først. Det kan være hva som helst, vi har altså (52)
-muligheter. Neste gang vi trekker ønsker vi ikke å trekke verdien vi har
-fått på første kort. Dermed er det (48) gunstige kort. Hvis vi sitter
-med to ulike kort, vil det nå være (44) gunstige kort vi kan trekke og
-så videre. Det gir derfor ( = 4 =4). Det gir en sannsynlighet på (1-
-)</li>
+ett kort først. Det kan være hva som helst, vi har altså <span class="math inline">\(52\)</span> muligheter. Neste gang vi trekker
+ønsker vi ikke å trekke verdien vi har fått på første kort. Dermed er
+det <span class="math inline">\(48\)</span> gunstige kort. Hvis vi
+sitter med to ulike kort, vil det nå være <span class="math inline">\(44\)</span> gunstige kort vi kan trekke og så
+videre. Det gir derfor <span class="math inline">\(\frac{52\cdot 48\cdot
+44\cdot 40\cdot 36}{5 \cdot 4\cdot 3\cdot 2} = 4\cdot \frac{13\cdot
+12\cdot 11\cdot 10\cdot 9}{5\cdot 4\cdot 3\cdot 2} =4\cdot 13\cdot
+11\cdot 9\)</span>. Det gir en sannsynlighet på <span class="math inline">\(1- \frac{4\cdot 13\cdot 11\cdot 9}{52 \cdot 51
+\cdot 50\cdot 49\cdot 48}\)</span></li>
 </ul></li>
 </ul><ol type="1">
 <li>Vi har et rutenett med <span class="math inline">\(2 \times
