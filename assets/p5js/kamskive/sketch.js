@@ -31,6 +31,7 @@ function setup() {
 }
 
 function draw() {
+  translate(25,-5)
   let flytt_front_bak = figur.shift();
   figur.push(flytt_front_bak);
   background(255);
