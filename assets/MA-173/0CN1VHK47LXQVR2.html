@@ -1,5 +1,9 @@
-<body>
-  <style>
+  <body>
+    <style>
+    body {
+        height: 300px;
+        width: 400px;
+    }
     svg {
       -webkit-filter: invert(100%) hue-rotate(180deg);
       filter: invert(100%) hue-rotate(180deg);
@@ -26,8 +30,8 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="1.1"
-    width="500px"
-    height="600px"
+    width="400px"
+    height="300px"
     content='&lt;mxfile host="app.diagrams.net" modified="2023-08-30T13:09:18.668Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" version="21.6.6" etag="aO3o-jCLkUHeWDBs4JxL"&gt;&lt;diagram name="Page-1" id="upqNnGGLdGFou3R1s8QD"&gt;7VlNb6s4FP012SKD4wDLkiZvRnojVepiZlYjFxzwK8HIOF/z6+fa2Alfea+LTJtFqijBh2uD7zn3XJLO8HJ7/CZpXfwhMlbOApQdZ/h5FgSRH8O7Bk4tQFDQArnkWQv5F+CV/8ssiCy64xlreoFKiFLxug+moqpYqnoYlVIc+mEbUfavWtOcjYDXlJZj9E+eqcJui6AL/hvjeeGu7CN7ZktdsAWagmbi0IHwaoaXUgjVHm2PS1bq3Lm8tPPWV86eb0yySn1kgs17o05ubyyDrdqhkKoQuahoubqgSUHTYifZN1pDyByAS9h3ITToA/iDKXWy1NGdEnqi2pb27EZUak23vNQKeJJpwRUQ1cCtQDAkjkkb9Cp2MtVrFEoBuwHBT/AG+9FvOqDxciHyktGaN14qtuZE2pjQ9aa9BBz2LkKCZHiZ9kb9BYyl2FUZy+ydNkqKd7YUpZAmQdgPkmi9Pp9xAsCAtMnUGezR0bg9wBBbuVKZM8sQGZPmn6UAJcTElikJu0CSlVTxfX91asWcn+Ps1Ccp6akTUAte6d2fV37RAATYsiR+1K5oqzJCPe3AQbuiG3Vu7QIZfU1rzW59T8ud3cFIfPYW4Zgk8EKeD5OWyNP+sEQzAjFLgxMz7mNROB0bRSbamw/w2OL2c7C6P8CQfy3a9wfrwwsneyYVB8v4Tt9Y+SIarrioYGdvQilQKcjnnalUKwf1S8NNfCp5ricoXVIJberWyTb8qLWZUHs6BdEYGZvcMbnaszaFRrwFrXVqt8dcG7GX8iYVfuw1LIUK/odVmct4suFl2VE5QgSFeKT/SlSTFvCD57khEcSVwNp7tuZK8Sq/73oP0LlqddrZ8aqNXqlIO2HuitiVTmT9/XBpD35EvNCuXHS7A0bXC7lTfD+trfkX+TjkR57+0iL2QDEO+NsACxw54Plodd6OTt3RC5Mc9qupMeCdSuX/bw1k3Brw7VvDRxVFfu3W1xwso01hkqTxg05tU1Ozy4PUYht6TRCFZBVMJXRj/py5dRuDVps23QUeurGBhz0gnkSnukgcX1k4DFr/jz/QLIJoEPuxljDy9OleMHT1990bkxWUUOPxVK+Y1PJ3c/C8a8w6D7/u+3WA+34d4im/jr2YTPg1uYFfL35dXTABvs8wV0Kv/RLqlNvo0WDE9j2zOfCCjLJok055wSKN2NvmNvxjeAaKw37LjscScN/SuvQHN2A/fLB/Z+zH5PPYjx7sfyn77tn8TH3wadTHD+q/kvo56VMffqLnu98uH9x/DfcEhV606Lf8TzR933/Qf2f0h+7p/vb0w/DyG377U+nlHyF49R8=&lt;/diagram&gt;&lt;/mxfile&gt;'
   >
     <g>
@@ -160,7 +164,6 @@
       />
     </g>
   </svg>
-</body>
 <script>
   function createAnimation(ballId, pathtofollow) {
     const tl = gsap.timeline({
@@ -190,3 +193,4 @@
   createAnimation("#ball5", "#ovrelinje").delay(5.5);
   createAnimation("#ball6", "#ovrelinje").delay(6);
 </script>
+</body>
