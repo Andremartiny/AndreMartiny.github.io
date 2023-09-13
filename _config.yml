@@ -56,6 +56,55 @@ paginate: 10
 paginate_path: "/blog/page:num/"
 comments: true
 
+include:
+  - assets/ma-173/output.html
+  - assets/ma-173/testtest.html
+  - assets/ma-173/styles.css
+  - assets/ma-173/script.js
+  - assets/ma-173/OM2ARSJL8ZYE9RK.html
+  - assets/ma-173/0CN1VHK47LXQVR2.html
+  - assets/ma-173/1E3BA4K7LLN2DEL.html
+  - assets/ma-173/4PZD22QLVUU9BKE.html
+  - assets/ma-173/KJBN4RYJSAMRAI1.html
+  - assets/ma-173/YCS2TXNSLWFF6Y3.html
+  - assets/ma-173/UPCB5SI3UJ33RS4.html
+  - assets/ma-173/DZO04IIX55KM0WE.html
+  - assets/ma-173/4AFDYJZ13GEBM2U.html
+  - assets/ma-173/H460AJ87SVW3BH1.html
+  - assets/ma-173/8KUO2GMZVU8F99R.html
+  - assets/ma-173/89XW4V4Z1ONVVDA.html
+  - assets/ma-173/UMM3Q80FKC87RLR.html
+  - assets/ma-173/7OVGYPP2PA9E72G.html
+  - assets/ma-173/2X7J4OPAX3N7991.html
+  - assets/ma-173/DJE31ULCTPLG76I.html
+  - assets/ma-173/72PBVH8G3CBPPX2.html
+  - assets/ma-173/842T9QVOY5LG8RJ.html
+  - assets/ma-173/M5KXJFQFNWX7FEA.html
+  - assets/ma-173/F3SD5AX622O6L4A.html
+  - assets/ma-173/35TEOYP9AIWI4PM.html
+  - assets/ma-173/AU4ZNEMR99O96C5.html
+  - assets/ma-173/OSNVVMFLPYVWI2S.html
+  - assets/ma-173/Z5ZUC27VLR8JAVL.html
+  - assets/ma-173/FQSYRYCTPMBZX62.html
+  - assets/ma-173/2CXAU5OQSVQ0T61.html
+  - assets/ma-173/72MJG7A7GMM5DJW.html
+  - assets/ma-173/I6JULID0MMXPQGP.html
+  - assets/ma-173/FYKH2F1F4W589ML.html
+  - assets/ma-173/KJHFZ7EBARKSM3I.html
+  - assets/ma-173/NCI0UUQACJHWT13.html
+  - assets/ma-173/424C09SHACKBSU3.html
+  - assets/ma-173/IRO9F79LSM2MAGT.html
+  - assets/ma-173/FEYTRHGEYG8OQXK.html
+  - assets/ma-173/3LZFDS0C9DB9390.html
+  - assets/ma-173/8KQ6K0JQO0TSX9W.html
+  - assets/ma-173/X92RNQKDAGCV0F0.html
+  - assets/ma-173/GEP8GVCMAZ54NC9.html
+  - assets/ma-173/PAVL7L71AF0VEQB.html
+  - assets/ma-173/DRZK0N33J97XBUU.html
+  - assets/ma-173/F1HK7ZIDENMJ014.html
+  - assets/ma-173/BPUO1ZLGRWVKW9L.html
+  - assets/ma-173/AV9I4IISTT6K21V.html
+  - assets/ma-173/NDHDNL0E8VZ7XMQ.html
 
 
 # Exclude from processing.
