@@ -5,5 +5,5 @@ mathjax: true
 hidden: true
 permalink: /landeveistur
 ---
-<iframe width="100%" height="800px" src="https://raw.githubusercontent.com/Andremartiny/MA-173/main/img/landeveistur.svg"></iframe>
+<img width="100%" height="800px" src="/assets/images/landeveistur.svg"></img>
 
