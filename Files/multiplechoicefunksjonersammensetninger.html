@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #313345;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .question-container {
+            margin: 50px auto;
+            background-color: #383b4f;
+            border: 2px solid #535775;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .question {
+            font-size: 16px;
+            margin-bottom: 20px;
+            
+            border-color: #216063;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .option {
+            position: relative; /* Important for positioning */
+            display: flex;
+            align-items: center;
+            background-color: #313a52;
+            border: 2px solid #365080;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            overflow: hidden; /* To contain the animated checkmark */
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .option:hover {
+            border-color: #888888;
+        }
+        .option.selected {
+            border-color: #888888;
+            background-color: #3b5067;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .option.correct {
+            background-color: #216063;
+            border-color: #3aaaaf;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        .option.incorrect {
+            background-color: #553b3f;
+            border-color: #a18386;
+            
+            color: #dcdadd;
+            font-weight: 700;
+        }
+        #checkButton {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            
+            color: #dcdadd;
+            font-weight: 700;
+            background-color: #525674;
+            border: 2px solid #898fc1;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #checkButton:disabled {
+            background-color: #3b3a46;
+            border: 2px solid #655045;
+            
+            color: #dcdadd;
+            font-weight: 1000;
+            cursor: not-allowed;
+        }
+        /* Hidden tick mark inside the option */
+        .hiddenTick {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="%2328a745"/><path fill="none" stroke="%23ffffff" stroke-width="2" d="M7 12l3 3 7-7"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0; /* Initially hidden */
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        .hiddenTick.animate {
+            opacity: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(2);
+        }
+        .hiddenTick.end {
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+        }
+        /* Text inside option */
+        .optionText {
+            margin-left: 50px; /* Adjust to make room for the checkmark */
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <div class="question">Hvilken av figurene over viser \(f(x) \cdot g(x)\)?</div>
+        <ul class="options">
+            <li class="option" data-option="1">
+                <div class="hiddenTick"></div>
+                <div class="optionText">a?</div>
+            </li>
+            <li class="option" data-option="2">
+                <div class="hiddenTick"></div>
+                <div class="optionText">b?</div>
+            </li>
+            <li class="option" data-option="3">
+                <div class="hiddenTick"></div>
+                <div class="optionText">c?</div> <!-- Correct Answer -->
+            </li>
+            <li class="option" data-option="4">
+                <div class="hiddenTick"></div>
+                <div class="optionText">d?</div>
+            </li>
+        </ul>
+        <button id="checkButton" disabled>Sjekk svaret</button>
+    </div>
+    <script>
+        const options = document.querySelectorAll('.option');
+        const checkButton = document.getElementById('checkButton');
+        let selectedOption = null;
+        const correctOption = '3'; // The data-option value of the correct answer
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedOption = option.getAttribute('data-option');
+                checkButton.disabled = false;
+            });
+        });
+
+        checkButton.addEventListener('click', () => {
+            const selectedElement = document.querySelector('.option.selected');
+            if (selectedOption === correctOption) {
+                selectedElement.classList.add('correct');
+                animateTickMark(selectedElement);
+            } else {
+                selectedElement.classList.add('incorrect');
+            }
+            checkButton.disabled = true;
+            options.forEach(option => option.classList.add('disabled'));
+        });
+
+        function animateTickMark(selectedElement) {
+            const hiddenTick = selectedElement.querySelector('.hiddenTick');
+
+            // Remove any existing animation classes
+            hiddenTick.classList.remove('animate', 'end');
+
+            // Force reflow to reset any previous animations
+            void hiddenTick.offsetWidth;
+
+            // Add 'animate' class to start the animation
+            hiddenTick.classList.add('animate');
+
+            // After a delay, move back to original position and scale down
+            setTimeout(() => {
+                hiddenTick.classList.add('end');
+            }, 1000); // Duration of the zoom-in and move to center
+
+            // Ensure the hidden tick remains visible after animation
+            setTimeout(() => {
+                // Remove 'animate' and 'end' classes to reset
+                // hiddenTick.classList.remove('animate', 'end');
+                // Ensure opacity remains 1
+                hiddenTick.style.opacity = '1';
+            }, 1500); // Total duration of the animation
+        }
+        renderMathInElement(document.body);
+    </script>
+</body>
+</html>

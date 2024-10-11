@@ -1,0 +1,174 @@
+<br>
+<svg id="polarSvg" width="100%" height="100%" viewBox="0 0 500 500">
+    <!-- Grid lines -->
+    <defs>
+        <style>
+            svg {
+                border: 0px;
+                background-color: #313345;
+            }
+
+            path {
+                stroke: #4aa0e7;
+                stroke-width: 6;
+                fill: none;
+                stroke-linecap: round;
+            }
+
+            line {
+                stroke: #f76707;
+                stroke-width: 2;
+                stroke-linecap: round;
+            }
+
+            circle {
+                stroke: #9398b0;
+                stroke-width: 1;
+                fill: none;
+            }
+
+            .rolling-point{
+                fill: #e03131;
+                stroke:none
+            }
+        </style>
+    </defs>
+    <g id="grid">
+        <!-- Vertical and horizontal grid lines -->
+        <line x1="0" y1="250" x2="500" y2="250" style="stroke: #9398b0"></line>
+        <line x1="250" y1="0" x2="250" y2="500" style="stroke: #9398b0"></line>
+        <!-- Concentric circles for polar grid -->
+        <circle cx="250" cy="250" r="50"></circle>
+        <circle cx="250" cy="250" r="100"></circle>
+        <circle cx="250" cy="250" r="150"></circle>
+        <circle cx="250" cy="250" r="200"></circle>
+    </g>
+    <!-- Large fixed circle -->
+    <circle id="largeCircle" cx="250" cy="250" r="100" style="stroke: #4aa0e7; stroke-width: 2px"></circle>
+    <!-- Rolling circle inside the large circle -->
+    <circle id="rollingCircle" cx="300" cy="250" r="50" style="stroke: #f76707; stroke-width: 3px"></circle>
+    
+    <circle id="rollingOutsideCircle" cx="300" cy="250" r="50" style="stroke: #ff8787; stroke-width: 3px"></circle>
+    <!-- Rotating point on the rolling circle -->
+    <circle id="rollingPoint" cx="350" cy="250" r="5" class="rolling-point"></circle>
+    
+    <circle id="rollingOutPoint" cx="350" cy="250" r="5" style="fill: #ffc034; stroke:none"></circle>
+    <!-- Rotating line -->
+    <line id="rotationLine" class="main-line" x1="250" y1="250" x2="250" y2="250"></line>
+    <!-- Polar curve path -->
+    <path id="polarPath" d=""></path>
+    <text id="rValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <foreignObject x="260" y="460" width="200" height="50">
+        <body xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    background-color: #646c92;
+                    border-radius: 5px;
+                    outline: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #b4d4d4;
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+            <input type="range" id="angleSlider" min="0" max="360" value="0" style="width: 95%; margin:3%">
+            <span id="angleValue">0°</span>
+        </body>
+    </foreignObject>
+</svg>
+<br>
+<script>
+    const svg = document.getElementById("polarSvg");
+    const path = document.getElementById("polarPath");
+    const slider = document.getElementById("angleSlider");
+    const angleValue = document.getElementById("angleValue");
+    const rollingCircle = document.getElementById("rollingCircle");
+    const rollingPoint = document.getElementById("rollingPoint");
+    const rollingOutPoint = document.getElementById("rollingOutPoint");
+    const rValueText = document.getElementById("rValueText");
+
+    const centerX = 250; // Center of the SVG canvas
+    const centerY = 250;
+    const largeRadius = 100; // Radius of the large circle (scaled)
+    const smallRadius = 50; // Radius of the rolling circle (scaled)
+
+    // Convert degrees to radians
+    function toRadians(deg) {
+        return (deg * Math.PI) / 180;
+    }
+
+    // Function to update the rolling circle and point position
+    function updateRollingCircle(angle) {
+        let theta = toRadians(angle);
+
+        // Position of the center of the rolling circle (rolling inside)
+        let rollingCenterX = centerX + (largeRadius - smallRadius) * Math.cos(theta);
+        let rollingCenterY = centerY + (largeRadius - smallRadius) * Math.sin(theta);
+        rollingCircle.setAttribute("cx", rollingCenterX);
+        rollingCircle.setAttribute("cy", rollingCenterY);
+
+        // Angle for the point on the rolling circle
+        let pointAngle = ((largeRadius - smallRadius) / smallRadius) * theta;
+
+        // Rotating point on the rolling circle
+        let pointX = rollingCenterX + smallRadius * Math.cos(-pointAngle);
+        let pointY = rollingCenterY + smallRadius * Math.sin(-pointAngle);
+
+        rollingPoint.setAttribute("cx", pointX);
+        rollingPoint.setAttribute("cy", pointY);
+
+        // Optionally, update any text or additional visuals
+        
+
+        let rollingOutsideCenterX = centerX + (largeRadius + smallRadius) * Math.cos(theta);
+        let rollingOutsideCenterY = centerY + (largeRadius + smallRadius) * Math.sin(theta);
+        
+
+        let pointOutX = rollingOutsideCenterX + smallRadius * Math.cos(3*pointAngle+Math.PI);
+        let pointOutY = rollingOutsideCenterY + smallRadius * Math.sin(3*pointAngle+Math.PI);
+        
+        
+        rollingOutsideCircle.setAttribute("cx", rollingOutsideCenterX);
+        rollingOutsideCircle.setAttribute("cy", rollingOutsideCenterY);
+        
+        rollingOutPoint.setAttribute("cx", pointOutX);
+        rollingOutPoint.setAttribute("cy", pointOutY);
+
+
+    }
+
+    // Initial position update
+    updateRollingCircle(0);
+
+    // Event listener for the slider
+    slider.addEventListener("input", function () {
+        let angle = parseInt(slider.value); // Get angle from slider
+        angleValue.textContent = angle + '°'; // Update displayed angle
+
+        // Update the rolling circle and point position
+        updateRollingCircle(angle);
+    });
+</script>

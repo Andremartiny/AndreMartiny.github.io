@@ -1,0 +1,152 @@
+    <style>
+        body {
+            background-color: #313345;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #ffffff;
+        }
+        svg {
+            background-color: #313345;
+        }
+        .sector {
+            fill: #4aa0e7;
+            stroke: #313345;
+            stroke-width: 2;
+        }
+        #sliderContainer {
+            margin: 20px;
+        }
+        #sliderLabel {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #numSectors {
+            font-weight: bold;
+        }
+    </style>
+    <svg id="visualizationSvg" viewBox="0 0 600 300">
+        <!-- Left Side: Circle with Cuts -->
+        <g id="circleGroup" transform="translate(120,120)"></g>
+        <!-- Right Side: Rearranged Sectors -->
+        <g id="rearrangedGroup" transform="translate(300,150)"></g>
+        <foreignObject x="230" y="180" width="320" height="60">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+                <style>
+                    input[type="range"] {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 100%;
+                        height: 8px;
+                        background-color: #646c92;
+                        /* Track background color */
+                        border-radius: 5px;
+                        outline: none;
+                    }
+    
+                    input[type="range"]::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #4aa0e7;
+                        /* Thumb color */
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+    
+                    input[type="range"]::-moz-range-thumb {
+                        width: 16px;
+                        height: 16px;
+                        background-color: #4aa0e7;
+                        /* Thumb color */
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+    
+                    span {
+                        color: #b4d4d4;
+                        /* Text color */
+                        font-family: Arial, sans-serif;
+                    }
+                </style>
+                <div id="sliderContainer">
+                    <label id="sliderLabel" style="color: #b4d4d4">Antall deler: <span id="numSectors">4</span></label>
+                    <input type="range" id="sectorSlider" min="4" max="60" value="4" step="2" style="width: 140px;">
+                </div>
+            </body>
+            <p></p>
+
+        </foreignObject>
+    </svg>
+    <script>
+        const circleGroup = document.getElementById('circleGroup');
+        const rearrangedGroup = document.getElementById('rearrangedGroup');
+        const sectorSlider = document.getElementById('sectorSlider');
+        const numSectorsLabel = document.getElementById('numSectors');
+
+        const radius = 100;
+        
+        const farger = ["#e599f7", "#cb87db"]
+
+        function drawVisualization(numSectors) {
+            circleGroup.innerHTML = '';
+            rearrangedGroup.innerHTML = '';
+
+            const angleStep = (2 * Math.PI) / numSectors;
+            const halfNumSectors = numSectors / 2;
+
+            const baseWidth = 2 * radius * Math.sin(angleStep / 2);
+
+            // Draw sectors in the circle
+            for (let i = 0; i < numSectors; i++) {
+                const startAngle = i * angleStep;
+                const endAngle = startAngle + angleStep;
+
+                const x1 = radius * Math.cos(startAngle);
+                const y1 = radius * Math.sin(startAngle);
+                const x2 = radius * Math.cos(endAngle);
+                const y2 = radius * Math.sin(endAngle);
+                const x3 = 0*numSectors*Math.cos((i+0.5) * angleStep);
+                const  y3 = 0*numSectors*Math.sin((i+0.5) * angleStep);
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const d = [
+                    'M', x3, y3,
+                    'L', x1+x3, y1+y3,
+                    'A', radius, radius, 0, 0, 1, x2+x3, y2+y3,
+                    'Z'
+                ].join(' ');
+
+                path.setAttribute('d', d);
+                path.setAttribute('class', 'sector');
+                
+                path.setAttribute('style', 'fill:'+farger[i%2]);
+                circleGroup.appendChild(path);
+
+                // Rearranged sectors
+                let xpos =100*Math.sin(angleStep/2)*i-numSectors;
+                let ypos =100*Math.cos(angleStep/2)*(i%2);
+                const rearrangedPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const d2 = [
+                    'M', xpos, -ypos,
+                    'L', xpos+radius*Math.cos(-angleStep/2-Math.PI/2), ypos+radius*Math.sin(-angleStep/2-Math.PI/2),
+                    'A', radius, radius, 0, 0, ((1+i)%2), xpos+radius*Math.cos(+angleStep/2-Math.PI/2), ypos+ radius*Math.sin(-Math.PI/2+angleStep/2),
+                    'Z'
+                ].join(' ');
+                rearrangedPath.setAttribute('d', d2);
+                
+                rearrangedPath.setAttribute('class', 'sector');
+                rearrangedPath.setAttribute('style', 'fill:'+farger[i%2]);
+                rearrangedGroup.appendChild(rearrangedPath);   
+            }
+        }
+
+        // Initial drawing
+        drawVisualization(parseInt(sectorSlider.value));
+
+        // Update on slider change
+        sectorSlider.addEventListener('input', function() {
+            const numSectors = parseInt(this.value);
+            numSectorsLabel.textContent = numSectors;
+            drawVisualization(numSectors);
+        });
+    </script>

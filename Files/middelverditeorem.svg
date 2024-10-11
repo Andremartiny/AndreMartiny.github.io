@@ -1,0 +1,104 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="800" height="800">
+    <defs />
+    <g transform="scale(2,2)">
+
+        <g id="graphpaper-0393b1f6">
+            <g id="grid-0393b1f6">
+
+            </g>
+            <g id="axis-0393b1f6">
+                <g id="yaxis-0393b1f6">
+                    <title>Y axis</title>
+                    <g>
+                        <path fill="none" stroke="#9398b0" class="dcg-svg-axis-line"
+                            paint-order="fill stroke markers" d=" M 15 0 L 15 400"
+                            stroke-opacity="0.9" stroke-miterlimit="10" stroke-width="2"
+                            stroke-dasharray="" />
+                    </g>
+                </g>
+                <g id="xaxis-0393b1f6">
+                    <title>X axis</title>
+                    <g>
+                        <path fill="none" stroke="#9398b0" class="dcg-svg-axis-line"
+                            paint-order="fill stroke markers" d=" M 0 306 L 400 306"
+                            stroke-opacity="0.9" stroke-miterlimit="10" stroke-width="2"
+                            stroke-dasharray="" />
+                    </g>
+                </g>
+                
+            </g>
+        </g>
+        <g id="expressions-0393b1f6">
+            <g id="sketch-0393b1f6">
+                <title>Expression 1</title>
+                <path fill="#e599f7" stroke="none" paint-order="stroke fill markers" d=""
+                    fill-opacity="0.4" />
+                <g>
+                    <path fill="none" stroke="#e599f7" class="dcg-svg-curve"
+                        paint-order="fill stroke markers"
+                        d=" M 49.104780515654085 143.50271250255108 L 49.104780515654085 143.50271250255108 L 55.35250590415393 136.3026691980776 L 61.20974845587253 129.9999643252362 L 66.77412888000518 124.43284009078127 L 72.14326788574726 119.46475037546116 L 77.21954476390334 115.1439876087037 L 82.19820093286415 111.2708856152048 L 86.98161568343434 107.8968177505115 L 91.5697890156139 104.98533959893754 L 96.06034163859817 102.44761709507742 L 100.45327355238712 100.26614724607748 L 104.74858475698076 98.42268725033662 L 109.0438959615744 96.86626678506067 L 113.24158645697273 95.62251275238143 L 117.43927695237105 94.65209515938716 L 121.6369674477694 93.95352781358616 L 125.83465794316771 93.52461145622988 L 130.032348438566 93.36244165279118 L 134.23003893396438 93.46341921346536 L 138.42772942936267 93.82326310630702 L 142.72304063395634 94.45427691775265 L 147.11597254774526 95.36836676969139 L 151.6065251707295 96.57623332943234 L 156.1946985029091 98.08718277425865 L 160.88049254428398 99.90893348210966 L 165.7615280040495 102.0939079234769 L 170.8378048822056 104.66274084352736 L 176.10932317875233 107.63292124733991 L 181.67370360288498 111.08127523444645 L 187.53094615460355 115.03256434316839 L 193.77867154310343 119.57810933867518 L 200.51450047757982 124.81965605173573 L 207.93367437642337 130.9463652616681 L 216.42667607641528 138.33285160185417 L 226.57922983272755 147.5516464662133 L 241.41757763041466 161.4524877966692 L 262.79651294418755 181.44316198281035 L 273.63241166486694 191.16772309823324 L 282.8087583292261 199.03017948325282 L 291.0088979016321 205.69657315135052 L 298.62331321886626 211.53850750625975 L 301.356693076335 213.547282902681"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                        stroke-width="5" stroke-dasharray="" />
+                </g>
+            </g>
+            <g id="sketch-0393b1f6">
+                <title>Expression 2</title>
+                <path fill="#4dabf7" stroke="none" paint-order="stroke fill markers" d=""
+                    fill-opacity="0.4" />
+                <g>
+                    <path fill="none" stroke="#4dabf7" class="dcg-svg-curve"
+                        paint-order="fill stroke markers"
+                        d=" M 49.104780515654085 143.50271250255108 L 49.104780515654085 143.50271250255108 L 301.356693076335 213.547282902681"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                        stroke-width="5" stroke-dasharray="" />
+                </g>
+            </g>
+            <g id="sketch-0393b1f6">
+                <title>(a, f(a))</title>
+                <path fill="none" stroke="#e599f7" class="dcg-svg-point"
+                    paint-order="fill stroke markers"
+                    d=" M 49.00478051565408 143.40271250255108 L 49.00478051565408 143.60271250255107 L 49.204780515654086 143.60271250255107 L 49.204780515654086 143.40271250255108"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                    stroke-width="15" stroke-dasharray="" />
+            </g>
+            <g id="sketch-0393b1f6">
+                <title>(b, f(b))</title>
+                <path fill="none" stroke="#e599f7" class="dcg-svg-point"
+                    paint-order="fill stroke markers"
+                    d=" M 301.25669307633495 213.447282902681 L 301.25669307633495 213.64728290268098 L 301.456693076335 213.64728290268098 L 301.456693076335 213.447282902681"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                    stroke-width="15" stroke-dasharray="" />
+            </g>
+
+
+        </g>
+        <g id="labels-0393b1f6">
+            <g transform="rotate(0,0,0) translate(64,127)">
+                <g class="dcg-svg-label">
+
+                    <text fill="#e599f7" stroke="none" font-family="arial, sans-serif"
+                        font-size="22px" font-style="normal" font-weight="400"
+                        text-decoration="normal" x="0" y="19.984" text-anchor="start">(a, f(a))</text>
+                </g>
+            </g>
+            <g transform="rotate(0,0,0) translate(160,103)">
+                <g class="dcg-svg-label">
+
+                    <text fill="#e599f7" stroke="none" font-family="arial, sans-serif"
+                        font-size="22px" font-style="normal" font-weight="400"
+                        text-decoration="normal" x="0" y="19.984" text-anchor="start">f</text>
+                </g>
+            </g>
+            <g transform="rotate(0,0,0) translate(311,201)">
+                <g class="dcg-svg-label">
+
+                    <text fill="#e599f7" stroke="none" font-family="arial, sans-serif"
+                        font-size="22px" font-style="normal" font-weight="400"
+                        text-decoration="normal" x="0" y="19.984" text-anchor="start">(b, f(b))</text>
+                </g>
+            </g>
+        </g>
+        <g id="labels-0393b1f6" />
+    </g>
+</svg>

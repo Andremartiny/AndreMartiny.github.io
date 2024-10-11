@@ -1,1 +1,0 @@
-Alle oppgaver er hentet fra https://www.practicepython.org/ og oversatt til norsk med tillatelse under CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/).

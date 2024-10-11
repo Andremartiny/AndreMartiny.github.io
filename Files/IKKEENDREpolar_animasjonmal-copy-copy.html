@@ -1,0 +1,169 @@
+<br>
+<svg id="polarSvg"  width="100%" height="100%" viewBox="0 0 500 500">
+    <!-- Grid lines -->
+    <defs>
+        <style>
+            svg {
+                border: 0px;
+                background-color: #313345;
+            }
+
+            path {
+                stroke: #4aa0e7;
+                stroke-width: 5;
+                fill: none;
+
+                stroke-linecap: round;
+            }
+
+            line {
+                stroke: #f76707;
+                stroke-width: 3;
+                stroke-linecap: round;
+            }
+
+            circle {
+                stroke: #9398b0;
+                stroke-width: 1;
+                fill: none;
+                /* Ensures circles have no fill */
+            }
+        </style>
+
+    </defs>
+    <g id="grid">
+        <!-- Vertical and horizontal grid lines -->
+        <line x1="0" y1="250" x2="500" y2="250" style="stroke: #9398b0"></line>
+        <line x1="250" y1="0" x2="250" y2="500" style="stroke: #9398b0"></line>
+        <!-- Concentric circles for polar grid -->
+        <circle cx="250" cy="250" r="50"></circle>
+        <circle cx="250" cy="250" r="100"></circle>
+        <circle cx="250" cy="250" r="150"></circle>
+        <circle cx="250" cy="250" r="200"></circle>
+    </g>
+    <!-- Rotating line -->
+    <line id="rotationLine" class="main-line" x1="250" y1="250" x2="250" y2="250"></line>
+    <!-- Polar curve path -->
+    <path id="polarPath" d=""></path>
+    <text id="rValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <foreignObject x="260" y="460" width="200" height="50">
+
+        <body xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    background-color: #646c92;
+                    /* Track background color */
+                    border-radius: 5px;
+                    outline: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #b4d4d4;
+                    /* Text color */
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+            <input type="range" id="angleSlider" min="0" max="360" value="0" style="width: 95%; margin:3%">
+            <span id="angleValue">0°</span>
+        </body>
+    </foreignObject>
+</svg>
+<br>
+<script>
+    const svg = document.getElementById("polarSvg");
+    const path = document.getElementById("polarPath");
+    const slider = document.getElementById("angleSlider");
+    const angleValue = document.getElementById("angleValue");
+    const rotationLine = document.getElementById("rotationLine");
+
+    const centerX = 250; // Center of the SVG canvas
+    const centerY = 250;
+
+    // Convert degrees to radians
+    function toRadians(deg) {
+        return (deg * Math.PI) / 180;
+    }
+
+    // Define a polar function, for example r(θ) = 100 + 50 * sin(2θ)
+    function polarFunction(theta) {
+        return 100 + 50 * Math.sin(2 * theta);
+    }
+
+    // Function to generate SVG path data for the polar curve up to a given angle
+    function generatePolarPath(maxDegrees) {
+        let pathData = `M 350 250`; // Move to center ${centerX} ${centerY}
+        for (let deg = 0; deg <= maxDegrees; deg++) {
+            let theta = toRadians(deg);
+            let r = polarFunction(theta);
+
+            // Convert polar to cartesian coordinates
+            let x = centerX + r * Math.cos(-theta);
+            let y = centerY + r * Math.sin(-theta);
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+
+    // Function to update the rotating line
+    function updateRotationLine(angle) {
+        let theta = toRadians(angle);
+        let r = polarFunction(theta);
+
+        // Convert polar to cartesian coordinates for the line's endpoint
+        let x = centerX + r * Math.cos(-theta);
+        let y = centerY + r * Math.sin(-theta);
+
+        // Set the line's new endpoint
+        rotationLine.setAttribute("x2", x);
+        rotationLine.setAttribute("y2", y);
+        rValueText.textContent = `r(${angle}°) = ${r.toFixed(2)}`;
+
+        // Offset the text based on the angle to position it away from the line end
+        let offsetX = 15 * Math.cos(-theta); // Offset along the direction of the angle
+        let offsetY = 15 * Math.sin(-theta); // Offset along the direction of the angle
+
+        // Set the new position of the text with an offset from the endpoint
+        rValueText.setAttribute("x", x + offsetX);
+        rValueText.setAttribute("y", y + offsetY);
+    }
+
+    // Initial path drawing
+    const initialAngle = 0;
+    path.setAttribute("d", generatePolarPath(initialAngle));
+
+    // Event listener for the slider
+    slider.addEventListener("input", function () {
+        let angle = parseInt(slider.value); // Get angle from slider
+        angleValue.textContent = angle + '°'; // Update displayed angle
+
+        // Update the polar path and the rotating line
+        path.setAttribute("d", generatePolarPath(angle));
+        updateRotationLine(angle);
+    });
+</script>

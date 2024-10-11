@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #313345;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #ffffff;
+        }
+        svg {
+            background-color: #313345;
+            margin-top: 20px;
+        }
+        .function-line {
+            stroke: #4aa0e7;
+            stroke-width: 4;
+            fill: none;
+        }
+        .tangent-line {
+            stroke: #32cd32;
+            stroke-width: 4;
+            stroke-dasharray: 8,8;
+        }
+        .point {
+            fill: #ff6347;
+            stroke: #313345;
+            stroke-width: 1;
+            cursor: pointer;
+        }
+        /* Zoom circle */
+        #zoomCircle {
+            stroke: #b0b0b1;
+            stroke-width: 5;
+            fill: none;
+        }
+        .zoom-circle {
+            stroke: #b0b0b1;
+            stroke-width: 3;
+            fill: #2d3c52;
+        }
+        /* Slider styles */
+        #sliderContainer {
+            margin-left: 30px;
+            
+            margin-right: 30px;
+        }
+        .slider {
+            width: 300px;
+        }
+        .slider-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        /* Styles for x and zoom values display */
+        #valuesContainer {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Display current x and zoom level values -->
+
+    <!-- Graph and zoom circle -->
+    <svg id="graphSvg"  viewBox="-100 0 600 500">
+        <!-- Zoom circle -->   
+
+        <line x1="0" y1="50" x2="550" y2="50" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="100" x2="550" y2="100" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="150" x2="550" y2="150" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="200" x2="550" y2="200" style="stroke: #4c4f6b; stroke-width:2"></line>
+        
+        <line x1="0" y1="350" x2="550" y2="350" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="300" x2="550" y2="300" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="450" x2="300" y2="450" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="400" x2="550" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        
+        <line x1="50" y1="0" x2="50" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="100" y1="0" x2="100" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="150" y1="0" x2="150" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="200" y1="0" x2="200" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="300" y1="0" x2="300" y2="500" style="stroke: #9398b0; stroke-width:3"></line>
+        <line x1="350" y1="0" x2="350" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="400" y1="0" x2="400" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="450" y1="0" x2="450" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        
+        <line x1="500" y1="0" x2="500" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="250" x2="550" y2="250" style="stroke: #9398b0; stroke-width:2"></line>
+        <line x1="250" y1="0" x2="250" y2="500" style="stroke: #4c4f6b; stroke-width:3"></line>
+        <!-- Function graph -->
+        <path id="functionPath" class="function-line"></path>
+        <!-- Tangent line -->
+        <line id="tangentLine" class="tangent-line"></line>
+        <!-- Point -->
+        <circle id="pointX" class="point" r="6"></circle>
+        <circle id="zoomCircle2"  cx="105" cy="105" r="100" class="zoom-circle"></circle>
+        <clipPath id="zoomClip">
+            <circle id="zoomCircle" class="zoom-circle" cx="105" cy="105" r="100"></circle>
+        </clipPath>
+        <g id="zoomGroup" clip-path="url(#zoomClip)"></g>
+        <foreignObject x="280" y="420" width="250" height="200">
+            <style>
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    background-color: #646c92;
+                    /* Track background color */
+                    border-radius: 5px;
+                    outline: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #b4d4d4;
+                    /* Text color */
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+            <div id="valuesContainer">
+                <span class="slider-label">x: <span id="xValue">0</span></span>
+                <span class="slider-label">Zoom: <span id="zoomValue">10</span></span>
+            </div>
+            <!-- Slider for zoom level -->
+            <div id="sliderContainer">
+                <input type="range" id="zoomSlider" min="1" max="5000" value="1" step="1" class="slider">
+            </div>
+        </foreignObject>
+    </svg>
+    <script>
+        const svg = document.getElementById('graphSvg');
+        const functionPath = document.getElementById('functionPath');
+        const tangentLine = document.getElementById('tangentLine');
+        const pointX = document.getElementById('pointX');
+        const xValueLabel = document.getElementById('xValue');
+        const zoomValueLabel = document.getElementById('zoomValue');
+        const zoomSlider = document.getElementById('zoomSlider');
+        const zoomGroup = document.getElementById('zoomGroup');
+        const zoomCircle = document.getElementById('zoomCircle');
+        const zoomCircle2 = document.getElementById('zoomCircle2');
+
+        let x = 0;
+        let zoomLevel = 1;
+
+        const width = 600;
+        const height = 500;
+        const xMin = -3;
+        const xMax = 3;
+        const yMin = -10;
+        const yMax = 10;
+
+        const xScale = (x) => ((x - xMin) / (xMax - xMin)) * (width - 100) + 50;
+        const yScale = (y) => height - (((y - yMin) / (yMax - yMin)) * (height - 200) + 150);
+        const xUnscale = (xScaled) => ((xScaled - 50) / (width - 100)) * (xMax - xMin) + xMin;
+
+        // Function to plot
+        function f(x) {
+            return x * x * x + x * x - 2 * x - 3 + Math.cos(10 * x)+ Math.sin(5*x);
+        }
+
+        // Derivative of the function
+        function fPrime(x) {
+            return 3 * x * x + 2 * x - 2 - 10 * Math.sin(10 * x)+5*Math.cos(5*x);
+        }
+
+        // Draw function graph
+        function drawFunction() {
+            let pathData = '';
+            let moveToSet = false;
+            for (let xVal = xMin; xVal <= xMax; xVal += 0.01) {
+                const scaledX = xScale(xVal);
+                const scaledY = yScale(f(xVal));
+                if (!moveToSet) {
+                    pathData += `M ${scaledX} ${scaledY}`;
+                    moveToSet = true;
+                } else {
+                    pathData += ` L ${scaledX} ${scaledY}`;
+                }
+            }
+            functionPath.setAttribute('d', pathData);
+        }
+
+        // Update visualization
+        function updateVisualization() {
+            const x1 = x;
+            const y1 = f(x1);
+
+            // Tangent line at point x1
+            const derivative = fPrime(x1);
+
+            // Tangent line equation: y = derivative * (x - x1) + y1
+            const tangentX1 = xScale(xMin);
+            const tangentY1 = yScale(derivative * (xMin - x1) + y1);
+            const tangentX2 = xScale(xMax);
+            const tangentY2 = yScale(derivative * (xMax - x1) + y1);
+
+            tangentLine.setAttribute('x1', tangentX1);
+            tangentLine.setAttribute('y1', tangentY1);
+            tangentLine.setAttribute('x2', tangentX2);
+            tangentLine.setAttribute('y2', tangentY2);
+
+            // Update point
+            const pointXPos = xScale(x1);
+            const pointYPos = yScale(y1);
+            pointX.setAttribute('cx', pointXPos);
+            pointX.setAttribute('cy', pointYPos);
+
+            // Update displayed x and zoom values
+            xValueLabel.textContent = x.toFixed(2);
+            zoomValueLabel.textContent = zoomLevel.toFixed(1);
+
+            // Update zoomed-in view
+            updateZoomView();
+        }
+
+        // Update the zoomed-in circle view
+        function updateZoomView() {
+            // Clear previous contents
+            zoomGroup.innerHTML = '';
+
+            // Define constants for the zoom circle
+            const zoomCircleCenterX = 105-((zoomSlider.value<996)?Math.pow(2,zoomSlider.value/100):zoomSlider.value)/100;
+            const zoomCircleCenterY = 105+((zoomSlider.value<996)?Math.pow(2,zoomSlider.value/100):zoomSlider.value)/100;
+            const zoomCircleRadius = 90+((zoomSlider.value<996)?Math.pow(2,zoomSlider.value/100):zoomSlider.value)/100;
+
+            // Define the zoomed-in area in mathematical coordinates
+            const zoomXRange = (xMax - xMin) / zoomLevel;
+            const zoomYRange = (yMax - yMin) / zoomLevel;
+
+            const zoomXMin = x - zoomXRange / 2;
+            const zoomXMax = x + zoomXRange / 2;
+            const zoomYMin = f(x) - zoomYRange / 2;
+            const zoomYMax = f(x) + zoomYRange / 2;
+
+            const zoomXScale = (xVal) => ((xVal - zoomXMin) / (zoomXMax - zoomXMin)) * (2 * zoomCircleRadius) + (zoomCircleCenterX - zoomCircleRadius);
+            const zoomYScale = (yVal) => ((zoomYMax - yVal) / (zoomYMax - zoomYMin)) * (2 * zoomCircleRadius) + (zoomCircleCenterY - zoomCircleRadius);
+            zoomCircle.setAttribute('r', zoomCircleRadius );
+            zoomCircle2.setAttribute('r', zoomCircleRadius );
+            zoomCircle.setAttribute('cx', zoomCircleCenterX );
+            zoomCircle2.setAttribute('cx', zoomCircleCenterX );
+            
+            zoomCircle.setAttribute('cy', zoomCircleCenterY );
+            zoomCircle2.setAttribute('cy', zoomCircleCenterY );
+            // Draw function in zoomed-in view
+            let pathData = '';
+            let moveToSet = false;
+            for (let xVal = zoomXMin; xVal <= zoomXMax; xVal += (zoomXMax - zoomXMin) / 500) {
+                const scaledX = zoomXScale(xVal);
+                const scaledY = zoomYScale(f(xVal));
+                if (!moveToSet) {
+                    pathData += `M ${scaledX} ${scaledY}`;
+                    moveToSet = true;
+                } else {
+                    pathData += ` L ${scaledX} ${scaledY}`;
+                }
+            }
+
+            const zoomFunctionPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            zoomFunctionPath.setAttribute('d', pathData);
+            zoomFunctionPath.setAttribute('class', 'function-line');
+            zoomGroup.appendChild(zoomFunctionPath);
+
+            // Draw tangent line in zoomed-in view
+            const derivative = fPrime(x);
+            const tangentX1 = zoomXScale(zoomXMin);
+            const tangentY1 = zoomYScale(derivative * (zoomXMin - x) + f(x));
+            const tangentX2 = zoomXScale(zoomXMax);
+            const tangentY2 = zoomYScale(derivative * (zoomXMax - x) + f(x));
+
+            const zoomTangentLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            zoomTangentLine.setAttribute('x1', tangentX1);
+            zoomTangentLine.setAttribute('y1', tangentY1);
+            zoomTangentLine.setAttribute('x2', tangentX2);
+            zoomTangentLine.setAttribute('y2', tangentY2);
+            zoomTangentLine.setAttribute('class', 'tangent-line');
+            zoomGroup.appendChild(zoomTangentLine);
+
+            // Draw point in zoomed-in view
+            const pointXPos = zoomXScale(x);
+            const pointYPos = zoomYScale(f(x));
+
+            const zoomPoint = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            zoomPoint.setAttribute('cx', pointXPos);
+            zoomPoint.setAttribute('cy', pointYPos);
+            zoomPoint.setAttribute('r', 4);
+            zoomPoint.setAttribute('class', 'point');
+            zoomGroup.appendChild(zoomPoint);
+        }
+
+        // Initial drawing
+        drawFunction();
+        updateVisualization();
+
+        // Dragging functionality
+        let isDraggingPointX = false;
+
+        function onMouseDownPointX(event) {
+            isDraggingPointX = true;
+            
+        event.preventDefault();
+        }
+
+        function onMouseMove(event) {
+            if (isDraggingPointX) {
+                const pt = svg.createSVGPoint();
+                pt.x = event.clientX;
+                pt.y = event.clientY;
+                const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+
+                const xMouse = xUnscale(svgP.x);
+
+                // Update x, keep within bounds
+                x = Math.max(xMin, Math.min(xMax, xMouse));
+
+                updateVisualization();
+                
+        event.preventDefault()
+            }
+            
+        }
+
+        function onMouseUp(event) {
+            isDraggingPointX = false;
+        }
+
+        pointX.addEventListener('mousedown', onMouseDownPointX);
+
+        svg.addEventListener('mousemove', onMouseMove);
+        svg.addEventListener('mouseup', onMouseUp);
+        svg.addEventListener('mouseleave', onMouseUp);
+
+        // Zoom slider functionality
+        zoomSlider.addEventListener('input', function() {
+            zoomLevel = parseFloat((zoomSlider.value<3536)?Math.pow(2,zoomSlider.value/300):zoomSlider.value);
+            updateVisualization();
+        });
+    </script>
+</body>
+</html>

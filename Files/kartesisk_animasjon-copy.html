@@ -1,0 +1,183 @@
+<br>
+<svg id="kartesiskSVG"  width="100%" height="100%" viewBox="0 0 500 500">
+    <!-- Grid lines -->
+    <defs>
+        <style>
+            svg {
+                border: 0px;
+                background-color: #313345;
+            }
+
+            path {
+                stroke: #4aa0e7;
+                stroke-width: 5;
+                fill: none;
+
+                stroke-linecap: round;
+            }
+
+            line {
+                stroke: #f76707;
+                stroke-width: 3;
+                stroke-linecap: round;
+            }
+
+            circle {
+                stroke: #9398b0;
+                stroke-width: 1;
+                fill: none;
+                /* Ensures circles have no fill */
+            }
+        </style>
+
+    </defs>
+    <g id="grid">
+        <!-- Vertical and horizontal grid lines -->
+         
+        <line x1="0" y1="50" x2="500" y2="50" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="100" x2="500" y2="100" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="150" x2="500" y2="150" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="200" x2="500" y2="200" style="stroke: #4c4f6b; stroke-width:2"></line>
+        
+        <line x1="0" y1="350" x2="500" y2="350" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="300" x2="500" y2="300" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="450" x2="500" y2="450" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="400" x2="500" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+        
+        <line x1="50" y1="0" x2="50" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="100" y1="0" x2="100" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="150" y1="0" x2="150" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="200" y1="0" x2="200" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="300" y1="0" x2="300" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="350" y1="0" x2="350" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="400" y1="0" x2="400" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="450" y1="0" x2="450" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="250" x2="500" y2="250" style="stroke: #9398b0"></line>
+        <line x1="250" y1="0" x2="250" y2="500" style="stroke: #9398b0"></line>
+        <!-- Concentric circles for polar grid -->
+        <!-- <circle cx="250" cy="250" r="50"></circle>
+        <circle cx="250" cy="250" r="100"></circle>
+        <circle cx="250" cy="250" r="150"></circle>
+        <circle cx="250" cy="250" r="200"></circle> -->
+    </g>
+    <!-- Rotating line -->
+    <line id="funcLine" class="main-line" x1="250" y1="250" x2="250" y2="250"></line>
+    <!-- Polar curve path -->
+    <path id="funksjonsPath" d=""></path>
+    <text id="rValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <foreignObject x="260" y="460" width="200" height="50">
+
+        <body xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    background-color: #646c92;
+                    /* Track background color */
+                    border-radius: 5px;
+                    outline: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #b4d4d4;
+                    /* Text color */
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+            <input type="range" id="Sliderss" min="-180" max="180" value="-180" style="width: 95%; margin:3%">
+            <span id="Sliderverdi">-3.14</span>
+        </body>
+    </foreignObject>
+</svg>
+<br>
+<script>
+    const svg = document.getElementById("kartesiskSVG");
+    const path = document.getElementById("funksjonsPath");
+    const slider = document.getElementById("Sliderss");
+    const Sliderverdi = document.getElementById("Sliderverdi");
+    const funcLine = document.getElementById("funcLine");
+
+    const centerX = 250; // Center of the SVG canvas
+    const centerY = 250;
+
+    function funksjon(input) {
+        return -100 + 50 * Math.sin(2 * input*Math.PI/180);
+    }
+    // Function to generate SVG path data for the polar curve up to a given angle
+    function genererfunksjonPath(maksinput) {
+        let pathData = `M 70 150`; // Move to center ${centerX} ${centerY}
+        for (let xinput = -180; xinput <= maksinput; xinput++) {
+            let r = funksjon(xinput) ;
+
+            // Convert polar to cartesian coordinates
+            let x = centerX + xinput ;
+            let y = centerY + r;
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+
+    // Function to update the rotating line
+    function updateLine(verdi) {
+        let r = -180;
+
+        // Convert polar to cartesian coordinates for the line's endpoint
+        let x = centerX + verdi;
+        let y = centerY + funksjon(verdi) ;
+
+        // Set the line's new endpoint
+        
+        funcLine.setAttribute("x1", x);
+        funcLine.setAttribute("y1", centerY);
+        funcLine.setAttribute("x2", x);
+        funcLine.setAttribute("y2", y);
+        rValueText.textContent = `r(${(verdi*2*Math.PI/(360)).toFixed(3)}) = ${-funksjon(verdi).toFixed(2)}`;
+
+        // Offset the text based on the angle to position it away from the line end
+        let offsetX = 15 ; // Offset along the direction of the angle
+        let offsetY = 15 ; // Offset along the direction of the angle
+
+        // Set the new position of the text with an offset from the endpoint
+        rValueText.setAttribute("x", x + offsetX);
+        rValueText.setAttribute("y", y + offsetY);
+    }
+
+    // Initial path drawing
+    const startverdi = -180;
+    path.setAttribute("d", genererfunksjonPath(startverdi));
+    updateLine(startverdi);
+
+    // Event listener for the slider
+    slider.addEventListener("input", function () {
+        let verdi = parseInt(slider.value); // Get angle from slider
+        Sliderverdi.textContent = (verdi*2*Math.PI/(360)).toFixed(3); // Update displayed angle
+
+        // Update the polar path and the rotating line
+        path.setAttribute("d", genererfunksjonPath(verdi));
+        updateLine(verdi);
+    });
+</script>

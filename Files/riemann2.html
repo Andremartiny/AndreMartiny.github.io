@@ -1,0 +1,211 @@
+
+    <style>
+        body {
+            background-color: #313345;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        svg {
+            background-color: #313345;
+            margin-top: 20px;
+        }
+        .function-line {
+            stroke: #f76707;
+            stroke-width: 4;
+            fill: none;
+        }
+        /* Added styles for positive and negative rectangles */
+        .rectangle-positive {
+            fill: #099268; /* Green with opacity */
+            stroke: #40c057;
+            stroke-width: 2;
+        }
+        .rectangle-negative {
+            fill: #4f72fc; /* Blue with opacity */
+            stroke: #4dabf7;
+            stroke-width: 2;
+        }
+        #sliderContainer {
+            margin: 20px;
+        }
+        #sliderLabel {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #numRectangles {
+            font-weight: bold;
+        }
+    </style>
+
+    <svg id="graphSvg" width="100%" height="100%" viewBox="0 0 500 500">
+        <!-- Coordinate axes -->
+        <g id="grid">
+            <!-- Vertical and horizontal grid lines -->
+             
+            <line x1="0" y1="50" x2="500" y2="50" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="100" x2="500" y2="100" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="150" x2="500" y2="150" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="200" x2="500" y2="200" style="stroke: #4c4f6b; stroke-width:2"></line>
+            
+            <line x1="0" y1="350" x2="500" y2="350" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="300" x2="500" y2="300" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="450" x2="500" y2="450" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="400" x2="500" y2="400" style="stroke: #9398b0; stroke-width:2"></line>
+            
+            <line x1="50" y1="0" x2="50" y2="500" style="stroke: #9398b0; stroke-width:2"></line>
+            <line x1="100" y1="0" x2="100" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="150" y1="0" x2="150" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="200" y1="0" x2="200" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="300" y1="0" x2="300" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="350" y1="0" x2="350" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="400" y1="0" x2="400" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="450" y1="0" x2="450" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="250" x2="500" y2="250" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="250" y1="0" x2="250" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <!-- Concentric circles for polar grid -->
+            <!-- <circle cx="250" cy="250" r="50"></circle>
+            <circle cx="250" cy="250" r="100"></circle>
+            <circle cx="250" cy="250" r="150"></circle>
+            <circle cx="250" cy="250" r="200"></circle> -->
+        </g>
+        
+        <!-- Rectangles -->
+        <g id="rectanglesGroup"></g>
+        <!-- Function graph -->
+        <path id="functionPath" class="function-line"></path>
+        <foreignObject x="230" y="430" width="300" height="60">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+                <style>
+                    input[type="range"] {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 100%;
+                        height: 8px;
+                        background-color: #646c92;
+                        /* Track background color */
+                        border-radius: 5px;
+                        outline: none;
+                    }
+    
+                    input[type="range"]::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #4aa0e7;
+                        /* Thumb color */
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+    
+                    input[type="range"]::-moz-range-thumb {
+                        width: 16px;
+                        height: 16px;
+                        background-color: #4aa0e7;
+                        /* Thumb color */
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+    
+                    span {
+                        color: #b4d4d4;
+                        /* Text color */
+                        font-family: Arial, sans-serif;
+                    }
+                </style>
+            <div id="sliderContainer">
+                <label id="sliderLabel" style="color: #b4d4d4;">Partisjoner: <span id="numRectangles">10</span></label>
+                <input type="range" id="rectSlider" min="1" max="100" value="10" style="width: 200px; ">
+            </div>
+            </body>
+            <p></p>
+
+        </foreignObject>
+    </svg>
+    <script>
+        const svg = document.getElementById('graphSvg');
+        const functionPath = document.getElementById('functionPath');
+        const rectanglesGroup = document.getElementById('rectanglesGroup');
+        const rectSlider = document.getElementById('rectSlider');
+        const numRectanglesLabel = document.getElementById('numRectangles');
+
+        const width = 500;
+        const height = 500;
+        const xMin = -3;
+        const xMax = 3;
+        const yMin = -20;
+        const yMax = 15;
+        const xScale = (x) => ((x - xMin) / (xMax - xMin)) * (width) + 0;
+        const yScale = (y) => height - (((y - yMin) / (yMax - yMin)) * (height) -185);
+
+        // Function to plot
+        function f(x) {
+            return 10+ -0.5*x * x * x -2* x * x - 2*x+1+3*Math.cos(2*x)+8+0.5*((x<1.96)?22*Math.sin(Math.PI*Math.PI/2*(0.3*x+0.25)*(0.3*x+0.25)*(0.3*x+0.25)*(0.3*x+0.25)*(0.3*x+0.25)*(0.3*x+0.25)*(0.3*x+0.3)): 22)
+        }
+
+        // Draw function graph
+        function drawFunction() {
+            let pathData = '';
+            let moveToSet = false;
+            for (let x = -2; x <= 2; x += 0.01) {
+                const scaledX = xScale(x);
+                const scaledY = yScale(f(x));
+                if (!moveToSet) {
+                    pathData += `M ${scaledX} ${scaledY}`;
+                    moveToSet = true;
+                } else {
+                    pathData += ` L ${scaledX} ${scaledY}`;
+                }
+            }
+            functionPath.setAttribute('d', pathData);
+        }
+
+        // Draw rectangles for Riemann sum
+        function drawRectangles(nRectangles) {
+            rectanglesGroup.innerHTML = ''; // Clear previous rectangles
+            const a = -2;
+            const b = 2;
+            const deltaX = (b - a) / nRectangles;
+            let totalArea = 0;
+            for (let i = 0; i < nRectangles; i++) {
+                const xLeft = a + i * deltaX;
+                const xRight = xLeft + deltaX;
+                const xMiddle = (xLeft + xRight) / 2;
+                const y = f(xMiddle);
+                const rectHeight = y;
+                const rectX = xScale(xLeft);
+                const rectY = yScale(Math.max(0, rectHeight));
+                const rectWidth = xScale(xRight) - xScale(xLeft);
+                const rectHeightScaled = Math.abs(yScale(0) - yScale(rectHeight));
+
+                const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                rect.setAttribute('x', rectX);
+                rect.setAttribute('y', rectY);
+                rect.setAttribute('width', rectWidth);
+                rect.setAttribute('height', rectHeightScaled);
+
+                // Assign class based on the sign of y
+                if (y >= 0) {
+                    rect.setAttribute('class', 'rectangle-positive');
+                } else {
+                    rect.setAttribute('class', 'rectangle-negative');
+                }
+
+                rectanglesGroup.appendChild(rect);
+
+                totalArea += y * deltaX;
+            }
+            // Optionally, display totalArea somewhere
+        }
+
+        // Initial drawing
+        drawFunction();
+        drawRectangles(parseInt(rectSlider.value));
+
+        // Update on slider change
+        rectSlider.addEventListener('input', function() {
+            const nRectangles = parseInt(this.value);
+            numRectanglesLabel.textContent = nRectangles;
+            drawRectangles(nRectangles);
+        });
+    </script>

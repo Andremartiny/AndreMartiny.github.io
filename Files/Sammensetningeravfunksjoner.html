@@ -1,0 +1,239 @@
+<svg id="kratesisksvg" width="100%" height="100%" viewBox="0 0 500 500">
+    <!-- Grid lines -->
+    <defs>
+        <style>
+            svg {
+                border: 0px;
+                background-color: #313345;
+            }
+
+            path {
+                stroke: #e03131;
+                stroke-width: 5;
+                fill: none;
+
+                stroke-linecap: round;
+            }
+
+            line {
+                stroke: #9398b0;
+                stroke-width: 3;
+                stroke-linecap: round;
+
+            }
+
+            circle {
+                stroke: #9398b0;
+                stroke-width: 1;
+                fill: none;
+                /* Ensures circles have no fill */
+            }
+        </style>
+
+    </defs>
+    <g id="grid">
+        <!-- Vertical and horizontal grid lines -->
+
+        <line x1="0" y1="50" x2="500" y2="50" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="100" x2="500" y2="100" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="150" x2="500" y2="150" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="200" x2="500" y2="200" style="stroke: #4c4f6b; stroke-width:2"></line>
+
+        <line x1="0" y1="350" x2="500" y2="350" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="300" x2="500" y2="300" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="450" x2="500" y2="450" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="400" x2="500" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+
+        <line x1="50" y1="0" x2="50" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="100" y1="0" x2="100" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="150" y1="0" x2="150" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="200" y1="0" x2="200" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="300" y1="0" x2="300" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="350" y1="0" x2="350" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="400" y1="0" x2="400" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="450" y1="0" x2="450" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+        <line x1="0" y1="250" x2="500" y2="250" style="stroke: #9398b0"></line>
+        <line x1="250" y1="0" x2="250" y2="500" style="stroke: #9398b0"></line>
+        <!-- Concentric circles for polar grid -->
+        <!-- <circle cx="250" cy="250" r="50"></circle>
+        <circle cx="250" cy="250" r="100"></circle>
+        <circle cx="250" cy="250" r="150"></circle>
+        <circle cx="250" cy="250" r="200"></circle> -->
+    </g>
+    <!-- Rotating line --> <!-- Polar curve path -->
+    <path id="funksjonsPath" style="stroke: #e03131;" d=""></path>
+
+    <path id="funksjonsPath2" style="stroke: #ffc034;" d=""></path>
+
+    <path id="funksjonsPath3" style="stroke: #e599f7;" d=""></path>
+
+    <path id="funksjonsPath4" style="stroke: #4dabf7;" d=""></path>
+    <text id="rValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <text id="sValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+
+    <text id="tValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <text id="yValueText" x="250" y="250" fill="#b4d4d4" font-family="Arial" font-size="14"></text>
+    <foreignObject x="260" y="460" width="200" height="50">
+
+        <body xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    height: 8px;
+                    background-color: #646c92;
+                    /* Track background color */
+                    border-radius: 5px;
+                    outline: none;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #4aa0e7;
+                    /* Thumb color */
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                span {
+                    color: #b4d4d4;
+                    /* Text color */
+                    font-family: Arial, sans-serif;
+                }
+            </style>
+            <input type="range" id="Sliderss" min="0.1" max="20" value="1" step="0.01" style="width: 95%; margin:3%">
+            <span id="Sliderverdi"></span>
+        </body>
+    </foreignObject>
+</svg>
+<br>
+<script>
+    const svg = document.getElementById("kratesisksvg");
+    const path = document.getElementById("funksjonsPath");
+    const path2 = document.getElementById("funksjonsPath2");
+    const path3 = document.getElementById("funksjonsPath3");
+    const path4 = document.getElementById("funksjonsPath4");
+    const slider = document.getElementById("Sliderss");
+    const Sliderverdi = document.getElementById("Sliderverdi");
+    const min = slider.min;
+    const max = slider.max;
+    const initialverdi = slider.value;
+    const centerX = 250; // Center of the SVG canvas
+    const centerY = 250;
+
+    function funksjon(input) {
+        return 200 * ((input / 200) / Math.sqrt(input / 200 + 1));
+    }
+    function funksjon2(input) {
+        return 200 * Math.sqrt(1 - input / 200);
+    }
+    // Function to generate SVG path data for the polar curve up to a given angle
+    function genererfunksjonPath(maksinput) {
+        let pathData = `M ` + String(250 + min * 10) + " " + String(250 - funksjon(min * 10)); // Move to center ${centerX} ${centerY}
+        for (let xinput = min * 10; xinput <= maksinput * 10; xinput++) {
+
+            let x = centerX + xinput;
+            let y = centerY - funksjon(xinput);
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+    function genererfunksjonPath2(maksinput) {
+        let pathData = `M ` + String(250 + min * 10) + " " + String(250 - funksjon2(min * 10)); // Move to center ${centerX} ${centerY}
+        for (let xinput = min * 10; xinput <= maksinput * 10; xinput++) {
+
+            let x = centerX + xinput;
+            let y = centerY - funksjon2(xinput);
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+    function genererfunksjonPath3(maksinput) {
+        let pathData = `M ` + String(250 + min * 10) + " " + String(250 - funksjon2(min * 10) - funksjon(min * 10)); // Move to center ${centerX} ${centerY}
+        for (let xinput = min * 10; xinput <= maksinput * 10; xinput++) {
+
+            let x = centerX + xinput;
+            let y = centerY - funksjon2(xinput) - funksjon(xinput);
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+
+    function genererfunksjonPath4(maksinput) {
+        let pathData = `M ` + String(250 + min * 10) + " " + String(250 - funksjon2(min * 10) * (funksjon(min * 10)) / 200); // Move to center ${centerX} ${centerY}
+        for (let xinput = min * 10; xinput <= maksinput * 10; xinput++) {
+
+            let x = centerX + xinput;
+            let y = centerY - funksjon2(xinput) * (funksjon(xinput)) / 200;
+
+            // Append to the path data
+            pathData += ` L ${x} ${y}`;
+        }
+        return pathData;
+    }
+    function updateLine(verdi, funksjon, tekst, funknavn, offset = 15) {
+
+        // Convert polar to cartesian coordinates for the line's endpoint
+        let x = centerX + verdi * 10;
+        let y = centerY - funksjon(verdi * 10);
+
+        tekst.textContent = funknavn;
+
+        // Offset the text based on the angle to position it away from the line end
+        let offsetX = 15; // Offset along the direction of the angle
+        let offsetY = 15 + offset; // Offset along the direction of the angle
+
+        // Set the new position of the text with an offset from the endpoint
+        tekst.setAttribute("x", x + offsetX);
+        tekst.setAttribute("y", y + offsetY);
+    }
+    // Initial path drawing
+    path.setAttribute("d", genererfunksjonPath(initialverdi));
+    path2.setAttribute("d", genererfunksjonPath2(initialverdi));
+    path3.setAttribute("d", genererfunksjonPath3(initialverdi));
+    path4.setAttribute("d", genererfunksjonPath4(initialverdi));
+
+    updateLine(initialverdi, funksjon, rValueText, "f", -15);
+
+    updateLine(initialverdi, funksjon2, sValueText, "g", -15);
+
+    updateLine(initialverdi, x => funksjon(x) + funksjon2(x), tValueText, "(f+g)", 15);
+
+    updateLine(initialverdi, x => funksjon(x) * funksjon2(x) / 200, yValueText, "(f+g)", 15);
+    // Event listener for the slider
+    slider.addEventListener("input", function () {
+        let verdi = parseFloat(slider.value); // Get angle from slider
+        Sliderverdi.textContent = (verdi / 20).toFixed(2); // Update displayed angle
+
+        // Update the polar path and the rotating line
+        path.setAttribute("d", genererfunksjonPath(verdi));
+        path2.setAttribute("d", genererfunksjonPath2(verdi));
+
+        path4.setAttribute("d", genererfunksjonPath4(verdi));
+        path3.setAttribute("d", genererfunksjonPath3(verdi));
+
+        updateLine(verdi, funksjon, rValueText, "f", -15);
+        updateLine(verdi, funksjon2, sValueText, "g", -15);
+        updateLine(verdi, x => funksjon(x) + funksjon2(x), tValueText, "(f+g)", 15);
+        updateLine(verdi, x => funksjon(x) * funksjon2(x) / 200, yValueText, "(f⋅g)", 15);
+    });
+</script>

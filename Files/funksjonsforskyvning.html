@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #313345;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        svg {
+            margin-top: 20px;
+        }
+        .function-line {
+            stroke: #4aa0e7;
+            stroke-width: 2;
+            fill: none;
+        }
+        .axes {
+            stroke: #000000;
+            stroke-width: 1;
+        }
+        #sliderContainer {
+            margin: 20px;
+        }
+        .slider {
+            width: 300px;
+        }
+        .slider-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        #valuesContainer {
+            margin: 10px;
+        }
+        /* Style for the function equation text */
+        #equationText {
+            font-size: 16px;
+            fill: #000000;
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <!-- Display current a and b values -->
+    <div id="valuesContainer">
+        <span class="slider-label">a: <span id="aValue">0</span></span>
+        <span class="slider-label">b: <span id="bValue">0</span></span>
+    </div>
+    <!-- Sliders for a and b -->
+    <div id="sliderContainer">
+        <div>
+            <label class="slider-label">a:</label>
+            <input type="range" id="aSlider" min="-15" max="15" value="0" step="0.1" class="slider">
+        </div>
+        <div>
+            <label class="slider-label">b:</label>
+            <input type="range" id="bSlider" min="-10" max="10" value="0" step="0.1" class="slider">
+        </div>
+        <div>
+            <label class="slider-label">c:</label>
+            <input type="range" id="cSlider" min="-1" max="1" value="1" step="2" class="slider">
+        </div>
+    </div>
+    <!-- Graph -->
+    <svg id="graphSvg" viewBox="0 0 600 500">
+        
+        <g id="grid">
+            <!-- Vertical and horizontal grid lines -->
+             
+            <line x1="0" y1="50" x2="600" y2="50" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="100" x2="600" y2="100" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="150" x2="600" y2="150" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="200" x2="600" y2="200" style="stroke: #4c4f6b; stroke-width:2"></line>
+            
+            <line x1="0" y1="350" x2="600" y2="350" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="300" x2="600" y2="300" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="450" x2="600" y2="450" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="400" x2="600" y2="400" style="stroke: #4c4f6b; stroke-width:2"></line>
+            
+            <line x1="50" y1="0" x2="50" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="100" y1="0" x2="100" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="150" y1="0" x2="150" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="200" y1="0" x2="200" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="300" y1="0" x2="300" y2="500" style="stroke: #9398b0; stroke-width:2"></line>
+            <line x1="350" y1="0" x2="350" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="400" y1="0" x2="400" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="450" y1="0" x2="450" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="0" y1="250" x2="600" y2="250" style="stroke: #9398b0; stroke-width:2"></line>
+            <line x1="250" y1="0" x2="250" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="550" y1="0" x2="550" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <line x1="500" y1="0" x2="500" y2="500" style="stroke: #4c4f6b; stroke-width:2"></line>
+            <!-- Concentric circles for polar grid -->
+            <!-- <circle cx="250" cy="250" r="50"></circle>
+            <circle cx="250" cy="250" r="100"></circle>
+            <circle cx="250" cy="250" r="150"></circle>
+            <circle cx="250" cy="250" r="200"></circle> -->
+        </g> <!-- Original function graph -->
+        <path id="originalFunctionPath" class="function-line" stroke="#cccccc"></path>
+        <!-- Translated function graph -->
+        <path id="translatedFunctionPath" class="function-line" style="stroke: #f76707"></path>
+        
+        <path id="reflectedtranslatedFunctionPath" class="function-line" style="stroke: #e599f7"></path>
+        <!-- Function equation text -->
+        <text id="equationText" x="300" y="620" text-anchor="middle" style="fill: #f76707"></text>
+    </svg>
+    <script>
+        const svg = document.getElementById('graphSvg');
+        const originalFunctionPath = document.getElementById('originalFunctionPath');
+        const translatedFunctionPath = document.getElementById('translatedFunctionPath');
+        const aSlider = document.getElementById('aSlider');
+        const bSlider = document.getElementById('bSlider');
+        const cSlider = document.getElementById('cSlider');
+        const aValueLabel = document.getElementById('aValue');
+        const bValueLabel = document.getElementById('bValue');
+        const equationText = document.getElementById('equationText');
+
+        const width = 600;
+        const height = 650;
+        const xMin = -10;
+        const xMax = 10;
+        const yMin = -2;
+        const yMax = 3;
+
+        const xScale = x => ((x - xMin) / (xMax - xMin)) * (width - 100) + 50;
+        const yScale = y => height - 100 - (((y - yMin) / (yMax - yMin)) * (height - 200) + 50);
+
+        // Original function f(x) = x^2
+        function f(x) {
+            return 10*x*x*x+1-15*x*x*x*x+6*x*x*x*x*x ;
+        }
+
+        // Draw original function
+        function drawOriginalFunction() {
+            let pathData = '';
+            let moveToSet = false;
+            for (let x = 0; x <= 5; x += 0.1) {
+                const y = f(x/5)+0.21;
+                const scaledX = xScale(x);
+                const scaledY = yScale(y*1.1);
+                if (!moveToSet) {
+                    pathData += `M ${scaledX} ${scaledY}`;
+                    moveToSet = true;
+                } else {
+                    pathData += ` L ${scaledX} ${scaledY}`;
+                }
+            }
+            originalFunctionPath.setAttribute('d', pathData);
+        }
+
+        // Draw translated function
+        function drawTranslatedFunction(a, b,c) {
+            let pathData = '';
+            let moveToSet = false;
+            for (let x = 0; x <= 5; x += 0.1) {
+                const y = f(c*(x/5+(c-1)/2) ) + b+0.21;
+                const scaledX = xScale(x-a+5*(c-1)/2);
+                const scaledY = yScale(y*1.1);
+                if (!moveToSet) {
+                    pathData += `M ${scaledX} ${scaledY}`;
+                    moveToSet = true;
+                } else {
+                    pathData += ` L ${scaledX} ${scaledY}`;
+                }
+            }
+            translatedFunctionPath.setAttribute('d', pathData);
+        }
+
+        // Update visualization
+        function updateVisualization() {
+            const a = parseFloat(aSlider.value);
+            const b = parseFloat(bSlider.value);
+            const c = parseFloat(cSlider.value);
+            aValueLabel.textContent = (a/5).toFixed(1);
+            bValueLabel.textContent = b.toFixed(1);
+
+            drawTranslatedFunction(a, b, c);
+            // Update function equation text
+            const aSign = a >= 0 ? '+' : '-';
+            const bSign = b >= 0 ? '+' : '-';
+            
+            const cSign = b >= 0 ? '+' : '-';
+            const aValue = Math.abs((a/5).toFixed(1));
+            const bValue = Math.abs(b.toFixed(1));
+
+            equationText.textContent = `\\(f(c(x+a))+b =f(${c}(x ${aSign} ${aValue})) ${bSign} ${bValue}\\)`;
+            
+         renderMathInElement(x, opts);
+            // Update position of the equation text to follow the function
+            const textX = xScale(-a+2); // Vertex of the parabola is at x = -a
+            const textY = yScale((b+0.8)*1.1); // Position below the vertex
+            equationText.setAttribute('x', textX);
+            equationText.setAttribute('y', textY);
+        }
+
+        // Initial drawing
+        drawOriginalFunction();
+        updateVisualization();
+
+        // Update on slider change
+        aSlider.addEventListener('input', updateVisualization);
+        bSlider.addEventListener('input', updateVisualization);
+        
+        cSlider.addEventListener('input', updateVisualization);
+    </script>
+</body>
+</html>
